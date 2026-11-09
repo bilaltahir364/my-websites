@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regulation Reader Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: an annotated legal register. Pipeline on top, the extraction ledger below, references set in mono like citations. */
+:root{
+  --paper:#f6f7f5; --surface:#ffffff; --ink:#18212b; --muted:#5b6672; --rule:#d9dee2;
+  --accent:#1d4e89; --accent-soft:#e3ecf7;
+  --ok:#2f6b3f; --ok-soft:#e3f1e6; --warn:#8a5a00; --warn-soft:#fbefd6;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744;
+    --accent:#8db8ec; --accent-soft:#1d2e44; --ok:#8fd19f; --ok-soft:#1c3324; --warn:#f0c46a; --warn-soft:#3a2e14;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744;
+  --accent:#8db8ec; --accent-soft:#1d2e44; --ok:#8fd19f; --ok-soft:#1c3324; --warn:#f0c46a; --warn-soft:#3a2e14;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--body)}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
+header{display:grid;gap:12px;max-width:72ch}
+.kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+h1{font:600 clamp(32px,5vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
+h2{font:600 26px/1.2 var(--display);margin:0 0 6px;text-wrap:balance}
+h3{font:600 16px/1.3 var(--body);margin:0}
+p{margin:0}
+.lead{font-size:18px;color:var(--ink)}
+.byline{color:var(--muted);font-size:14px}
+section{display:grid;gap:16px}
+.sub{color:var(--muted);max-width:72ch}
+.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px;display:grid;gap:6px;align-content:start;position:relative}
+.step .n{font:500 12px/1 var(--mono);color:var(--accent)}
+.step p{font-size:14px;color:var(--muted)}
+.step:not(:last-child)::after{content:"\2192";position:absolute;right:-11px;top:16px;color:var(--accent);font-weight:600}
+.step.human{border-color:var(--warn);background:var(--warn-soft)}
+.step.human .n{color:var(--warn)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:10px}
+.card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 14px;display:grid;gap:2px;min-width:150px}
+.stat b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.controls label{font-size:13px;color:var(--muted);margin-right:4px}
+button.f{font:500 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.f[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+button.f:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.ref{font:400 12.5px/1.45 var(--mono);color:var(--accent);white-space:nowrap}
+td.val{font-weight:600;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.src{font-size:12.5px;color:var(--muted);display:block;margin-top:4px}
+.prompt{font:400 13px/1.6 var(--mono);background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:6px;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
+footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
+footer a,.src a{color:var(--accent)}
+@media (max-width:860px){
+  .pipeline{grid-template-columns:1fr 1fr}
+  .step::after{display:none}
+  .cols{grid-template-columns:1fr}
+}
+@media (max-width:440px){.pipeline{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site">
+<style>
+.sitenav{border-bottom:1px solid var(--rule);background:var(--surface)}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font:500 14px/1.3 var(--body)}
+.sitenav a{color:var(--ink);text-decoration:none}
+.sitenav a:hover,.sitenav a[aria-current="page"]{color:var(--accent)}
+.sitenav .home{font-weight:600;margin-right:auto}
+.sitenav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<div class="in">
+<a class="home" href="../index.html">Bilal Tahir</a>
+<a href="regulation-reader.html" aria-current="page">Regulation Reader</a>
+<a href="materiality-case.html">Materiality case</a>
+<a href="crosswalk.html">ESRS / IFRS crosswalk</a>
+<a href="../index.html#about">About</a>
+</div>
+</nav>
+<div class="wrap">
+<header>
+  <div class="kicker">Portfolio project 1 of 3 · AI agent</div>
+  <h1>Regulation Reader: an AI agent that turns EU legal texts into a checked obligations register</h1>
+  <p class="lead">Sustainability rules arrive as long amending directives that change other directives. This agent reads the official text, extracts every threshold, date and obligation with its article reference, cross-checks each one against a second source, and marks what a human still has to verify.</p>
+  <p class="byline">Bilal Tahir · Built with Claude · Demo run on Directive (EU) 2026/470 (Omnibus I), November 2026</p>
+</header>
+
+<section aria-labelledby="how">
+  <h2 id="how">How the agent works</h2>
+  <div class="pipeline">
+    <div class="step"><span class="n">01 · Ingest</span><h3>Official text only</h3><p>Starts from the Official Journal text, never a blog summary. Records the version date.</p></div>
+    <div class="step"><span class="n">02 · Extract</span><h3>One row per rule</h3><p>Every threshold, date, exemption and obligation, each tied to the article and the provision it amends.</p></div>
+    <div class="step"><span class="n">03 · Classify</span><h3>Tag and group</h3><p>Scope, deadline, exemption, obligation, review. Grouped by the directive being amended.</p></div>
+    <div class="step"><span class="n">04 · Cross-check</span><h3>Second source</h3><p>Looks for an independent source (Parliament, law firm, regulator) that states the same figure.</p></div>
+    <div class="step human"><span class="n">05 · Human check</span><h3>I decide</h3><p>Single-source rows are flagged. I verify them in EUR-Lex before anything is published or advised.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="guard">
+  <h2 id="guard">Guardrails built into the instructions</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>What the agent must do</h3>
+      <ul>
+        <li>Cite the article and paragraph for every row, or drop the row.</li>
+        <li>Copy figures exactly as written (EUR 450 000 000 stays EUR 450 000 000).</li>
+        <li>Name the provision being amended, since amending acts rarely make sense alone.</li>
+        <li>State its source text and that text's date at the top of the output.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>What the agent must not do</h3>
+      <ul>
+        <li>Fill gaps from memory or from older versions of the law.</li>
+        <li>Interpret who is in scope for a specific company. That is my judgement call.</li>
+        <li>Mark a row as confirmed without a second, independent source.</li>
+        <li>Give legal advice. The register is a working tool, not an opinion.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="demo">
+  <h2 id="demo">Demo output: Directive (EU) 2026/470</h2>
+  <p class="sub">Published in the Official Journal on 26 February 2026, in force since 18 March 2026. It amends the Audit Directive, the Accounting Directive, the CSRD and the CSDDD in one act. Below is the register the agent produced, filtered by directive.</p>
+  <div class="stats" id="stats"></div>
+  <div class="controls" role="group" aria-label="Filter rows">
+    <label>Show</label>
+    <button class="f" data-f="all" aria-pressed="true">All rules</button>
+    <button class="f" data-f="CSRD" aria-pressed="false">CSRD &amp; Accounting Directive</button>
+    <button class="f" data-f="CSDDD" aria-pressed="false">CSDDD</button>
+    <button class="f" data-f="Audit" aria-pressed="false">Assurance</button>
+    <button class="f" data-f="warn" aria-pressed="false">Needs my check</button>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Area</th><th>Type</th><th>Rule</th><th>Value</th><th>Reference</th><th>Cross-check</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="prompt">
+  <h2 id="prompt">The core instruction (excerpt)</h2>
+  <div class="prompt">You are reading an EU legal act. Work only from the text provided.
+For every threshold, date, deadline, exemption, obligation and review clause:
+  1. Write one row: area | type | rule in plain English | exact value | article + paragraph | provision amended.
+  2. Copy numbers exactly as written. Never round, convert or infer.
+  3. If a value is unclear in the text, write UNCLEAR and quote the words (max 25).
+Then search for one independent source per row.
+  - Same figure found: status = Confirmed, with the link.
+  - Not found or different: status = Verify in EUR-Lex. Never mark it confirmed.
+Finish with: source text used, its date, and the rows a human must check.</div>
+</section>
+
+<section aria-labelledby="learned">
+  <h2 id="learned">What this run showed</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Where the agent saved time</h3>
+      <ul>
+        <li>Mapped one amending act across four directives in a single pass.</li>
+        <li>Separated CSRD dates (transpose by 19 March 2027) from CSDDD dates (transpose by 26 July 2028), a common source of confusion.</li>
+        <li>Surfaced small but practical rules, such as the 1,000-employee value-chain cap, that summaries often skip.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Where human judgement stays</h3>
+      <ul>
+        <li>10 of the 21 rows had no independent second source and are flagged for checking in EUR-Lex.</li>
+        <li>National transposition can add stricter rules; the Netherlands still has to transpose these changes.</li>
+        <li>Deciding what a rule means for one company (scope, timing, data requests) is analysis, not extraction.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Source text: Directive (EU) 2026/470, OJ L 2026/470, 26.2.2026 (<a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj">EUR-Lex</a>), read via a curated rendering of the EUR-Lex text (<a href="https://lawplayer.com/eu/act/32026L0470">LawPlayer</a>, dated 4 July 2026).</p>
+  <p>Portfolio demonstration of an AI-assisted workflow. Not legal advice. Always confirm against the official text before relying on any row.</p>
+</footer>
+</div>
+
+<script>
+const S = {
+  eurlex:["EUR-Lex","https://eur-lex.europa.eu/eli/dir/2026/470/oj"],
+  oeil:["European Parliament summary","https://oeil.europarl.europa.eu/oeil/en/procedure-document-summary/pdf?id=1890047"],
+  travers:["Travers Smith","https://www.traverssmith.com/knowledge/knowledge-container/csrd-and-csddd-version-20-the-eus-sustainability-framework-redefined/"],
+  cc:["Clifford Chance","https://www.cliffordchance.com/insights/resources/blogs/business-and-human-rights-insights/2026/02/omnibus-i-the-european-union-concludes-csddd-and-csrd-reforms.html"],
+  debrauw:["De Brauw","https://www.debrauw.com/articles/omnibus-now-final-agreement-reached-on-directive-amending-csrd-and-csddd"],
+  efta:["EFTA EEA-Lex","https://www.efta.int/node/301621"],
+  lex:["LexBlog","https://www.lexblog.com/?p=3686563"],
+  efrag:["EFRAG","https://www.efrag.org/en/news-and-calendar/news/european-commission-publishes-delegated-act-on-revised-esrs-and-voluntary-sustainability-reporting"],
+  ingr:["in.gr","https://www.in.gr/2026/03/04/english-edition/eu-officially-changes-sustainability-reporting-due-diligence-rules/amp/"],
+  pwc:["PwC Luxembourg","https://www.pwc.lu/en/sustainable-finance/eu-finalises-agreement-on-omnibus.html"],
+  cr:["Compliance & Risks","https://www.complianceandrisks.com/blog/eu-omnibus-i-finalized-comparing-key-structural-changes-to-the-csrd-and-csddd/"]
+};
+const R = [
+ ["CSRD","Scope","Sustainability reporting applies to EU undertakings and groups above both thresholds","> EUR 450m net turnover and > 1,000 avg employees","Art. 2 → Arts. 19a(1), 29a(1) Dir. 2013/34/EU","ok",["eurlex","travers"]],
+ ["CSRD","Scope","Non-EU groups: EU subsidiaries or branches report when group EU turnover is high","Group EU turnover > EUR 450m (2 consecutive years); subsidiary/branch > EUR 200m","Art. 2 → Art. 40a(1) Dir. 2013/34/EU","ok",["oeil"]],
+ ["CSRD","Exemption","Wave-one companies now below the thresholds can be exempted by member states","FY2025 and FY2026","Art. 3 → Art. 5(2) Dir. 2022/2464","ok",["cc","debrauw"]],
+ ["CSRD","Obligation","Value-chain cap: smaller partners may refuse data requests beyond the voluntary standard","Protected undertaking: ≤ 1,000 avg employees","Art. 2 → Arts. 19a(3), 29a(3), 29b(4), 34(2a)","warn",[]],
+ ["CSRD","Exemption","Value-chain data gaps allowed while reporters explain efforts and plans","First 3 years of reporting","Art. 2 → Arts. 19a(3), 29a(3)","warn",[]],
+ ["CSRD","Obligation","Commission to adopt a voluntary reporting standard for smaller companies","By 19 July 2026 (adopted 3 July 2026)","Art. 2 → new Art. 29ca Dir. 2013/34/EU","ok",["efrag"]],
+ ["CSRD","Obligation","Sector-specific reporting standards dropped","Art. 29c deleted","Art. 2 → Art. 29c Dir. 2013/34/EU","ok",["ingr"]],
+ ["CSRD","Review","Thresholds can be adjusted for inflation by delegated act","At least every 5 years","Art. 2 → Art. 3(13) Dir. 2013/34/EU","ok",["pwc"]],
+ ["CSRD","Review","Commission review reports, including extending scope below the thresholds","30 Apr 2029 (most points); 30 Apr 2031 (scope extension)","Art. 3 → Art. 6(1) Dir. 2022/2464","warn",[]],
+ ["CSRD","Deadline","Member states transpose the audit, accounting and CSRD changes","19 March 2027","Art. 5","ok",["efta","cr"]],
+ ["CSRD","Deadline","Directive enters into force","20th day after publication (18 March 2026)","Art. 6","ok",["lex"]],
+ ["Audit","Deadline","Commission adopts limited-assurance standards by delegated act","By 1 July 2027","Art. 1 → Art. 26a(3) Dir. 2006/43/EC","warn",[]],
+ ["Audit","Obligation","Audit firms assuring sustainability reports name a key sustainability partner","At least 1, an approved statutory auditor","Art. 1 → Art. 24b(1) Dir. 2006/43/EC","warn",[]],
+ ["CSDDD","Scope","EU companies in scope of due diligence","> 5,000 avg employees and > EUR 1.5bn worldwide turnover","Art. 4 → Art. 2(1)(a) Dir. 2024/1760","ok",["oeil"]],
+ ["CSDDD","Scope","Non-EU companies in scope","> EUR 1.5bn net turnover in the EU","Art. 4 → Art. 2(2)(a) Dir. 2024/1760","ok",["oeil"]],
+ ["CSDDD","Scope","Franchising and licensing models","Royalties > EUR 75m in the EU and turnover > EUR 275m","Art. 4 → Art. 2(1)(c), 2(2)(c)","warn",[]],
+ ["CSDDD","Obligation","Information requests to smaller business partners only as a last resort","Partners < 5,000 employees","Art. 4 → Art. 8(2a) Dir. 2024/1760","warn",[]],
+ ["CSDDD","Obligation","Periodic assessment of due diligence measures","At least every 5 years","Art. 4 → Art. 15 Dir. 2024/1760","warn",[]],
+ ["CSDDD","Obligation","Maximum fine cap","3% of net worldwide turnover","Art. 4 → Art. 27(4) Dir. 2024/1760","warn",[]],
+ ["CSDDD","Deadline","Transposition and application","Transpose by 26 July 2028; apply from 26 July 2029","Art. 4 → Art. 37(1); Art. 5","warn",[]],
+ ["CSDDD","Review","Commission review of implementation and effectiveness","By 26 July 2031, then every 5 years","Art. 4 → Art. 36(2) Dir. 2024/1760","ok",["cc"]]
+];
+const tbody=document.getElementById("rows");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(f){
+  tbody.innerHTML="";
+  R.filter(r=>f==="all"||(f==="warn"?r[5]==="warn":r[0]===f)).forEach(r=>{
+    const tr=document.createElement("tr");
+    const area=r[0]==="Audit"?"Assurance":r[0];
+    const src=r[6].map(k=>`<a href="${S[k][1]}">${S[k][0]}</a>`).join(", ");
+    const status=r[5]==="ok"?`<span class="pill ok">Confirmed</span><span class="src">${src}</span>`:`<span class="pill warn">Verify in EUR-Lex</span><span class="src">Single source</span>`;
+    tr.innerHTML=`<td>${area}</td><td><span class="tag">${r[1]}</span></td><td>${esc(r[2])}</td><td class="val">${esc(r[3])}</td><td class="ref">${esc(r[4])}</td><td>${status}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+const ok=R.filter(r=>r[5]==="ok").length;
+document.getElementById("stats").innerHTML=
+ `<div class="stat"><b>${R.length}</b><span>rules extracted</span></div>`+
+ `<div class="stat"><b>4</b><span>directives amended</span></div>`+
+ `<div class="stat"><b>${ok}</b><span>confirmed by a 2nd source</span></div>`+
+ `<div class="stat"><b>${R.length-ok}</b><span>flagged for my check</span></div>`;
+document.querySelectorAll("button.f").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("button.f").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");render(b.dataset.f);
+}));
+render("all");
+</script>
+</body>
+</html>

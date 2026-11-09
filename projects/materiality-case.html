@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordvorm Materiality Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a consulting case report. Narrow reading column, wide tables and the matrix break out to full width. */
+:root{
+  --paper:#f6f7f5; --surface:#ffffff; --ink:#18212b; --muted:#5b6672; --rule:#d9dee2;
+  --accent:#1d4e89; --accent-soft:#e3ecf7; --grey:#b9bfb8;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744; --accent:#8db8ec; --accent-soft:#1d2e44; --grey:#56606a; color-scheme: dark;}
+}
+:root[data-theme="dark"]{--paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744; --accent:#8db8ec; --accent-soft:#1d2e44; --grey:#56606a; color-scheme: dark;}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
+.read{max-width:72ch}
+header{display:grid;gap:12px}
+.kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+h1{font:600 clamp(32px,5vw,46px)/1.1 var(--display);margin:0;text-wrap:balance}
+h2{font:600 26px/1.2 var(--display);margin:0;text-wrap:balance}
+h3{font:600 16px/1.3 var(--body);margin:0}
+p{margin:0}
+.lead{font-size:18px}
+.byline{color:var(--muted);font-size:14px}
+.note{background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:4px;font-size:15px}
+section{display:grid;gap:14px}
+ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+tr.mat td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+td.num{font-variant-numeric:tabular-nums;text-align:right}
+.tag{font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.formula{font:400 14px/1.6 var(--mono);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:12px 16px}
+.figure{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px;display:grid;gap:8px}
+.figure .cap{font-size:13px;color:var(--muted)}
+.matrix{width:100%;height:auto;font:12px var(--body)}
+.matrix .g{stroke:var(--rule)} .matrix .th{stroke:var(--muted);stroke-dasharray:5 4}
+.matrix .m{fill:var(--muted)} .matrix .p{fill:var(--ink)}
+.matrix .dm{fill:var(--accent)} .matrix .dg{fill:var(--grey)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start}
+footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
+a{color:var(--accent)}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site">
+<style>
+.sitenav{border-bottom:1px solid var(--rule);background:var(--surface)}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font:500 14px/1.3 var(--body)}
+.sitenav a{color:var(--ink);text-decoration:none}
+.sitenav a:hover,.sitenav a[aria-current="page"]{color:var(--accent)}
+.sitenav .home{font-weight:600;margin-right:auto}
+.sitenav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<div class="in">
+<a class="home" href="../index.html">Bilal Tahir</a>
+<a href="regulation-reader.html">Regulation Reader</a>
+<a href="materiality-case.html" aria-current="page">Materiality case</a>
+<a href="crosswalk.html">ESRS / IFRS crosswalk</a>
+<a href="../index.html#about">About</a>
+</div>
+</nav>
+<div class="wrap">
+<header class="read">
+  <div class="kicker">Portfolio project 2 of 3 · CSRD double materiality</div>
+  <h1>Double materiality assessment: Nordvorm Packaging</h1>
+  <p class="lead">A worked assessment under the revised ESRS (adopted 3 July 2026) for a fictional Dutch food-packaging manufacturer, connected to the PPWR, CBAM and EUDR obligations the company faces.</p>
+  <p class="byline">Bilal Tahir · AI-assisted with a double materiality agent, judgement calls by me · November 2026</p>
+  <p class="note">The company and every score are invented to show the method. The standards, thresholds and regulatory dates are real as of 9 November 2026.</p>
+</header>
+
+<section class="read" aria-labelledby="s1">
+  <h2 id="s1">1. Company and scope</h2>
+  <p>Nordvorm (fictional: Zwolle, 1,450 employees, €540m net turnover, plants in the Netherlands, Poland and Germany) makes moulded-fibre trays, coated paperboard cartons, PET trays and aluminium-foil lids for EU food brands.</p>
+  <ul>
+    <li><b>CSRD:</b> in scope from FY2027. It exceeds both Omnibus I thresholds (more than €450m turnover and more than 1,000 employees).</li>
+    <li><b>CSDDD:</b> out of scope (below 5,000 employees and €1.5bn turnover), but large customers will send due-diligence questionnaires.</li>
+    <li><b>Value-chain cap:</b> with more than 1,000 employees, Nordvorm is not a protected undertaking and must answer customers' data requests. Its own suppliers with 1,000 or fewer employees are protected.</li>
+    <li><b>PPWR:</b> applies since 12 August 2026, including PFAS limits for food-contact packaging.</li>
+    <li><b>CBAM:</b> about 2,000 t a year of imported aluminium foil exceeds the 50-tonne threshold; first declaration due 30 September 2027.</li>
+  </ul>
+</section>
+
+<section class="read" aria-labelledby="s2">
+  <h2 id="s2">2. Method</h2>
+  <p>Each impact, risk and opportunity (IRO) is scored 0 to 5 on both axes. Anything at 3.0 or above on either axis is material. ESRS sets no numeric threshold, so 3.0 is a disclosed company judgement.</p>
+  <div class="formula">Impact = (scale + scope + irremediability) / 3 × likelihood / 5<br>Financial = magnitude × likelihood / 5</div>
+  <ul>
+    <li><b>Top-down first:</b> topics clearly not material were screened out at topic level, as the revised ESRS allow.</li>
+    <li><b>Whole value chain:</b> upstream (pulp, aluminium, PET), own operations, downstream (brands, consumers, end of life).</li>
+    <li><b>Non-material means not reported:</b> the revised ESRS require non-material information to be left out.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3" class="read">3. Long list and scores</h2>
+  <p class="read">8 of 15 IROs pass the threshold, across E1, E2, E5, S1 and S4. Material rows are marked with a blue edge.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Topic</th><th>Impact, risk or opportunity</th><th>Type</th><th>Value chain</th><th>Impact</th><th>Financial</th><th>Material?</th></tr></thead>
+    <tbody>
+<tr class="mat"><td>1</td><td><span class="tag">E1</span></td><td>Scope 1 emissions from gas-fired drying of moulded fibre</td><td>Negative impact (actual) + risk</td><td>Own operations</td><td class="num">3.7</td><td class="num">3.2</td><td>Both</td></tr>
+<tr class="mat"><td>2</td><td><span class="tag">E1</span></td><td>Scope 3 emissions embedded in aluminium foil and virgin PET; CBAM cost on foil</td><td>Negative impact (actual) + risk</td><td>Upstream</td><td class="num">4.0</td><td class="num">3.0</td><td>Both</td></tr>
+<tr class="mat"><td>3</td><td><span class="tag">E1</span></td><td>Rising demand for low-carbon fibre packaging</td><td>Opportunity + positive impact</td><td>Downstream</td><td class="num">2.4</td><td class="num">3.2</td><td>Financial</td></tr>
+<tr class=""><td>4</td><td><span class="tag">E1</span></td><td>Drought and heat stress on pulp supply and plants</td><td>Physical risk</td><td>Upstream / own operations</td><td class="num">1.6</td><td class="num">1.8</td><td>No</td></tr>
+<tr class="mat"><td>5</td><td><span class="tag">E2</span></td><td>PFAS in barrier coatings for food-contact packs (PPWR limits since 12 Aug 2026)</td><td>Negative impact (potential) + risk</td><td>Own operations / downstream</td><td class="num">2.4</td><td class="num">4.0</td><td>Financial</td></tr>
+<tr class=""><td>6</td><td><span class="tag">E2</span></td><td>Pellet loss (primary microplastics) at the PET tray line</td><td>Negative impact (potential)</td><td>Own operations</td><td class="num">1.8</td><td class="num">0.6</td><td>No</td></tr>
+<tr class=""><td>7</td><td><span class="tag">E3</span></td><td>Water withdrawal for pulp moulding</td><td>Negative impact (actual)</td><td>Own operations</td><td class="num">2.3</td><td class="num">1.6</td><td>No</td></tr>
+<tr class=""><td>8</td><td><span class="tag">E4</span></td><td>Forest biodiversity in virgin pulp supply; EUDR due diligence</td><td>Negative impact (potential) + risk</td><td>Upstream</td><td class="num">2.9</td><td class="num">2.4</td><td>No (monitor)</td></tr>
+<tr class="mat"><td>9</td><td><span class="tag">E5</span></td><td>Virgin material inflows: PET, aluminium, pulp; PPWR recycled-content targets</td><td>Negative impact (actual) + risk</td><td>Upstream / own operations</td><td class="num">3.7</td><td class="num">3.2</td><td>Both</td></tr>
+<tr class="mat"><td>10</td><td><span class="tag">E5</span></td><td>Low recyclability of coated multi-material cartons; PPWR grades and EPR fees</td><td>Negative impact (actual) + risk</td><td>Downstream</td><td class="num">4.0</td><td class="num">4.0</td><td>Both</td></tr>
+<tr class=""><td>11</td><td><span class="tag">E5</span></td><td>Mono-material and reusable redesign</td><td>Opportunity + positive impact</td><td>Downstream</td><td class="num">2.4</td><td class="num">2.4</td><td>No</td></tr>
+<tr class="mat"><td>12</td><td><span class="tag">S1</span></td><td>Machine and dust-related injuries at the three plants</td><td>Negative impact (actual)</td><td>Own operations</td><td class="num">3.3</td><td class="num">1.2</td><td>Impact</td></tr>
+<tr class=""><td>13</td><td><span class="tag">S1</span></td><td>Working conditions of agency shift workers</td><td>Negative impact (potential)</td><td>Own operations</td><td class="num">2.4</td><td class="num">1.6</td><td>No</td></tr>
+<tr class="mat"><td>14</td><td><span class="tag">S4</span></td><td>Substance migration into food: consumer safety and recalls</td><td>Negative impact (potential) + risk</td><td>Downstream</td><td class="num">1.6</td><td class="num">3.0</td><td>Financial</td></tr>
+<tr class=""><td>15</td><td><span class="tag">G1</span></td><td>Bribery and corruption in sourcing</td><td>Negative impact (potential)</td><td>Upstream</td><td class="num">0.9</td><td class="num">1.2</td><td>No</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read byline">Screened out top-down: S2 and S3, assuming supply is mainly EU recovered paper and certified pulp. This is the weakest assumption and should be revisited with supplier origin data.</p>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4" class="read">4. Materiality matrix</h2>
+  <div class="figure">
+<svg viewBox="0 0 760 520" role="img" aria-label="Materiality matrix: 8 of 15 IROs at or above the 3.0 threshold" class="matrix">
+<line x1="70.0" x2="70.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="460.0" y2="460.0" class="g"/>
+<text x="70.0" y="478" text-anchor="middle" class="m">0</text><text x="60" y="464.0" text-anchor="end" class="m">0</text>
+<line x1="176.0" x2="176.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="386.0" y2="386.0" class="g"/>
+<text x="176.0" y="478" text-anchor="middle" class="m">1</text><text x="60" y="390.0" text-anchor="end" class="m">1</text>
+<line x1="282.0" x2="282.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="312.0" y2="312.0" class="g"/>
+<text x="282.0" y="478" text-anchor="middle" class="m">2</text><text x="60" y="316.0" text-anchor="end" class="m">2</text>
+<line x1="388.0" x2="388.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="238.0" y2="238.0" class="g"/>
+<text x="388.0" y="478" text-anchor="middle" class="m">3</text><text x="60" y="242.0" text-anchor="end" class="m">3</text>
+<line x1="494.0" x2="494.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="164.0" y2="164.0" class="g"/>
+<text x="494.0" y="478" text-anchor="middle" class="m">4</text><text x="60" y="168.0" text-anchor="end" class="m">4</text>
+<line x1="600.0" x2="600.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="90.0" y2="90.0" class="g"/>
+<text x="600.0" y="478" text-anchor="middle" class="m">5</text><text x="60" y="94.0" text-anchor="end" class="m">5</text>
+<line x1="388.0" x2="388.0" y1="90" y2="460" class="th"/><line x1="70" x2="600" y1="238.0" y2="238.0" class="th"/>
+<text x="606" y="242.0" class="m">Threshold 3.0</text>
+<text x="594" y="106" text-anchor="end" class="m">Material on both</text><text x="78" y="106" class="m">Impact-material only</text><text x="594" y="450" text-anchor="end" class="m">Financially material only</text>
+<text x="335.0" y="502" text-anchor="middle" class="p">Financial materiality (0 to 5)</text>
+<text transform="translate(24 275.0) rotate(-90)" text-anchor="middle" class="p">Impact materiality (0 to 5)</text>
+<g><circle cx="409.2" cy="186.2" r="6" class="dm"><title>#1 E1 Gas-fired drying (Scope 1): impact 3.7, financial 3.2</title></circle><text x="419.2" y="190.2" text-anchor="start" class="p">#1 E1 Gas-fired drying (Scope 1)</text></g>
+<g><circle cx="388.0" cy="164.0" r="6" class="dm"><title>#2 E1 Aluminium and PET emissions; CBAM: impact 4.0, financial 3.0</title></circle><text x="378.0" y="168.0" text-anchor="end" class="p">#2 E1 Aluminium and PET emissions; CBAM</text></g>
+<g><circle cx="409.2" cy="282.4" r="6" class="dm"><title>#3 E1 Low-carbon demand: impact 2.4, financial 3.2</title></circle><text x="419.2" y="302.4" text-anchor="start" class="p">#3 E1 Low-carbon demand</text></g>
+<g><circle cx="260.8" cy="341.6" r="5" class="dg"><title>#4 E1 Physical climate risk: impact 1.6, financial 1.8</title></circle><text x="270.8" y="345.6" text-anchor="start" class="m">#4</text></g>
+<g><circle cx="494.0" cy="282.4" r="6" class="dm"><title>#5 E2 PFAS in coatings: impact 2.4, financial 4.0</title></circle><text x="504.0" y="286.4" text-anchor="start" class="p">#5 E2 PFAS in coatings</text></g>
+<g><circle cx="133.6" cy="326.8" r="5" class="dg"><title>#6 E2 Pellet loss: impact 1.8, financial 0.6</title></circle><text x="143.6" y="330.8" text-anchor="start" class="m">#6</text></g>
+<g><circle cx="239.6" cy="289.8" r="5" class="dg"><title>#7 E3 Water withdrawal: impact 2.3, financial 1.6</title></circle><text x="229.6" y="297.8" text-anchor="end" class="m">#7</text></g>
+<g><circle cx="324.4" cy="245.4" r="5" class="dg"><title>#8 E4 Forest biodiversity: impact 2.9, financial 2.4</title></circle><text x="334.4" y="249.4" text-anchor="start" class="m">#8</text></g>
+<g><circle cx="409.2" cy="186.2" r="6" class="dm"><title>#9 E5 Virgin material inflows: impact 3.7, financial 3.2</title></circle><text x="419.2" y="206.2" text-anchor="start" class="p">#9 E5 Virgin material inflows</text></g>
+<g><circle cx="494.0" cy="164.0" r="6" class="dm"><title>#10 E5 Carton recyclability: impact 4.0, financial 4.0</title></circle><text x="504.0" y="168.0" text-anchor="start" class="p">#10 E5 Carton recyclability</text></g>
+<g><circle cx="324.4" cy="282.4" r="5" class="dg"><title>#11 E5 Mono-material redesign: impact 2.4, financial 2.4</title></circle><text x="334.4" y="286.4" text-anchor="start" class="m">#11</text></g>
+<g><circle cx="197.2" cy="215.8" r="6" class="dm"><title>#12 S1 Plant injuries: impact 3.3, financial 1.2</title></circle><text x="207.2" y="219.8" text-anchor="start" class="p">#12 S1 Plant injuries</text></g>
+<g><circle cx="239.6" cy="282.4" r="5" class="dg"><title>#13 S1 Agency workers: impact 2.4, financial 1.6</title></circle><text x="249.6" y="284.4" text-anchor="start" class="m">#13</text></g>
+<g><circle cx="388.0" cy="341.6" r="6" class="dm"><title>#14 S4 Food-contact safety: impact 1.6, financial 3.0</title></circle><text x="398.0" y="345.6" text-anchor="start" class="p">#14 S4 Food-contact safety</text></g>
+<g><circle cx="197.2" cy="393.4" r="5" class="dg"><title>#15 G1 Bribery in sourcing: impact 0.9, financial 1.2</title></circle><text x="207.2" y="397.4" text-anchor="start" class="m">#15</text></g>
+</svg>
+    <p class="cap">Blue: material. Grey: below threshold, numbered as in the table. Illustrative scores.</p>
+  </div>
+  <p class="read">Climate (E1) and circularity (E5) sit top right: large impacts and direct cost exposure through CBAM, carbon pricing and PPWR. PFAS and food-contact safety are material on the financial axis alone, because regulation can take products off the market.</p>
+</section>
+
+<section aria-labelledby="s5">
+  <h2 id="s5" class="read">5. What Nordvorm reports, and what feeds it</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Material topic</th><th>ESRS disclosures to prepare</th><th>Linked regulation</th><th>First data step</th></tr></thead>
+    <tbody>
+      <tr><td><b>E1 Climate change</b></td><td>E1-1 transition plan with 1.5°C statement; E1-2 risk identification; E1-3 resilience; E1-4 to E1-6 policies, actions, gross absolute targets; E1-7 energy; E1-8 Scopes 1, 2, 3; E1-11 financial effects</td><td>CBAM (aluminium foil); EU ETS / ETS2 from 2028; SBTi V2.0</td><td>Gas use per dryer; supplier-specific emissions for foil</td></tr>
+      <tr><td><b>E2 Substances of concern</b></td><td>Policies, actions, targets and metrics on substances of concern</td><td>PPWR PFAS limits since 12 Aug 2026</td><td>Coating bill of materials; supplier PFAS tests per product</td></tr>
+      <tr><td><b>E5 Circular economy</b></td><td>Policies, actions, targets; resource inflows and outflows</td><td>PPWR labelling 2028; recyclability and recycled content mostly 2030; EPR fees</td><td>Material balance per plant; recyclability per SKU</td></tr>
+      <tr><td><b>S1 Own workforce</b></td><td>Health and safety metrics incl. agency workers</td><td>National occupational safety law</td><td>Harmonised incident logs</td></tr>
+      <tr><td><b>S4 Consumers</b></td><td>Consumer safety policies, actions, metrics (first-two-years phase-in available)</td><td>EU food-contact rules; PPWR</td><td>Migration test records</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cols">
+    <div class="card"><h3>Not material, and why that matters</h3><ul><li>E3 Water and G1 Business conduct are not reported.</li><li>E4 Biodiversity (2.9 / 2.4) is just below threshold: reassess next year.</li><li>EUDR due diligence on pulp still applies from 30 December 2026, whatever the materiality result.</li></ul></div>
+    <div class="card"><h3>One data set, three uses</h3><p>Supplier-specific emissions for aluminium foil serve the CBAM declaration, Scope 3 category 1 in E1-8, and customers' own CSRD and IFRS S2 data requests. Collecting it once is the cheapest compliance step here.</p></div>
+  </div>
+</section>
+
+<section class="read" aria-labelledby="s6">
+  <h2 id="s6">6. What the agent did and what I decided</h2>
+  <ul>
+    <li><b>Agent:</b> drafted the long list per ESRS topic, proposed sub-scores with a rationale each, and mapped material topics to disclosures and laws.</li>
+    <li><b>Me:</b> set the 3.0 threshold, decided the top-down screening, reviewed every score and checked every reference.</li>
+    <li><b>Judgement call:</b> microplastics scoped to primary microplastics (pellet loss) only, as the revised ESRS require.</li>
+    <li><b>Judgement call:</b> PFAS rated financially material (4.0) despite an impact score of 2.4, because the PPWR ban removes products regardless of likelihood of harm.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Sources: <a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj">Directive (EU) 2026/470</a> · <a href="https://knowledgehub.efrag.org/eng/interactive/simplified-esrs/esrs-e1/delegated-act">EFRAG revised ESRS E1</a> · <a href="https://generationimpact.global/blog/simplified-esrs-2026/">Simplified ESRS analysis</a> · <a href="https://www.globalelr.com/2026/08/eu-packaging-and-packaging-waste-regulation-begins-application/">PPWR application</a> · <a href="https://www.hsfkramer.com/fr/notes/energy/2026-posts/operationalisation-and-simplification-of-the-eu-cbam">CBAM definitive regime</a> · <a href="https://help.dcycle.io/regulation/omnibus-i-final-agreement">EUDR delay</a>.</p>
+  <p>Portfolio case with a fictional company. Not advice.</p>
+</footer>
+</div>
+</body>
+</html>

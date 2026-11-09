@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilal Tahir · Sustainability Portfolio</title>
+<meta name="description" content="Materials engineer working on ESG reporting, carbon accounting and decarbonisation strategy. Portfolio projects on CSRD, ESRS, IFRS S2 and AI agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a quiet professional index. Short intro, three project cards as the centre of gravity, then frameworks and experience as compact reference lists. */
+:root{
+  --paper:#f6f7f5; --surface:#ffffff; --ink:#18212b; --muted:#5b6672; --rule:#d9dee2;
+  --accent:#1d4e89; --accent-soft:#e3ecf7;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744; --accent:#8db8ec; --accent-soft:#1d2e44; color-scheme: dark;}
+}
+:root[data-theme="dark"]{--paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744; --accent:#8db8ec; --accent-soft:#1d2e44; color-scheme: dark;}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sitenav{border-bottom:1px solid var(--rule);background:var(--surface)}
+.sitenav .in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font:500 14px/1.3 var(--body)}
+.sitenav a{color:var(--ink);text-decoration:none}
+.sitenav a:hover{color:var(--accent)}
+.sitenav .home{font-weight:600;margin-right:auto}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:56px}
+.intro{display:grid;gap:16px;max-width:68ch}
+.kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+h1{font:600 clamp(34px,5.5vw,52px)/1.08 var(--display);margin:0;text-wrap:balance}
+h2{font:600 28px/1.2 var(--display);margin:0;text-wrap:balance}
+h3{font:600 17px/1.3 var(--body);margin:0}
+p{margin:0}
+.lead{font-size:19px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px/1 var(--body);padding:7px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--surface)}
+section{display:grid;gap:18px}
+.sub{color:var(--muted);max-width:68ch}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:6px;padding:20px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto;text-decoration:none;color:var(--ink)}
+.project:hover{border-color:var(--accent)}
+.project .n{font:500 12px/1 var(--mono);color:var(--accent)}
+.project p{font-size:15px;color:var(--muted)}
+.project .proves{font-size:14px;color:var(--ink)}
+.project .go{font:600 14px/1 var(--body);color:var(--accent)}
+.fw{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
+.fw div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.fw b{font-weight:600}
+.fw span{color:var(--muted)}
+.xp{display:grid;gap:0}
+.xp > div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.xp .when{font:400 13px/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.xp p{font-size:15px;color:var(--muted)}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
+.about .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:20px;display:grid;gap:8px;font-size:15px}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px}
+@media (max-width:860px){
+  .projects,.fw,.about{grid-template-columns:1fr}
+  .fw div,.xp > div{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site"><div class="in">
+  <a class="home" href="index.html">Bilal Tahir</a>
+  <a href="projects/regulation-reader.html">Regulation Reader</a>
+  <a href="projects/materiality-case.html">Materiality case</a>
+  <a href="projects/crosswalk.html">ESRS / IFRS crosswalk</a>
+  <a href="#about">About</a>
+</div></nav>
+
+<div class="wrap">
+<header class="intro">
+  <div class="kicker">Sustainability · Carbon accounting · Decarbonisation</div>
+  <h1>I'm a materials engineer working on what sits behind the carbon numbers.</h1>
+  <p class="lead">Most corporate emissions come from materials: steel, aluminium, cement, plastics, fibre. I combine that background with EU and global reporting frameworks, and I use AI agents with clear guardrails to do the work faster.</p>
+  <div class="facts"><span class="chip">Amsterdam</span><span class="chip">Full Dutch work permit</span><span class="chip">MSc Materials Engineering, High Honours</span><span class="chip">Ex-Climatebase Fellow</span></div>
+</header>
+
+<section aria-labelledby="work">
+  <h2 id="work">Projects</h2>
+  <p class="sub">Three pieces of work built on the standards as they stand in November 2026. Each shows the method, the sources and where AI helped.</p>
+  <div class="projects">
+    <a class="project" href="projects/regulation-reader.html">
+      <span class="n">01 · AI agent</span>
+      <h3>Regulation Reader</h3>
+      <p>An agent that turns EU legal texts into an obligations register with article references, cross-checked against a second source. Demo on Omnibus I.</p>
+      <span class="proves">Shows: building AI agents with guardrails; reading EU law at article level.</span>
+      <span class="go">View project →</span>
+    </a>
+    <a class="project" href="projects/materiality-case.html">
+      <span class="n">02 · CSRD case</span>
+      <h3>Double materiality: Nordvorm Packaging</h3>
+      <p>A full assessment under the revised ESRS for a fictional Dutch packaging company, linked to PPWR, CBAM and EUDR.</p>
+      <span class="proves">Shows: running the core CSRD process and connecting it to product regulation.</span>
+      <span class="go">View project →</span>
+    </a>
+    <a class="project" href="projects/crosswalk.html">
+      <span class="n">03 · Framework analysis</span>
+      <h3>ESRS E1 and IFRS S2 crosswalk</h3>
+      <p>Interactive map of 15 climate disclosure themes: where the frameworks overlap, diverge, and what data serves both.</p>
+      <span class="proves">Shows: fluency in both EU and global reporting regimes.</span>
+      <span class="go">View project →</span>
+    </a>
+  </div>
+</section>
+
+<section aria-labelledby="fw">
+  <h2 id="fw">Frameworks I work with</h2>
+  <div class="fw">
+    <div><b>CSRD &amp; ESRS</b><span>Omnibus I scope; revised ESRS (July 2026), especially E1 and E5</span></div>
+    <div><b>IFRS S1 / S2</b><span>Investor climate disclosure, incl. Dec 2025 amendments</span></div>
+    <div><b>CBAM</b><span>Definitive regime since 1 Jan 2026; embedded emissions</span></div>
+    <div><b>GHG Protocol</b><span>Scopes 1–3; Scope 2 revision under way</span></div>
+    <div><b>PPWR</b><span>Packaging rules applying since 12 Aug 2026</span></div>
+    <div><b>SBTi</b><span>Corporate Net-Zero Standard V2.0</span></div>
+    <div><b>CSDDD &amp; EUDR</b><span>Value-chain due diligence</span></div>
+    <div><b>Carbon markets</b><span>Credit quality: permanence, MRV, additionality</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="xp">
+  <h2 id="xp">Experience</h2>
+  <div class="xp">
+    <div><span class="when">03/2026–06/2026</span><div><h3>Climate Fellow, Climatebase (placed with Envome)</h3><p>EU market research on compostable areca-leaf plates; carbon footprint, compostability and sourcing comparison against plastic and paper. International team of 4.</p></div></div>
+    <div><span class="when">10/2025–04/2026</span><div><h3>Business Analyst, Planetive</h3><p>Researched carbon-market mechanisms and credit potential for biochar and biogas; co-wrote a techno-economic feasibility report in a team of 10.</p></div></div>
+    <div><span class="when">02/2025–07/2025</span><div><h3>MSc thesis, LGP2 · Grenoble INP-Pagora (Chanel proof of concept)</h3><p>Fully cellulose-based 3D-printed packaging demonstrator; 18 formulations; printable solid content raised from 22.5% to 47.5%.</p></div></div>
+    <div><span class="when">07/2023–04/2024</span><div><h3>Management Engineer Trainee, Pak Steel Re-Rolling Mills</h3><p>Mapped the benefits of a 1 MW solar installation; researched biogas feasibility for energy resilience; data-flow mapping for an SAP ERP rollout.</p></div></div>
+  </div>
+</section>
+
+<section aria-labelledby="about" id="about">
+  <h2>About</h2>
+  <div class="about">
+    <div style="display:grid;gap:12px;max-width:62ch">
+      <p>I moved from materials R&amp;D into sustainability because the decisions I cared about were being made on the numbers: footprints, disclosures, carbon costs. My edge is knowing what physically sits behind those numbers.</p>
+      <p>I use AI daily, with one rule: AI can draft and extract, but every figure traces to a source I opened myself. I'm based in Amsterdam, learning Dutch, and open to sustainability analyst, carbon accounting and decarbonisation roles.</p>
+    </div>
+    <div class="card">
+      <h3>Get in touch</h3>
+      <p>LinkedIn: <a href="#">[your LinkedIn URL]</a></p>
+      <p>Email: [your email]</p>
+      <p>Certifications: ESG Risks and Opportunities (UPenn) · Scaling Climate Finance (UNITAR) · Power BI Data Analyst · Generative AI and Copilot (Microsoft) · Google AI Essentials</p>
+    </div>
+  </div>
+</section>
+
+<footer>Portfolio projects use public standards and fictional companies. Not advice. Last updated November 2026.</footer>
+</div>
+</body>
+</html>

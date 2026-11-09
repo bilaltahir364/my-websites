@@ -3,38 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bilal Tahir · Sustainability Portfolio</title>
+<title>Bilal Tahir, sustainability portfolio</title>
 <meta name="description" content="Materials engineer working on ESG reporting, carbon accounting and decarbonisation strategy. Portfolio projects on CSRD, ESRS, IFRS S2 and AI agents.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <style>
 /* Layout idea: one page, four tabs. A sticky bar carries the name and the tabs; each tab is one of the original pages, its styles scoped to its own panel. */
 :root{
-  --paper:#f6f7f5; --surface:#ffffff; --ink:#18212b; --muted:#5b6672; --rule:#d9dee2;
-  --accent:#1d4e89; --accent-soft:#e3ecf7; --grey:#b9bfb8;
-  --ok:#2f6b3f; --ok-soft:#e3f1e6; --warn:#8a5a00; --warn-soft:#fbefd6;
-  --hi:#2f6b3f; --hi-soft:#e3f1e6; --part:#8a5a00; --part-soft:#fbefd6; --one:#7a3b5c; --one-soft:#f4e6ee;
-  --display:"Newsreader", Georgia, "Times New Roman", serif;
-  --body:"IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --paper:#ECEFED; --surface:#F7F9F8; --ink:#1B2124; --muted:#56636A; --rule:#C9D1CE;
+  --accent:#2B7568; --accent-soft:#DAEAE5; --grey:#B4BCB9;
+  --ok:#2F6B3F; --ok-soft:#E1EFE4; --warn:#8A5A00; --warn-soft:#F7ECD3;
+  --hi:#2F6B3F; --hi-soft:#E1EFE4; --part:#8A5A00; --part-soft:#F7ECD3; --one:#7A3B5C; --one-soft:#F2E4EC;
+  --display:"Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", Helvetica, Arial, sans-serif;
+  --ref:"Atkinson Hyperlegible", "Segoe UI", Helvetica, Arial, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744;
-    --accent:#8db8ec; --accent-soft:#1d2e44; --grey:#56606a;
-    --ok:#8fd19f; --ok-soft:#1c3324; --warn:#f0c46a; --warn-soft:#3a2e14;
-    --hi:#8fd19f; --hi-soft:#1c3324; --part:#f0c46a; --part-soft:#3a2e14; --one:#e3a3c4; --one-soft:#3a2230;
+    --paper:#121719; --surface:#192124; --ink:#E3E9E7; --muted:#97A4A1; --rule:#29343A;
+    --accent:#74C4B3; --accent-soft:#183330; --grey:#4E5A5E;
+    --ok:#8FD19F; --ok-soft:#1C3324; --warn:#F0C46A; --warn-soft:#3A2E14;
+    --hi:#8FD19F; --hi-soft:#1C3324; --part:#F0C46A; --part-soft:#3A2E14; --one:#E3A3C4; --one-soft:#3A2230;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744;
-  --accent:#8db8ec; --accent-soft:#1d2e44; --grey:#56606a;
-  --ok:#8fd19f; --ok-soft:#1c3324; --warn:#f0c46a; --warn-soft:#3a2e14;
-  --hi:#8fd19f; --hi-soft:#1c3324; --part:#f0c46a; --part-soft:#3a2e14; --one:#e3a3c4; --one-soft:#3a2230;
+  --paper:#121719; --surface:#192124; --ink:#E3E9E7; --muted:#97A4A1; --rule:#29343A;
+    --accent:#74C4B3; --accent-soft:#183330; --grey:#4E5A5E;
+    --ok:#8FD19F; --ok-soft:#1C3324; --warn:#F0C46A; --warn-soft:#3A2E14;
+    --hi:#8FD19F; --hi-soft:#1C3324; --part:#F0C46A; --part-soft:#3A2E14; --one:#E3A3C4; --one-soft:#3A2230;
   color-scheme: dark;
 }
 *{box-sizing:border-box}
@@ -43,9 +43,9 @@ body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
 a{color:var(--accent)}
 .topbar{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--rule)}
 .topbar .in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
-.topbar .name{font:600 15px/1 var(--body);color:var(--ink);text-decoration:none;padding:16px 0;margin-right:auto}
+.topbar .name{font:800 24px/1 var(--display);letter-spacing:.02em;color:var(--ink);text-decoration:none;padding:16px 0;margin-right:auto}
 .tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-.tab{font:500 14px/1 var(--body);color:var(--muted);text-decoration:none;padding:16px 12px 14px;border-bottom:2px solid transparent;white-space:nowrap}
+.tab{font:700 15px/1 var(--body);color:var(--muted);text-decoration:none;padding:16px 12px 14px;border-bottom:2px solid transparent;white-space:nowrap}
 .tab:hover{color:var(--ink)}
 .tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
 .tab:focus-visible,.topbar .name:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
@@ -55,11 +55,11 @@ a{color:var(--accent)}
 /* Overview */
 #tab-overview a{color:var(--accent)}
 #tab-overview a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-#tab-overview .wrap{max-width:1080px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:56px}
+#tab-overview .wrap{max-width:1180px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:56px}
 #tab-overview .intro{display:grid;gap:16px;max-width:68ch}
-#tab-overview .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-#tab-overview h1{font:600 clamp(34px,5.5vw,52px)/1.08 var(--display);margin:0;text-wrap:balance}
-#tab-overview h2{font:600 28px/1.2 var(--display);margin:0;text-wrap:balance}
+#tab-overview .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
+#tab-overview h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
+#tab-overview h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0;text-wrap:balance}
 #tab-overview h3{font:600 17px/1.3 var(--body);margin:0}
 #tab-overview p{margin:0}
 #tab-overview .lead{font-size:19px}
@@ -68,9 +68,9 @@ a{color:var(--accent)}
 #tab-overview section{display:grid;gap:18px}
 #tab-overview .sub{color:var(--muted);max-width:68ch}
 #tab-overview .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-#tab-overview .project{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:6px;padding:20px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto;text-decoration:none;color:var(--ink)}
+#tab-overview .project{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:3px;padding:20px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto;text-decoration:none;color:var(--ink)}
 #tab-overview .project:hover{border-color:var(--accent)}
-#tab-overview .project .n{font:500 12px/1 var(--mono);color:var(--accent)}
+#tab-overview .project .n{font:700 13px/1 var(--body);color:var(--accent)}
 #tab-overview .project p{font-size:15px;color:var(--muted)}
 #tab-overview .project .proves{font-size:14px;color:var(--ink)}
 #tab-overview .project .go{font:600 14px/1 var(--body);color:var(--accent)}
@@ -80,19 +80,69 @@ a{color:var(--accent)}
 #tab-overview .fw span{color:var(--muted)}
 #tab-overview .xp{display:grid;gap:0}
 #tab-overview .xp > div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
-#tab-overview .xp .when{font:400 13px/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+#tab-overview .xp .when{font:400 13px/1.5 var(--ref);color:var(--muted);font-variant-numeric:tabular-nums}
 #tab-overview .xp p{font-size:15px;color:var(--muted)}
 #tab-overview .about{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
-#tab-overview .about .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:20px;display:grid;gap:8px;font-size:15px}
+#tab-overview .about .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:20px;display:grid;gap:8px;font-size:15px}
 #tab-overview footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px}
 @media (max-width:860px){#tab-overview .projects,#tab-overview .fw,#tab-overview .about{grid-template-columns:1fr}
 #tab-overview .fw div,#tab-overview .xp > div{grid-template-columns:1fr;gap:2px}}
+/* Overview: hero, materials strip, project cards */
+#tab-overview .wrap{gap:64px;padding-top:64px}
+#tab-overview .hero{display:grid;gap:20px;max-width:none}
+#tab-overview .hero h1{font:800 clamp(48px,8.2vw,104px)/.92 var(--display);letter-spacing:0;max-width:15ch;margin:0;text-wrap:balance}
+#tab-overview .hero .lead{font-size:20px;line-height:1.55;max-width:58ch}
+#tab-overview .chip{border-radius:2px;font:700 14px/1 var(--body);padding:8px 11px}
+#tab-overview .materials{margin:0;display:grid;gap:14px}
+#tab-overview .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+#tab-overview .mat{display:grid;gap:4px;align-content:start}
+#tab-overview .mat b{font:700 26px/1 var(--display);letter-spacing:.01em;margin-top:8px}
+#tab-overview .mat span{font-size:14px;color:var(--muted)}
+#tab-overview .swatch{height:200px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+#tab-overview .swatch.steel{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(180deg,#4b545a 0%,#8d979e 42%,#5b646a 70%,#3f474c 100%)}
+#tab-overview .swatch.alu{background:repeating-linear-gradient(35deg,rgba(255,255,255,.35) 0 2px,transparent 2px 14px),linear-gradient(115deg,#b9c0c5 0%,#f1f3f5 28%,#a9b1b6 52%,#e8ecee 74%,#9fa7ac 100%)}
+#tab-overview .swatch.cement{background:radial-gradient(circle at 30% 40%,rgba(30,30,28,.28) 0 1px,transparent 1.6px) 0 0/7px 7px,radial-gradient(circle at 60% 70%,rgba(255,255,255,.35) 0 1px,transparent 1.8px) 0 0/11px 11px,radial-gradient(circle at 50% 50%,rgba(60,58,52,.18) 0 2px,transparent 3px) 0 0/23px 19px,linear-gradient(180deg,#a3a39c,#8e8e87)}
+#tab-overview .swatch.plastic{background:radial-gradient(ellipse 60% 35% at 30% 18%,rgba(255,255,255,.6),transparent 70%),linear-gradient(160deg,#7cc0cf 0%,#3b8ea3 55%,#25677a 100%)}
+#tab-overview .swatch.fibre{background:repeating-linear-gradient(17deg,rgba(90,72,44,.13) 0 1px,transparent 1px 4px),repeating-linear-gradient(-28deg,rgba(255,255,255,.22) 0 1px,transparent 1px 6px),radial-gradient(circle at 50% 50%,rgba(120,100,70,.12) 0 1px,transparent 2px) 0 0/5px 5px,linear-gradient(180deg,#c9bea6,#b3a68a)}
+#tab-overview .materials figcaption{font-size:15px;color:var(--muted);max-width:70ch}
+@media (prefers-reduced-motion:no-preference){
+  #tab-overview.active .swatch{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  #tab-overview.active .mat:nth-child(2) .swatch{animation-delay:.08s}
+  #tab-overview.active .mat:nth-child(3) .swatch{animation-delay:.16s}
+  #tab-overview.active .mat:nth-child(4) .swatch{animation-delay:.24s}
+  #tab-overview.active .mat:nth-child(5) .swatch{animation-delay:.32s}
+  @keyframes rise{from{transform:translateY(18px);clip-path:inset(100% 0 0 0)}to{transform:none;clip-path:inset(0 0 0 0)}}
+}
+#tab-overview .projects{gap:20px}
+#tab-overview .project{border:1px solid var(--rule);border-top:1px solid var(--rule);border-radius:2px;padding:22px;gap:10px;grid-template-rows:auto auto auto 1fr auto auto;background:var(--surface)}
+#tab-overview .project:hover{border-color:var(--accent)}
+#tab-overview .project:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#tab-overview .project h3{font:700 28px/1.02 var(--display);letter-spacing:.01em}
+#tab-overview .project .kind{font:700 14px/1 var(--body);color:var(--accent)}
+#tab-overview .project .go{font:700 15px/1 var(--body);color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+#tab-overview .project:hover .go{text-decoration-thickness:2px}
+#tab-overview .fig{width:100%;height:auto;margin-bottom:6px}
+#tab-overview .fig .ln{stroke:var(--muted);stroke-width:1.5}
+#tab-overview .fig .ln.faint{stroke-dasharray:3 3}
+#tab-overview .fig .ax{stroke:var(--rule);stroke-width:1.5}
+#tab-overview .fig .th{stroke:var(--muted);stroke-dasharray:4 3}
+#tab-overview .fig .dot{fill:var(--accent)}
+#tab-overview .fig .mute{fill:var(--grey)}
+#tab-overview .fig .ring{fill:var(--surface);stroke:var(--accent);stroke-width:2.5}
+#tab-overview .fig .col{fill:var(--accent-soft)}
+#tab-overview .fw b{font:700 22px/1.1 var(--display);letter-spacing:.01em}
+#tab-overview .xp h3{font:700 22px/1.1 var(--display);letter-spacing:.01em}
+@media (max-width:860px){
+  #tab-overview .strip{grid-template-columns:repeat(5,minmax(110px,1fr));overflow-x:auto;padding-bottom:6px}
+  #tab-overview .swatch{height:130px}
+}
+
 /* Regulation Reader */
-#tab-regulation-reader .wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
+#tab-regulation-reader .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
 #tab-regulation-reader header{display:grid;gap:12px;max-width:72ch}
-#tab-regulation-reader .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-#tab-regulation-reader h1{font:600 clamp(32px,5vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
-#tab-regulation-reader h2{font:600 26px/1.2 var(--display);margin:0 0 6px;text-wrap:balance}
+#tab-regulation-reader .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
+#tab-regulation-reader h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
+#tab-regulation-reader h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0 0 6px;text-wrap:balance}
 #tab-regulation-reader h3{font:600 16px/1.3 var(--body);margin:0}
 #tab-regulation-reader p{margin:0}
 #tab-regulation-reader .lead{font-size:18px;color:var(--ink)}
@@ -100,17 +150,17 @@ a{color:var(--accent)}
 #tab-regulation-reader section{display:grid;gap:16px}
 #tab-regulation-reader .sub{color:var(--muted);max-width:72ch}
 #tab-regulation-reader .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
-#tab-regulation-reader .step{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px;display:grid;gap:6px;align-content:start;position:relative}
-#tab-regulation-reader .step .n{font:500 12px/1 var(--mono);color:var(--accent)}
+#tab-regulation-reader .step{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:14px;display:grid;gap:6px;align-content:start;position:relative}
+#tab-regulation-reader .step .n{font:700 13px/1 var(--body);color:var(--accent)}
 #tab-regulation-reader .step p{font-size:14px;color:var(--muted)}
 #tab-regulation-reader .step:not(:last-child)::after{content:"\2192";position:absolute;right:-11px;top:16px;color:var(--accent);font-weight:600}
 #tab-regulation-reader .step.human{border-color:var(--warn);background:var(--warn-soft)}
 #tab-regulation-reader .step.human .n{color:var(--warn)}
 #tab-regulation-reader .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#tab-regulation-reader .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:10px}
+#tab-regulation-reader .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px;display:grid;gap:10px}
 #tab-regulation-reader .card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
 #tab-regulation-reader .stats{display:flex;flex-wrap:wrap;gap:10px}
-#tab-regulation-reader .stat{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 14px;display:grid;gap:2px;min-width:150px}
+#tab-regulation-reader .stat{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:10px 14px;display:grid;gap:2px;min-width:150px}
 #tab-regulation-reader .stat b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
 #tab-regulation-reader .stat span{font-size:13px;color:var(--muted)}
 #tab-regulation-reader .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -118,20 +168,20 @@ a{color:var(--accent)}
 #tab-regulation-reader button.f{font:500 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
 #tab-regulation-reader button.f[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
 #tab-regulation-reader button.f:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-#tab-regulation-reader .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+#tab-regulation-reader .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px}
 #tab-regulation-reader table{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
 #tab-regulation-reader th,#tab-regulation-reader td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
-#tab-regulation-reader th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--paper)}
+#tab-regulation-reader th{font:700 13px/1.3 var(--body);color:var(--muted);background:var(--paper)}
 #tab-regulation-reader tr:last-child td{border-bottom:0}
-#tab-regulation-reader td.ref{font:400 12.5px/1.45 var(--mono);color:var(--accent);white-space:nowrap}
+#tab-regulation-reader td.ref{font:400 12.5px/1.45 var(--ref);color:var(--accent);white-space:nowrap}
 #tab-regulation-reader td.val{font-weight:600;font-variant-numeric:tabular-nums}
-#tab-regulation-reader .tag{display:inline-block;font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+#tab-regulation-reader .tag{display:inline-block;font:500 11.5px/1 var(--ref);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 #tab-regulation-reader .pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;white-space:nowrap}
 #tab-regulation-reader .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 #tab-regulation-reader .pill.ok{background:var(--ok-soft);color:var(--ok)}
 #tab-regulation-reader .pill.warn{background:var(--warn-soft);color:var(--warn)}
 #tab-regulation-reader .src{font-size:12.5px;color:var(--muted);display:block;margin-top:4px}
-#tab-regulation-reader .prompt{font:400 13px/1.6 var(--mono);background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:6px;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
+#tab-regulation-reader .prompt{font:400 13px/1.6 var(--ref);background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:3px;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
 #tab-regulation-reader footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
 #tab-regulation-reader footer a,#tab-regulation-reader .src a{color:var(--accent)}
 @media (max-width:860px){#tab-regulation-reader .pipeline{grid-template-columns:1fr 1fr}
@@ -139,12 +189,12 @@ a{color:var(--accent)}
 #tab-regulation-reader .cols{grid-template-columns:1fr}}
 @media (max-width:440px){#tab-regulation-reader .pipeline{grid-template-columns:1fr}}
 /* Materiality case */
-#tab-materiality-case .wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
+#tab-materiality-case .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
 #tab-materiality-case .read{max-width:72ch}
 #tab-materiality-case header{display:grid;gap:12px}
-#tab-materiality-case .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-#tab-materiality-case h1{font:600 clamp(32px,5vw,46px)/1.1 var(--display);margin:0;text-wrap:balance}
-#tab-materiality-case h2{font:600 26px/1.2 var(--display);margin:0;text-wrap:balance}
+#tab-materiality-case .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
+#tab-materiality-case h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
+#tab-materiality-case h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0;text-wrap:balance}
 #tab-materiality-case h3{font:600 16px/1.3 var(--body);margin:0}
 #tab-materiality-case p{margin:0}
 #tab-materiality-case .lead{font-size:18px}
@@ -152,18 +202,18 @@ a{color:var(--accent)}
 #tab-materiality-case .note{background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:4px;font-size:15px}
 #tab-materiality-case section{display:grid;gap:14px}
 #tab-materiality-case ul{margin:0;padding-left:20px;display:grid;gap:6px}
-#tab-materiality-case .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+#tab-materiality-case .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px}
 #tab-materiality-case table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
 #tab-materiality-case th,#tab-materiality-case td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
-#tab-materiality-case th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--paper)}
+#tab-materiality-case th{font:700 13px/1.3 var(--body);color:var(--muted);background:var(--paper)}
 #tab-materiality-case tr:last-child td{border-bottom:0}
 #tab-materiality-case tr.mat td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 #tab-materiality-case td.num{font-variant-numeric:tabular-nums;text-align:right}
-#tab-materiality-case .tag{font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
-#tab-materiality-case .formula{font:400 14px/1.6 var(--mono);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:12px 16px}
-#tab-materiality-case .figure{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px;display:grid;gap:8px}
+#tab-materiality-case .tag{font:500 11.5px/1 var(--ref);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+#tab-materiality-case .formula{font:400 14px/1.6 var(--ref);background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:12px 16px}
+#tab-materiality-case .figure{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:16px;display:grid;gap:8px}
 #tab-materiality-case .figure .cap{font-size:13px;color:var(--muted)}
-#tab-materiality-case .matrix{width:100%;height:auto;font:12px var(--body)}
+#tab-materiality-case .matrix{width:100%;max-width:880px;height:auto;font:12px var(--body)}
 #tab-materiality-case .matrix .g{stroke:var(--rule)}
 #tab-materiality-case .matrix .th{stroke:var(--muted);stroke-dasharray:5 4}
 #tab-materiality-case .matrix .m{fill:var(--muted)}
@@ -171,16 +221,16 @@ a{color:var(--accent)}
 #tab-materiality-case .matrix .dm{fill:var(--accent)}
 #tab-materiality-case .matrix .dg{fill:var(--grey)}
 #tab-materiality-case .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#tab-materiality-case .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start}
+#tab-materiality-case .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px;display:grid;gap:10px;align-content:start}
 #tab-materiality-case footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
 #tab-materiality-case a{color:var(--accent)}
 @media (max-width:760px){#tab-materiality-case .cols{grid-template-columns:1fr}}
 /* ESRS / IFRS crosswalk */
 #tab-crosswalk .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:36px}
 #tab-crosswalk header{display:grid;gap:12px;max-width:74ch}
-#tab-crosswalk .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-#tab-crosswalk h1{font:600 clamp(32px,5vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
-#tab-crosswalk h2{font:600 26px/1.2 var(--display);margin:0;text-wrap:balance}
+#tab-crosswalk .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
+#tab-crosswalk h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
+#tab-crosswalk h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0;text-wrap:balance}
 #tab-crosswalk h3{font:600 15px/1.3 var(--body);margin:0}
 #tab-crosswalk p{margin:0}
 #tab-crosswalk .lead{font-size:18px}
@@ -188,11 +238,11 @@ a{color:var(--accent)}
 #tab-crosswalk section{display:grid;gap:16px}
 #tab-crosswalk .sub{color:var(--muted);max-width:74ch}
 #tab-crosswalk .basis{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#tab-crosswalk .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:8px;align-content:start}
-#tab-crosswalk .card .fw{font:500 12px/1 var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+#tab-crosswalk .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px;display:grid;gap:8px;align-content:start}
+#tab-crosswalk .card .fw{font:700 13px/1 var(--body);color:var(--accent)}
 #tab-crosswalk .card p{font-size:15px}
 #tab-crosswalk .summary{display:flex;flex-wrap:wrap;gap:10px}
-#tab-crosswalk .sum{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:6px;padding:10px 14px;display:grid;gap:2px;min-width:170px}
+#tab-crosswalk .sum{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:3px;padding:10px 14px;display:grid;gap:2px;min-width:170px}
 #tab-crosswalk .sum b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
 #tab-crosswalk .sum span{font-size:13px;color:var(--muted)}
 #tab-crosswalk .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -202,20 +252,20 @@ a{color:var(--accent)}
 #tab-crosswalk button.f:focus-visible,#tab-crosswalk summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 #tab-crosswalk .grid{display:grid;gap:10px}
 #tab-crosswalk .head,#tab-crosswalk .row>summary{display:grid;grid-template-columns:1.1fr 1.5fr 1.5fr 1.1fr 130px;gap:14px;align-items:start}
-#tab-crosswalk .head{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:0 16px 0 20px}
-#tab-crosswalk .row{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:6px}
+#tab-crosswalk .head{font:700 13px/1.3 var(--body);color:var(--muted);padding:0 16px 0 20px}
+#tab-crosswalk .row{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:3px}
 #tab-crosswalk .row>summary{list-style:none;cursor:pointer;padding:14px 16px}
 #tab-crosswalk .row>summary::-webkit-details-marker{display:none}
 #tab-crosswalk .theme{font-weight:600}
 #tab-crosswalk .theme small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
-#tab-crosswalk .ref{font:500 12.5px/1.4 var(--mono);color:var(--accent);display:block;margin-bottom:3px}
+#tab-crosswalk .ref{font:500 12.5px/1.4 var(--ref);color:var(--accent);display:block;margin-bottom:3px}
 #tab-crosswalk .cell{font-size:14px}
 #tab-crosswalk .cell .t{color:var(--ink)}
 #tab-crosswalk .pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;background:var(--cs);color:var(--c);white-space:nowrap}
 #tab-crosswalk .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 #tab-crosswalk .more{padding:0 16px 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px dashed var(--rule);padding-top:12px;margin:0 16px 0 0}
 #tab-crosswalk .more div{font-size:14px}
-#tab-crosswalk .more h4{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 4px}
+#tab-crosswalk .more h4{font:700 13px/1.3 var(--body);color:var(--muted);margin:0 0 4px}
 #tab-crosswalk .hint{font-size:13px;color:var(--muted)}
 #tab-crosswalk .c-hi{--c:var(--hi);--cs:var(--hi-soft)}
 #tab-crosswalk .c-part{--c:var(--part);--cs:var(--part-soft)}
@@ -242,37 +292,64 @@ a{color:var(--accent)}
 <main>
 <section class="tabpanel" id="tab-overview" role="tabpanel" aria-labelledby="tabbtn-overview">
 <div class="wrap">
-<header class="intro">
-  <div class="kicker">Sustainability · Carbon accounting · Decarbonisation</div>
+<header class="hero">
   <h1>I'm a materials engineer working on what sits behind the carbon numbers.</h1>
-  <p class="lead">Most corporate emissions come from materials: steel, aluminium, cement, plastics, fibre. I combine that background with EU and global reporting frameworks, and I use AI agents with clear guardrails to do the work faster.</p>
-  <div class="facts"><span class="chip">Amsterdam</span><span class="chip">Full Dutch work permit</span><span class="chip">MSc Materials Engineering, High Honours</span><span class="chip">Ex-Climatebase Fellow</span></div>
+  <p class="lead">Most corporate emissions come from a handful of materials. I combine that background with EU and global reporting frameworks, and I use AI agents with clear guardrails to do the work faster.</p>
+  <div class="facts"><span class="chip">Amsterdam</span><span class="chip">Full Dutch work permit</span><span class="chip">MSc Materials Engineering, High Honours</span><span class="chip">Climatebase Fellow, 2026</span></div>
 </header>
 
-<section aria-labelledby="work">
+<figure class="materials" aria-labelledby="materials-cap">
+  <div class="strip">
+    <div class="mat"><div class="swatch steel" aria-hidden="true"></div><b>Steel</b><span>CBAM, EU ETS</span></div>
+    <div class="mat"><div class="swatch alu" aria-hidden="true"></div><b>Aluminium</b><span>CBAM, EU ETS</span></div>
+    <div class="mat"><div class="swatch cement" aria-hidden="true"></div><b>Cement</b><span>CBAM, EU ETS</span></div>
+    <div class="mat"><div class="swatch plastic" aria-hidden="true"></div><b>Plastics</b><span>PPWR</span></div>
+    <div class="mat"><div class="swatch fibre" aria-hidden="true"></div><b>Fibre</b><span>PPWR, EUDR</span></div>
+  </div>
+  <figcaption id="materials-cap">Five materials, and the EU rules that already price or regulate them. All of them flow into Scope 3 under ESRS E1.</figcaption>
+</figure>
+
+<section aria-labelledby="work" class="work">
   <h2 id="work">Projects</h2>
   <p class="sub">Three pieces of work built on the standards as they stand in November 2026. Each shows the method, the sources and where AI helped.</p>
   <div class="projects">
     <a class="project" href="#regulation-reader">
-      <span class="n">01 · AI agent</span>
+      <svg class="fig" viewBox="0 0 240 70" aria-hidden="true">
+        <line x1="20" y1="35" x2="220" y2="35" class="ln"/>
+        <circle cx="20" cy="35" r="7" class="dot"/><circle cx="70" cy="35" r="7" class="dot"/><circle cx="120" cy="35" r="7" class="dot"/><circle cx="170" cy="35" r="7" class="dot"/>
+        <circle cx="220" cy="35" r="9" class="ring"/>
+      </svg>
+      <span class="kind">AI agent</span>
       <h3>Regulation Reader</h3>
-      <p>An agent that turns EU legal texts into an obligations register with article references, cross-checked against a second source. Demo on Omnibus I.</p>
-      <span class="proves">Shows: building AI agents with guardrails; reading EU law at article level.</span>
-      <span class="go">View project →</span>
+      <p>Turns EU legal texts into an obligations register with article references, each cross-checked against a second source. Demo on Omnibus I.</p>
+      <span class="proves">Shows I can build AI agents with guardrails and read EU law at article level.</span>
+      <span class="go">Open the agent</span>
     </a>
     <a class="project" href="#materiality-case">
-      <span class="n">02 · CSRD case</span>
+      <svg class="fig" viewBox="0 0 240 70" aria-hidden="true">
+        <line x1="10" y1="62" x2="230" y2="62" class="ax"/><line x1="10" y1="62" x2="10" y2="6" class="ax"/>
+        <line x1="130" y1="6" x2="130" y2="62" class="th"/><line x1="10" y1="32" x2="230" y2="32" class="th"/>
+        <circle cx="40" cy="48" r="4" class="mute"/><circle cx="70" cy="40" r="4" class="mute"/><circle cx="95" cy="52" r="4" class="mute"/><circle cx="60" cy="56" r="4" class="mute"/>
+        <circle cx="160" cy="18" r="5" class="dot"/><circle cx="200" cy="14" r="5" class="dot"/><circle cx="180" cy="44" r="5" class="dot"/><circle cx="100" cy="24" r="5" class="dot"/>
+      </svg>
+      <span class="kind">CSRD case study</span>
       <h3>Double materiality: Nordvorm Packaging</h3>
       <p>A full assessment under the revised ESRS for a fictional Dutch packaging company, linked to PPWR, CBAM and EUDR.</p>
-      <span class="proves">Shows: running the core CSRD process and connecting it to product regulation.</span>
-      <span class="go">View project →</span>
+      <span class="proves">Shows I can run the core CSRD process and connect it to product regulation.</span>
+      <span class="go">Read the case</span>
     </a>
     <a class="project" href="#crosswalk">
-      <span class="n">03 · Framework analysis</span>
+      <svg class="fig" viewBox="0 0 240 70" aria-hidden="true">
+        <line x1="40" y1="12" x2="200" y2="14" class="ln"/><line x1="40" y1="26" x2="200" y2="40" class="ln"/><line x1="40" y1="40" x2="200" y2="26" class="ln"/><line x1="40" y1="54" x2="200" y2="54" class="ln faint"/>
+        <rect x="18" y="8" width="22" height="50" rx="2" class="col"/><rect x="200" y="8" width="22" height="50" rx="2" class="col"/>
+        <circle cx="40" cy="12" r="3.5" class="dot"/><circle cx="40" cy="26" r="3.5" class="dot"/><circle cx="40" cy="40" r="3.5" class="dot"/><circle cx="40" cy="54" r="3.5" class="mute"/>
+        <circle cx="200" cy="14" r="3.5" class="dot"/><circle cx="200" cy="40" r="3.5" class="dot"/><circle cx="200" cy="26" r="3.5" class="dot"/><circle cx="200" cy="54" r="3.5" class="mute"/>
+      </svg>
+      <span class="kind">Framework analysis</span>
       <h3>ESRS E1 and IFRS S2 crosswalk</h3>
-      <p>Interactive map of 15 climate disclosure themes: where the frameworks overlap, diverge, and what data serves both.</p>
-      <span class="proves">Shows: fluency in both EU and global reporting regimes.</span>
-      <span class="go">View project →</span>
+      <p>An interactive map of 15 climate disclosure themes: where the two frameworks overlap, where they diverge, and what data serves both.</p>
+      <span class="proves">Shows I can work across EU and global reporting regimes.</span>
+      <span class="go">Explore the crosswalk</span>
     </a>
   </div>
 </section>
@@ -296,7 +373,7 @@ a{color:var(--accent)}
   <div class="xp">
     <div><span class="when">03/2026–06/2026</span><div><h3>Climate Fellow, Climatebase (placed with Envome)</h3><p>EU market research on compostable areca-leaf plates; carbon footprint, compostability and sourcing comparison against plastic and paper. International team of 4.</p></div></div>
     <div><span class="when">10/2025–04/2026</span><div><h3>Business Analyst, Planetive</h3><p>Researched carbon-market mechanisms and credit potential for biochar and biogas; co-wrote a techno-economic feasibility report in a team of 10.</p></div></div>
-    <div><span class="when">02/2025–07/2025</span><div><h3>MSc thesis, LGP2 · Grenoble INP-Pagora (Chanel proof of concept)</h3><p>Fully cellulose-based 3D-printed packaging demonstrator; 18 formulations; printable solid content raised from 22.5% to 47.5%.</p></div></div>
+    <div><span class="when">02/2025–07/2025</span><div><h3>MSc thesis, LGP2, Grenoble INP-Pagora (Chanel proof of concept)</h3><p>Fully cellulose-based 3D-printed packaging demonstrator; 18 formulations; printable solid content raised from 22.5% to 47.5%.</p></div></div>
     <div><span class="when">07/2023–04/2024</span><div><h3>Management Engineer Trainee, Pak Steel Re-Rolling Mills</h3><p>Mapped the benefits of a 1 MW solar installation; researched biogas feasibility for energy resilience; data-flow mapping for an SAP ERP rollout.</p></div></div>
   </div>
 </section>
@@ -312,7 +389,7 @@ a{color:var(--accent)}
       <h3>Get in touch</h3>
       <p>LinkedIn: <a href="#">[your LinkedIn URL]</a></p>
       <p>Email: [your email]</p>
-      <p>Certifications: ESG Risks and Opportunities (UPenn) · Scaling Climate Finance (UNITAR) · Power BI Data Analyst · Generative AI and Copilot (Microsoft) · Google AI Essentials</p>
+      <p>Certifications: ESG Risks and Opportunities (UPenn), Scaling Climate Finance (UNITAR), Power BI Data Analyst, Generative AI and Copilot (Microsoft), Google AI Essentials</p>
     </div>
   </div>
 </section>
@@ -323,20 +400,20 @@ a{color:var(--accent)}
 <section class="tabpanel" id="tab-regulation-reader" role="tabpanel" aria-labelledby="tabbtn-regulation-reader">
 <div class="wrap">
 <header>
-  <div class="kicker">Portfolio project 1 of 3 · AI agent</div>
+  <div class="kicker">Project 1 of 3: AI agent</div>
   <h1>Regulation Reader: an AI agent that turns EU legal texts into a checked obligations register</h1>
   <p class="lead">Sustainability rules arrive as long amending directives that change other directives. This agent reads the official text, extracts every threshold, date and obligation with its article reference, cross-checks each one against a second source, and marks what a human still has to verify.</p>
-  <p class="byline">Bilal Tahir · Built with Claude · Demo run on Directive (EU) 2026/470 (Omnibus I), November 2026</p>
+  <p class="byline">By Bilal Tahir, built with Claude. Demo run on Directive (EU) 2026/470 (Omnibus I), November 2026.</p>
 </header>
 
 <section aria-labelledby="how">
   <h2 id="how">How the agent works</h2>
   <div class="pipeline">
-    <div class="step"><span class="n">01 · Ingest</span><h3>Official text only</h3><p>Starts from the Official Journal text, never a blog summary. Records the version date.</p></div>
-    <div class="step"><span class="n">02 · Extract</span><h3>One row per rule</h3><p>Every threshold, date, exemption and obligation, each tied to the article and the provision it amends.</p></div>
-    <div class="step"><span class="n">03 · Classify</span><h3>Tag and group</h3><p>Scope, deadline, exemption, obligation, review. Grouped by the directive being amended.</p></div>
-    <div class="step"><span class="n">04 · Cross-check</span><h3>Second source</h3><p>Looks for an independent source (Parliament, law firm, regulator) that states the same figure.</p></div>
-    <div class="step human"><span class="n">05 · Human check</span><h3>I decide</h3><p>Single-source rows are flagged. I verify them in EUR-Lex before anything is published or advised.</p></div>
+    <div class="step"><span class="n">1. Ingest</span><h3>Official text only</h3><p>Starts from the Official Journal text, never a blog summary. Records the version date.</p></div>
+    <div class="step"><span class="n">2. Extract</span><h3>One row per rule</h3><p>Every threshold, date, exemption and obligation, each tied to the article and the provision it amends.</p></div>
+    <div class="step"><span class="n">3. Classify</span><h3>Tag and group</h3><p>Scope, deadline, exemption, obligation, review. Grouped by the directive being amended.</p></div>
+    <div class="step"><span class="n">4. Cross-check</span><h3>Second source</h3><p>Looks for an independent source (Parliament, law firm, regulator) that states the same figure.</p></div>
+    <div class="step human"><span class="n">5. Human check</span><h3>I decide</h3><p>Single-source rows are flagged. I verify them in EUR-Lex before anything is published or advised.</p></div>
   </div>
 </section>
 
@@ -428,10 +505,10 @@ Finish with: source text used, its date, and the rows a human must check.</div>
 <section class="tabpanel" id="tab-materiality-case" role="tabpanel" aria-labelledby="tabbtn-materiality-case">
 <div class="wrap">
 <header class="read">
-  <div class="kicker">Portfolio project 2 of 3 · CSRD double materiality</div>
+  <div class="kicker">Project 2 of 3: CSRD double materiality</div>
   <h1>Double materiality assessment: Nordvorm Packaging</h1>
   <p class="lead">A worked assessment under the revised ESRS (adopted 3 July 2026) for a fictional Dutch food-packaging manufacturer, connected to the PPWR, CBAM and EUDR obligations the company faces.</p>
-  <p class="byline">Bilal Tahir · AI-assisted with a double materiality agent, judgement calls by me · November 2026</p>
+  <p class="byline">By Bilal Tahir, November 2026. Drafted with a double materiality agent; the judgement calls are mine.</p>
   <p class="note">The company and every score are invented to show the method. The standards, thresholds and regulatory dates are real as of 9 November 2026.</p>
 </header>
 
@@ -460,7 +537,7 @@ Finish with: source text used, its date, and the rows a human must check.</div>
 
 <section aria-labelledby="s3">
   <h2 id="s3" class="read">3. Long list and scores</h2>
-  <p class="read">8 of 15 IROs pass the threshold, across E1, E2, E5, S1 and S4. Material rows are marked with a blue edge.</p>
+  <p class="read">8 of 15 IROs pass the threshold, across E1, E2, E5, S1 and S4. Material rows are marked with a green edge.</p>
   <div class="tablewrap"><table>
     <thead><tr><th>#</th><th>Topic</th><th>Impact, risk or opportunity</th><th>Type</th><th>Value chain</th><th>Impact</th><th>Financial</th><th>Material?</th></tr></thead>
     <tbody>
@@ -521,7 +598,7 @@ Finish with: source text used, its date, and the rows a human must check.</div>
 <g><circle cx="388.0" cy="341.6" r="6" class="dm"><title>#14 S4 Food-contact safety: impact 1.6, financial 3.0</title></circle><text x="398.0" y="345.6" text-anchor="start" class="p">#14 S4 Food-contact safety</text></g>
 <g><circle cx="197.2" cy="393.4" r="5" class="dg"><title>#15 G1 Bribery in sourcing: impact 0.9, financial 1.2</title></circle><text x="207.2" y="397.4" text-anchor="start" class="m">#15</text></g>
 </svg>
-    <p class="cap">Blue: material. Grey: below threshold, numbered as in the table. Illustrative scores.</p>
+    <p class="cap">Green: material. Grey: below threshold, numbered as in the table. Illustrative scores.</p>
   </div>
   <p class="read">Climate (E1) and circularity (E5) sit top right: large impacts and direct cost exposure through CBAM, carbon pricing and PPWR. PFAS and food-contact safety are material on the financial axis alone, because regulation can take products off the market.</p>
 </section>
@@ -563,17 +640,17 @@ Finish with: source text used, its date, and the rows a human must check.</div>
 <section class="tabpanel" id="tab-crosswalk" role="tabpanel" aria-labelledby="tabbtn-crosswalk">
 <div class="wrap">
 <header>
-  <div class="kicker">Portfolio project 3 of 3 · Framework analysis</div>
+  <div class="kicker">Project 3 of 3: framework analysis</div>
   <h1>ESRS E1 and IFRS S2: one climate data set, two reports</h1>
   <p class="lead">A disclosure-by-disclosure map of the revised ESRS E1 (adopted 3 July 2026) against IFRS S2 (as amended December 2025) and the GHG Protocol. For each theme: where the two align, where they diverge, and which data a company should collect once to serve both.</p>
-  <p class="byline">Bilal Tahir · Mapping drafted with an AI agent, every row checked by me against the standards · November 2026</p>
+  <p class="byline">By Bilal Tahir, November 2026. Mapping drafted with an AI agent, every row checked against the standards.</p>
 </header>
 
 <section aria-labelledby="basis">
   <h2 id="basis">Start with the one difference that drives the rest</h2>
   <div class="basis">
-    <div class="card"><span class="fw">ESRS · CSRD</span><h3>Double materiality</h3><p>Report a topic if it is material for its impact on people and the environment, for its financial effect on the company, or both. Revised ESRS keep this principle but allow a top-down assessment at topic level, and non-material information must now be left out.</p></div>
-    <div class="card"><span class="fw">IFRS S1 / S2 · ISSB</span><h3>Financial materiality</h3><p>Report what could reasonably be expected to affect the company's cash flows, access to finance or cost of capital. Built for investors. Adopted by 35 jurisdictions as of July 2026, including the UK through UK SRS.</p></div>
+    <div class="card"><span class="fw">ESRS, under the CSRD</span><h3>Double materiality</h3><p>Report a topic if it is material for its impact on people and the environment, for its financial effect on the company, or both. Revised ESRS keep this principle but allow a top-down assessment at topic level, and non-material information must now be left out.</p></div>
+    <div class="card"><span class="fw">IFRS S1 and S2, from the ISSB</span><h3>Financial materiality</h3><p>Report what could reasonably be expected to affect the company's cash flows, access to finance or cost of capital. Built for investors. Adopted by 35 jurisdictions as of July 2026, including the UK through UK SRS.</p></div>
   </div>
   <p class="sub">So a climate impact that is material to society but not to cash flows belongs in an ESRS report and may be absent from an IFRS S2 report. On emissions data itself, the two are close, because both rest on the GHG Protocol.</p>
 </section>
@@ -738,7 +815,7 @@ render("all");
       document.getElementById('tabbtn-'+t).setAttribute('aria-selected',t===id?'true':'false');
     });
     const label=document.getElementById('tabbtn-'+id).textContent;
-    document.title=(id==='overview'?'':label+' · ')+'Bilal Tahir · Sustainability Portfolio';
+    document.title=(id==='overview'?'':label+' | ')+'Bilal Tahir, sustainability portfolio';
   }
   window.addEventListener('hashchange',()=>{show();window.scrollTo(0,0);});
   show();

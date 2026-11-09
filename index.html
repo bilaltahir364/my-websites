@@ -1,824 +1,640 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bilal Tahir, sustainability portfolio</title>
-<meta name="description" content="Materials engineer working on ESG reporting, carbon accounting and decarbonisation strategy. Portfolio projects on CSRD, ESRS, IFRS S2 and AI agents.">
+<title>Bilal Tahir — Materials, Climate &amp; Technology</title>
+<meta name="description" content="Bilal Tahir, materials engineer (MSc, High Honours) in Amsterdam: biobased materials, energy storage, techno-economic analysis and climate technology.">
+<meta name="theme-color" content="#F3F1EA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bilal Tahir — Materials, Climate &amp; Technology">
+<meta property="og:description" content="Turning materials innovation into real-world solutions.">
+<meta property="og:url" content="https://bilaltahir364.github.io/my-websites/">
+<meta property="og:image" content="https://bilaltahir364.github.io/my-websites/assets/portrait.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1714'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23CFE38A'/%3E%3C/svg%3E">
+<script>
+// Old links like /my-websites/#crosswalk pointed at the sustainability tabs, which now live in /sustainability/.
+(function(){var h=location.hash.replace('#','');if(['overview','regulation-reader','materiality-case','crosswalk'].indexOf(h)>-1){location.replace('sustainability/#'+h);}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
 <style>
-/* Layout idea: one page, four tabs. A sticky bar carries the name and the tabs; each tab is one of the original pages, its styles scoped to its own panel. */
-:root{
-  --paper:#ECEFED; --surface:#F7F9F8; --ink:#1B2124; --muted:#56636A; --rule:#C9D1CE;
-  --accent:#2B7568; --accent-soft:#DAEAE5; --grey:#B4BCB9;
-  --ok:#2F6B3F; --ok-soft:#E1EFE4; --warn:#8A5A00; --warn-soft:#F7ECD3;
-  --hi:#2F6B3F; --hi-soft:#E1EFE4; --part:#8A5A00; --part-soft:#F7ECD3; --one:#7A3B5C; --one-soft:#F2E4EC;
-  --display:"Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body:"Atkinson Hyperlegible", "Segoe UI", Helvetica, Arial, sans-serif;
-  --ref:"Atkinson Hyperlegible", "Segoe UI", Helvetica, Arial, sans-serif;
-  color-scheme: light;
+body{margin:0;background:#F3F1EA;color:#0F1A16;font-family:"Inter Tight",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0F1A16;text-decoration:none}a:hover{color:#2F5D46}
+.wrap{width:min(1240px,100% - 48px);margin:0 auto}
+.btn{transition:transform .2s ease,background .2s ease}.btn:hover{transform:translateY(-2px)}
+.navlink:hover{color:#2F5D46}
+.toggle{cursor:pointer}.toggle:hover{color:#CFE38A}
+.dark a{color:#F3F1EA}.dark a:hover{color:#CFE38A}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes redraw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+@keyframes scan{from{transform:translateY(0)}to{transform:translateY(318px)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes bob{from{transform:translateY(4px)}to{transform:translateY(-8px)}}
+@keyframes growy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes unfold{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.in{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.46s}
+@supports (animation-timeline: view()){
+ .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#121719; --surface:#192124; --ink:#E3E9E7; --muted:#97A4A1; --rule:#29343A;
-    --accent:#74C4B3; --accent-soft:#183330; --grey:#4E5A5E;
-    --ok:#8FD19F; --ok-soft:#1C3324; --warn:#F0C46A; --warn-soft:#3A2E14;
-    --hi:#8FD19F; --hi-soft:#1C3324; --part:#F0C46A; --part-soft:#3A2E14; --one:#E3A3C4; --one-soft:#3A2230;
-    color-scheme: dark;
-  }
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 60s linear infinite}
+.draw{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.6s .7s cubic-bezier(.4,0,.2,1) forwards}
+.draw2{animation-delay:1.1s}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+.scan{animation:scan 6s ease-in-out infinite alternate}
+.marquee{animation:marquee 38s linear infinite}.marquee:hover{animation-play-state:paused}
+.navlink{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;padding-bottom:3px;transition:background-size .35s ease,color .2s}
+.navlink:hover{background-size:100% 1px}
+.btn svg{transition:transform .25s ease}.btn:hover svg{transform:translate(3px,-3px)}
+.specimen{transition:translate .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s}.specimen:hover{translate:0 -6px;box-shadow:0 30px 60px -30px #0E171488}
+.card{transition:translate .5s cubic-bezier(.2,.7,.2,1),border-color .5s,box-shadow .5s}
+.card:hover{translate:0 -8px;border-color:#3F5649 !important;box-shadow:0 28px 50px -30px #000}
+.card .cardart{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}.card:hover .cardart{transform:scale(1.07)}
+.cv{stroke-dasharray:900;stroke-dashoffset:0}.card:hover .cv{animation:redraw 1.8s ease}
+.bubbles circle{animation:bob 3.5s ease-in-out infinite alternate}
+.bubbles circle:nth-child(2){animation-delay:.6s}.bubbles circle:nth-child(3){animation-delay:1.2s}.bubbles circle:nth-child(4){animation-delay:1.8s}
+.grow{transform-box:fill-box;transform-origin:bottom}.card:hover .grow{animation:growy .9s cubic-bezier(.2,.7,.2,1) both}
+.card:hover .grow2{animation-delay:.12s}.card:hover .grow3{animation-delay:.24s}
+.cap,.edu{transition:translate .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.cap:hover,.edu:hover{translate:0 -6px;box-shadow:0 22px 40px -28px #0E171466}
+.role h3{transition:color .3s,translate .4s cubic-bezier(.2,.7,.2,1)}.role:hover h3{color:#2F5D46;translate:8px 0}
+.unfold{animation:unfold .5s cubic-bezier(.2,.7,.2,1) both}
+.tile{all:unset;cursor:zoom-in;position:relative;display:block;overflow:hidden;border-radius:18px;background:#DDE3D8}
+.tile img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}.tile:hover img{transform:scale(1.06)}
+.tile:focus-visible{outline:2px solid #2F5D46;outline-offset:3px}
+.partner{transition:background .35s ease,color .35s ease}.partner:hover{background:#0E1714 !important;color:#F3F1EA !important}
+.partner:hover .psub{color:#A3B1A8 !important}.partner svg{transition:transform .3s}.partner:hover svg{transform:translate(3px,-3px)}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.lb{animation:fadein .3s ease both}.lb img{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:820px){
+ .gallery{grid-template-columns:repeat(2,minmax(0,1fr)) !important;grid-auto-rows:220px !important}
+ .gallery .big{grid-column:span 2 !important;grid-row:span 2 !important}
+ .gallery .wide{grid-column:span 2 !important}
 }
-:root[data-theme="dark"]{
-  --paper:#121719; --surface:#192124; --ink:#E3E9E7; --muted:#97A4A1; --rule:#29343A;
-    --accent:#74C4B3; --accent-soft:#183330; --grey:#4E5A5E;
-    --ok:#8FD19F; --ok-soft:#1C3324; --warn:#F0C46A; --warn-soft:#3A2E14;
-    --hi:#8FD19F; --hi-soft:#1C3324; --part:#F0C46A; --part-soft:#3A2E14; --one:#E3A3C4; --one-soft:#3A2230;
-  color-scheme: dark;
+@media (prefers-reduced-motion: reduce){
+ *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+ .draw{stroke-dashoffset:0}
 }
-*{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
-a{color:var(--accent)}
-.topbar{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--rule)}
-.topbar .in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
-.topbar .name{font:800 24px/1 var(--display);letter-spacing:.02em;color:var(--ink);text-decoration:none;padding:16px 0;margin-right:auto}
-.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-.tab{font:700 15px/1 var(--body);color:var(--muted);text-decoration:none;padding:16px 12px 14px;border-bottom:2px solid transparent;white-space:nowrap}
-.tab:hover{color:var(--ink)}
-.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
-.tab:focus-visible,.topbar .name:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
-.js .tabpanel{display:none}
-.js .tabpanel.active{display:block}
-@media (max-width:640px){.topbar .name{padding:12px 0 4px}.tab{padding:10px 10px 12px}}
-/* Overview */
-#tab-overview a{color:var(--accent)}
-#tab-overview a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-#tab-overview .wrap{max-width:1180px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:56px}
-#tab-overview .intro{display:grid;gap:16px;max-width:68ch}
-#tab-overview .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
-#tab-overview h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
-#tab-overview h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0;text-wrap:balance}
-#tab-overview h3{font:600 17px/1.3 var(--body);margin:0}
-#tab-overview p{margin:0}
-#tab-overview .lead{font-size:19px}
-#tab-overview .facts{display:flex;flex-wrap:wrap;gap:8px}
-#tab-overview .chip{font:500 13px/1 var(--body);padding:7px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--surface)}
-#tab-overview section{display:grid;gap:18px}
-#tab-overview .sub{color:var(--muted);max-width:68ch}
-#tab-overview .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-#tab-overview .project{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:3px;padding:20px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto;text-decoration:none;color:var(--ink)}
-#tab-overview .project:hover{border-color:var(--accent)}
-#tab-overview .project .n{font:700 13px/1 var(--body);color:var(--accent)}
-#tab-overview .project p{font-size:15px;color:var(--muted)}
-#tab-overview .project .proves{font-size:14px;color:var(--ink)}
-#tab-overview .project .go{font:600 14px/1 var(--body);color:var(--accent)}
-#tab-overview .fw{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
-#tab-overview .fw div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
-#tab-overview .fw b{font-weight:600}
-#tab-overview .fw span{color:var(--muted)}
-#tab-overview .xp{display:grid;gap:0}
-#tab-overview .xp > div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
-#tab-overview .xp .when{font:400 13px/1.5 var(--ref);color:var(--muted);font-variant-numeric:tabular-nums}
-#tab-overview .xp p{font-size:15px;color:var(--muted)}
-#tab-overview .about{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
-#tab-overview .about .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:20px;display:grid;gap:8px;font-size:15px}
-#tab-overview footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px}
-@media (max-width:860px){#tab-overview .projects,#tab-overview .fw,#tab-overview .about{grid-template-columns:1fr}
-#tab-overview .fw div,#tab-overview .xp > div{grid-template-columns:1fr;gap:2px}}
-/* Overview: hero, materials strip, project cards */
-#tab-overview .wrap{gap:64px;padding-top:64px}
-#tab-overview .hero{display:grid;gap:20px;max-width:none}
-#tab-overview .hero h1{font:800 clamp(48px,8.2vw,104px)/.92 var(--display);letter-spacing:0;max-width:15ch;margin:0;text-wrap:balance}
-#tab-overview .hero .lead{font-size:20px;line-height:1.55;max-width:58ch}
-#tab-overview .chip{border-radius:2px;font:700 14px/1 var(--body);padding:8px 11px}
-#tab-overview .materials{margin:0;display:grid;gap:14px}
-#tab-overview .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-#tab-overview .mat{display:grid;gap:4px;align-content:start}
-#tab-overview .mat b{font:700 26px/1 var(--display);letter-spacing:.01em;margin-top:8px}
-#tab-overview .mat span{font-size:14px;color:var(--muted)}
-#tab-overview .swatch{height:200px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-#tab-overview .swatch.steel{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(180deg,#4b545a 0%,#8d979e 42%,#5b646a 70%,#3f474c 100%)}
-#tab-overview .swatch.alu{background:repeating-linear-gradient(35deg,rgba(255,255,255,.35) 0 2px,transparent 2px 14px),linear-gradient(115deg,#b9c0c5 0%,#f1f3f5 28%,#a9b1b6 52%,#e8ecee 74%,#9fa7ac 100%)}
-#tab-overview .swatch.cement{background:radial-gradient(circle at 30% 40%,rgba(30,30,28,.28) 0 1px,transparent 1.6px) 0 0/7px 7px,radial-gradient(circle at 60% 70%,rgba(255,255,255,.35) 0 1px,transparent 1.8px) 0 0/11px 11px,radial-gradient(circle at 50% 50%,rgba(60,58,52,.18) 0 2px,transparent 3px) 0 0/23px 19px,linear-gradient(180deg,#a3a39c,#8e8e87)}
-#tab-overview .swatch.plastic{background:radial-gradient(ellipse 60% 35% at 30% 18%,rgba(255,255,255,.6),transparent 70%),linear-gradient(160deg,#7cc0cf 0%,#3b8ea3 55%,#25677a 100%)}
-#tab-overview .swatch.fibre{background:repeating-linear-gradient(17deg,rgba(90,72,44,.13) 0 1px,transparent 1px 4px),repeating-linear-gradient(-28deg,rgba(255,255,255,.22) 0 1px,transparent 1px 6px),radial-gradient(circle at 50% 50%,rgba(120,100,70,.12) 0 1px,transparent 2px) 0 0/5px 5px,linear-gradient(180deg,#c9bea6,#b3a68a)}
-#tab-overview .materials figcaption{font-size:15px;color:var(--muted);max-width:70ch}
-@media (prefers-reduced-motion:no-preference){
-  #tab-overview.active .swatch{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
-  #tab-overview.active .mat:nth-child(2) .swatch{animation-delay:.08s}
-  #tab-overview.active .mat:nth-child(3) .swatch{animation-delay:.16s}
-  #tab-overview.active .mat:nth-child(4) .swatch{animation-delay:.24s}
-  #tab-overview.active .mat:nth-child(5) .swatch{animation-delay:.32s}
-  @keyframes rise{from{transform:translateY(18px);clip-path:inset(100% 0 0 0)}to{transform:none;clip-path:inset(0 0 0 0)}}
+@media (max-width:820px){
+ .navlinks{display:none !important}
+ .role{grid-template-columns:1fr !important;gap:6px !important}
+ .split{grid-template-columns:1fr !important;gap:40px !important}
+ .figs{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ .sec{padding-top:72px !important;padding-bottom:72px !important}
 }
-#tab-overview .projects{gap:20px}
-#tab-overview .project{border:1px solid var(--rule);border-top:1px solid var(--rule);border-radius:2px;padding:22px;gap:10px;grid-template-rows:auto auto auto 1fr auto auto;background:var(--surface)}
-#tab-overview .project:hover{border-color:var(--accent)}
-#tab-overview .project:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-#tab-overview .project h3{font:700 28px/1.02 var(--display);letter-spacing:.01em}
-#tab-overview .project .kind{font:700 14px/1 var(--body);color:var(--accent)}
-#tab-overview .project .go{font:700 15px/1 var(--body);color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-#tab-overview .project:hover .go{text-decoration-thickness:2px}
-#tab-overview .fig{width:100%;height:auto;margin-bottom:6px}
-#tab-overview .fig .ln{stroke:var(--muted);stroke-width:1.5}
-#tab-overview .fig .ln.faint{stroke-dasharray:3 3}
-#tab-overview .fig .ax{stroke:var(--rule);stroke-width:1.5}
-#tab-overview .fig .th{stroke:var(--muted);stroke-dasharray:4 3}
-#tab-overview .fig .dot{fill:var(--accent)}
-#tab-overview .fig .mute{fill:var(--grey)}
-#tab-overview .fig .ring{fill:var(--surface);stroke:var(--accent);stroke-width:2.5}
-#tab-overview .fig .col{fill:var(--accent-soft)}
-#tab-overview .fw b{font:700 22px/1.1 var(--display);letter-spacing:.01em}
-#tab-overview .xp h3{font:700 22px/1.1 var(--display);letter-spacing:.01em}
-@media (max-width:860px){
-  #tab-overview .strip{grid-template-columns:repeat(5,minmax(110px,1fr));overflow-x:auto;padding-bottom:6px}
-  #tab-overview .swatch{height:130px}
+@media (max-width:560px){
+ .wrap{width:calc(100% - 32px)}
+ .figs{grid-template-columns:1fr !important}
+ .hide-sm{display:none !important}
 }
-
-/* Regulation Reader */
-#tab-regulation-reader .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
-#tab-regulation-reader header{display:grid;gap:12px;max-width:72ch}
-#tab-regulation-reader .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
-#tab-regulation-reader h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
-#tab-regulation-reader h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0 0 6px;text-wrap:balance}
-#tab-regulation-reader h3{font:600 16px/1.3 var(--body);margin:0}
-#tab-regulation-reader p{margin:0}
-#tab-regulation-reader .lead{font-size:18px;color:var(--ink)}
-#tab-regulation-reader .byline{color:var(--muted);font-size:14px}
-#tab-regulation-reader section{display:grid;gap:16px}
-#tab-regulation-reader .sub{color:var(--muted);max-width:72ch}
-#tab-regulation-reader .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
-#tab-regulation-reader .step{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:14px;display:grid;gap:6px;align-content:start;position:relative}
-#tab-regulation-reader .step .n{font:700 13px/1 var(--body);color:var(--accent)}
-#tab-regulation-reader .step p{font-size:14px;color:var(--muted)}
-#tab-regulation-reader .step:not(:last-child)::after{content:"\2192";position:absolute;right:-11px;top:16px;color:var(--accent);font-weight:600}
-#tab-regulation-reader .step.human{border-color:var(--warn);background:var(--warn-soft)}
-#tab-regulation-reader .step.human .n{color:var(--warn)}
-#tab-regulation-reader .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#tab-regulation-reader .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px;display:grid;gap:10px}
-#tab-regulation-reader .card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
-#tab-regulation-reader .stats{display:flex;flex-wrap:wrap;gap:10px}
-#tab-regulation-reader .stat{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:10px 14px;display:grid;gap:2px;min-width:150px}
-#tab-regulation-reader .stat b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
-#tab-regulation-reader .stat span{font-size:13px;color:var(--muted)}
-#tab-regulation-reader .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-#tab-regulation-reader .controls label{font-size:13px;color:var(--muted);margin-right:4px}
-#tab-regulation-reader button.f{font:500 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
-#tab-regulation-reader button.f[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
-#tab-regulation-reader button.f:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-#tab-regulation-reader .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px}
-#tab-regulation-reader table{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
-#tab-regulation-reader th,#tab-regulation-reader td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
-#tab-regulation-reader th{font:700 13px/1.3 var(--body);color:var(--muted);background:var(--paper)}
-#tab-regulation-reader tr:last-child td{border-bottom:0}
-#tab-regulation-reader td.ref{font:400 12.5px/1.45 var(--ref);color:var(--accent);white-space:nowrap}
-#tab-regulation-reader td.val{font-weight:600;font-variant-numeric:tabular-nums}
-#tab-regulation-reader .tag{display:inline-block;font:500 11.5px/1 var(--ref);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
-#tab-regulation-reader .pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;white-space:nowrap}
-#tab-regulation-reader .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-#tab-regulation-reader .pill.ok{background:var(--ok-soft);color:var(--ok)}
-#tab-regulation-reader .pill.warn{background:var(--warn-soft);color:var(--warn)}
-#tab-regulation-reader .src{font-size:12.5px;color:var(--muted);display:block;margin-top:4px}
-#tab-regulation-reader .prompt{font:400 13px/1.6 var(--ref);background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:3px;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
-#tab-regulation-reader footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
-#tab-regulation-reader footer a,#tab-regulation-reader .src a{color:var(--accent)}
-@media (max-width:860px){#tab-regulation-reader .pipeline{grid-template-columns:1fr 1fr}
-#tab-regulation-reader .step::after{display:none}
-#tab-regulation-reader .cols{grid-template-columns:1fr}}
-@media (max-width:440px){#tab-regulation-reader .pipeline{grid-template-columns:1fr}}
-/* Materiality case */
-#tab-materiality-case .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
-#tab-materiality-case .read{max-width:72ch}
-#tab-materiality-case header{display:grid;gap:12px}
-#tab-materiality-case .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
-#tab-materiality-case h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
-#tab-materiality-case h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0;text-wrap:balance}
-#tab-materiality-case h3{font:600 16px/1.3 var(--body);margin:0}
-#tab-materiality-case p{margin:0}
-#tab-materiality-case .lead{font-size:18px}
-#tab-materiality-case .byline{color:var(--muted);font-size:14px}
-#tab-materiality-case .note{background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:4px;font-size:15px}
-#tab-materiality-case section{display:grid;gap:14px}
-#tab-materiality-case ul{margin:0;padding-left:20px;display:grid;gap:6px}
-#tab-materiality-case .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px}
-#tab-materiality-case table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
-#tab-materiality-case th,#tab-materiality-case td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
-#tab-materiality-case th{font:700 13px/1.3 var(--body);color:var(--muted);background:var(--paper)}
-#tab-materiality-case tr:last-child td{border-bottom:0}
-#tab-materiality-case tr.mat td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
-#tab-materiality-case td.num{font-variant-numeric:tabular-nums;text-align:right}
-#tab-materiality-case .tag{font:500 11.5px/1 var(--ref);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
-#tab-materiality-case .formula{font:400 14px/1.6 var(--ref);background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:12px 16px}
-#tab-materiality-case .figure{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:16px;display:grid;gap:8px}
-#tab-materiality-case .figure .cap{font-size:13px;color:var(--muted)}
-#tab-materiality-case .matrix{width:100%;max-width:880px;height:auto;font:12px var(--body)}
-#tab-materiality-case .matrix .g{stroke:var(--rule)}
-#tab-materiality-case .matrix .th{stroke:var(--muted);stroke-dasharray:5 4}
-#tab-materiality-case .matrix .m{fill:var(--muted)}
-#tab-materiality-case .matrix .p{fill:var(--ink)}
-#tab-materiality-case .matrix .dm{fill:var(--accent)}
-#tab-materiality-case .matrix .dg{fill:var(--grey)}
-#tab-materiality-case .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#tab-materiality-case .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px;display:grid;gap:10px;align-content:start}
-#tab-materiality-case footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
-#tab-materiality-case a{color:var(--accent)}
-@media (max-width:760px){#tab-materiality-case .cols{grid-template-columns:1fr}}
-/* ESRS / IFRS crosswalk */
-#tab-crosswalk .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:36px}
-#tab-crosswalk header{display:grid;gap:12px;max-width:74ch}
-#tab-crosswalk .kicker{font:700 15px/1.3 var(--body);color:var(--accent)}
-#tab-crosswalk h1{font:700 clamp(40px,6vw,66px)/1 var(--display);letter-spacing:.005em;margin:0;text-wrap:balance}
-#tab-crosswalk h2{font:700 clamp(28px,3.4vw,36px)/1.05 var(--display);letter-spacing:.01em;margin:0;text-wrap:balance}
-#tab-crosswalk h3{font:600 15px/1.3 var(--body);margin:0}
-#tab-crosswalk p{margin:0}
-#tab-crosswalk .lead{font-size:18px}
-#tab-crosswalk .byline{color:var(--muted);font-size:14px}
-#tab-crosswalk section{display:grid;gap:16px}
-#tab-crosswalk .sub{color:var(--muted);max-width:74ch}
-#tab-crosswalk .basis{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#tab-crosswalk .card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px;display:grid;gap:8px;align-content:start}
-#tab-crosswalk .card .fw{font:700 13px/1 var(--body);color:var(--accent)}
-#tab-crosswalk .card p{font-size:15px}
-#tab-crosswalk .summary{display:flex;flex-wrap:wrap;gap:10px}
-#tab-crosswalk .sum{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:3px;padding:10px 14px;display:grid;gap:2px;min-width:170px}
-#tab-crosswalk .sum b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
-#tab-crosswalk .sum span{font-size:13px;color:var(--muted)}
-#tab-crosswalk .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-#tab-crosswalk .controls .lbl{font-size:13px;color:var(--muted);margin-right:4px}
-#tab-crosswalk button.f{font:500 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
-#tab-crosswalk button.f[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
-#tab-crosswalk button.f:focus-visible,#tab-crosswalk summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-#tab-crosswalk .grid{display:grid;gap:10px}
-#tab-crosswalk .head,#tab-crosswalk .row>summary{display:grid;grid-template-columns:1.1fr 1.5fr 1.5fr 1.1fr 130px;gap:14px;align-items:start}
-#tab-crosswalk .head{font:700 13px/1.3 var(--body);color:var(--muted);padding:0 16px 0 20px}
-#tab-crosswalk .row{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:3px}
-#tab-crosswalk .row>summary{list-style:none;cursor:pointer;padding:14px 16px}
-#tab-crosswalk .row>summary::-webkit-details-marker{display:none}
-#tab-crosswalk .theme{font-weight:600}
-#tab-crosswalk .theme small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
-#tab-crosswalk .ref{font:500 12.5px/1.4 var(--ref);color:var(--accent);display:block;margin-bottom:3px}
-#tab-crosswalk .cell{font-size:14px}
-#tab-crosswalk .cell .t{color:var(--ink)}
-#tab-crosswalk .pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;background:var(--cs);color:var(--c);white-space:nowrap}
-#tab-crosswalk .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-#tab-crosswalk .more{padding:0 16px 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px dashed var(--rule);padding-top:12px;margin:0 16px 0 0}
-#tab-crosswalk .more div{font-size:14px}
-#tab-crosswalk .more h4{font:700 13px/1.3 var(--body);color:var(--muted);margin:0 0 4px}
-#tab-crosswalk .hint{font-size:13px;color:var(--muted)}
-#tab-crosswalk .c-hi{--c:var(--hi);--cs:var(--hi-soft)}
-#tab-crosswalk .c-part{--c:var(--part);--cs:var(--part-soft)}
-#tab-crosswalk .c-esrs{--c:var(--accent);--cs:var(--accent-soft)}
-#tab-crosswalk .c-s2{--c:var(--one);--cs:var(--one-soft)}
-#tab-crosswalk footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
-#tab-crosswalk footer a{color:var(--accent)}
-@media (max-width:900px){#tab-crosswalk .head{display:none}
-#tab-crosswalk .row>summary{grid-template-columns:1fr;gap:8px}
-#tab-crosswalk .more{grid-template-columns:1fr;margin:0}
-#tab-crosswalk .basis{grid-template-columns:1fr}}
 </style>
+<style>[hidden]{display:none !important}.esg-band:hover{border-color:#3F5649 !important}</style>
 </head>
 <body>
-<header class="topbar"><div class="in">
-<a class="name" href="#overview">Bilal Tahir</a>
-<nav class="tabs" role="tablist" aria-label="Portfolio sections">
-<a class="tab" role="tab" id="tabbtn-overview" href="#overview" aria-controls="tab-overview">Overview</a>
-<a class="tab" role="tab" id="tabbtn-regulation-reader" href="#regulation-reader" aria-controls="tab-regulation-reader">Regulation Reader</a>
-<a class="tab" role="tab" id="tabbtn-materiality-case" href="#materiality-case" aria-controls="tab-materiality-case">Materiality case</a>
-<a class="tab" role="tab" id="tabbtn-crosswalk" href="#crosswalk" aria-controls="tab-crosswalk">ESRS / IFRS crosswalk</a>
-</nav>
-</div></header>
+<div style="width: 100%; min-height: 100vh; background: #F3F1EA; color: #0F1A16; font-family: 'Inter Tight', system-ui, sans-serif">
+
+<!-- NAV -->
+<header id="top" style="position: sticky; top: 0; z-index: 50; background: rgba(243, 241, 234, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid #D8D6CC">
+ <div class="wrap" style="height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+  <a href="#top" style="display: flex; align-items: baseline; gap: 12px">
+   <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; letter-spacing: -0.01em">Bilal Tahir</span>
+   <span class="hide-sm" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E; letter-spacing: 0.04em">MSc · Materials Eng.</span>
+  </a>
+  <nav class="navlinks" aria-label="Main navigation" style="display: flex; gap: 32px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #3E4842">
+   <a class="navlink" href="#about" style="color: #3E4842"><span style="color: #2F5D46">01</span> About</a>
+   <a class="navlink" href="#work" style="color: #3E4842"><span style="color: #2F5D46">02</span> Work</a>
+   <a class="navlink" href="#lab" style="color: #3E4842"><span style="color: #2F5D46">02.1</span> Lab</a>
+   <a class="navlink" href="#journey" style="color: #3E4842"><span style="color: #2F5D46">03</span> Journey</a>
+   <a class="navlink" href="#expertise" style="color: #3E4842"><span style="color: #2F5D46">04</span> Expertise</a>
+   <a class="navlink" href="sustainability/" style="color: #3E4842"><span style="color: #2F5D46">↗</span> ESG portfolio</a>
+  </nav>
+  <a class="btn" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #0F1A16; color: #F3F1EA; font-size: 13px; font-weight: 500">
+   <span style="width: 7px; height: 7px; border-radius: 50%; background: #CFE38A"></span>Get in touch
+  </a>
+ </div>
+</header>
+
 <main>
-<section class="tabpanel" id="tab-overview" role="tabpanel" aria-labelledby="tabbtn-overview">
-<div class="wrap">
-<header class="hero">
-  <h1>I'm a materials engineer working on what sits behind the carbon numbers.</h1>
-  <p class="lead">Most corporate emissions come from a handful of materials. I combine that background with EU and global reporting frameworks, and I use AI agents with clear guardrails to do the work faster.</p>
-  <div class="facts"><span class="chip">Amsterdam</span><span class="chip">Full Dutch work permit</span><span class="chip">MSc Materials Engineering, High Honours</span><span class="chip">Climatebase Fellow, 2026</span></div>
-</header>
-
-<figure class="materials" aria-labelledby="materials-cap">
-  <div class="strip">
-    <div class="mat"><div class="swatch steel" aria-hidden="true"></div><b>Steel</b><span>CBAM, EU ETS</span></div>
-    <div class="mat"><div class="swatch alu" aria-hidden="true"></div><b>Aluminium</b><span>CBAM, EU ETS</span></div>
-    <div class="mat"><div class="swatch cement" aria-hidden="true"></div><b>Cement</b><span>CBAM, EU ETS</span></div>
-    <div class="mat"><div class="swatch plastic" aria-hidden="true"></div><b>Plastics</b><span>PPWR</span></div>
-    <div class="mat"><div class="swatch fibre" aria-hidden="true"></div><b>Fibre</b><span>PPWR, EUDR</span></div>
-  </div>
-  <figcaption id="materials-cap">Five materials, and the EU rules that already price or regulate them. All of them flow into Scope 3 under ESRS E1.</figcaption>
-</figure>
-
-<section aria-labelledby="work" class="work">
-  <h2 id="work">Projects</h2>
-  <p class="sub">Three pieces of work built on the standards as they stand in November 2026. Each shows the method, the sources and where AI helped.</p>
-  <div class="projects">
-    <a class="project" href="#regulation-reader">
-      <svg class="fig" viewBox="0 0 240 70" aria-hidden="true">
-        <line x1="20" y1="35" x2="220" y2="35" class="ln"/>
-        <circle cx="20" cy="35" r="7" class="dot"/><circle cx="70" cy="35" r="7" class="dot"/><circle cx="120" cy="35" r="7" class="dot"/><circle cx="170" cy="35" r="7" class="dot"/>
-        <circle cx="220" cy="35" r="9" class="ring"/>
-      </svg>
-      <span class="kind">AI agent</span>
-      <h3>Regulation Reader</h3>
-      <p>Turns EU legal texts into an obligations register with article references, each cross-checked against a second source. Demo on Omnibus I.</p>
-      <span class="proves">Shows I can build AI agents with guardrails and read EU law at article level.</span>
-      <span class="go">Open the agent</span>
+<!-- HERO -->
+<section class="wrap" style="padding: 88px 0 56px">
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 64px; align-items: center">
+  <div>
+   <div class="in d1" style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid #CFCCC0; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3E4842; letter-spacing: 0.04em">
+    <span style="width: 7px; height: 7px; border-radius: 50%; background: #2F5D46; box-shadow: 0 0 0 4px #2F5D4622"></span>Amsterdam, NL — open to opportunities
+   </div>
+   <h1 class="in d2" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(52px, 7vw, 108px); line-height: 0.94; letter-spacing: -0.035em; margin: 28px 0 28px">Turning materials innovation into <em style="color: #2F5D46">real‑world</em> solutions.</h1>
+   <p class="in d3" style="font-size: 18px; line-height: 1.65; color: #4A544E; max-width: 540px; margin: 0">I work across materials science, sustainability and the energy transition — connecting technical understanding with research, data and practical decision-making.</p>
+   <div class="in d4" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px">
+    <a class="btn" href="#work" style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #0F1A16; color: #F3F1EA; font-size: 14px; font-weight: 500">Explore selected work
+     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l8 8M12 5v7H5"/></svg>
     </a>
-    <a class="project" href="#materiality-case">
-      <svg class="fig" viewBox="0 0 240 70" aria-hidden="true">
-        <line x1="10" y1="62" x2="230" y2="62" class="ax"/><line x1="10" y1="62" x2="10" y2="6" class="ax"/>
-        <line x1="130" y1="6" x2="130" y2="62" class="th"/><line x1="10" y1="32" x2="230" y2="32" class="th"/>
-        <circle cx="40" cy="48" r="4" class="mute"/><circle cx="70" cy="40" r="4" class="mute"/><circle cx="95" cy="52" r="4" class="mute"/><circle cx="60" cy="56" r="4" class="mute"/>
-        <circle cx="160" cy="18" r="5" class="dot"/><circle cx="200" cy="14" r="5" class="dot"/><circle cx="180" cy="44" r="5" class="dot"/><circle cx="100" cy="24" r="5" class="dot"/>
-      </svg>
-      <span class="kind">CSRD case study</span>
-      <h3>Double materiality: Nordvorm Packaging</h3>
-      <p>A full assessment under the revised ESRS for a fictional Dutch packaging company, linked to PPWR, CBAM and EUDR.</p>
-      <span class="proves">Shows I can run the core CSRD process and connect it to product regulation.</span>
-      <span class="go">Read the case</span>
+    <a class="btn" href="#about" style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1px solid #0F1A16; font-size: 14px; font-weight: 500">About me</a>
+   </div>
+  </div>
+
+  <!-- Portrait + specimen card -->
+  <div class="in d3" style="position: relative; padding-bottom: 56px">
+   <figure class="specimen" style="margin: 0 0 0 auto; width: min(100%, 500px); aspect-ratio: 4 / 5; border-radius: 24px; overflow: hidden; position: relative; background: #DDE3D8">
+    <img src="assets/portrait.jpg" alt="Portrait of Bilal Tahir" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block">
+    <span style="position: absolute; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(243, 241, 234, 0.9); backdrop-filter: blur(8px); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #0F1A16"><span style="width: 7px; height: 7px; border-radius: 50%; background: #2F5D46"></span>MATERIALS ENGINEER · MSc</span>
+   </figure>
+  <figure aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: min(60%, 300px); margin: 0; background: #0E1714; color: #E8ECE6; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 30px 60px -30px #0E1714">
+   <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #A3B1A8">FIG. 01 — FIBRE NETWORK</div>
+   <svg aria-hidden="true" viewBox="0 0 520 380" style="width: 100%; height: auto; display: block">
+    <defs>
+     <pattern id="fib" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#9FB59F" stroke-opacity="0.35" stroke-width="1"/>
+     </pattern>
+     <pattern id="fib2" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(-38)">
+      <line x1="0" y1="0" x2="0" y2="22" stroke="#9FB59F" stroke-opacity="0.22" stroke-width="1"/>
+     </pattern>
+     <clipPath id="lens"><circle cx="260" cy="190" r="150"/></clipPath>
+    </defs>
+    <g stroke="#ffffff" stroke-opacity="0.06">
+     <line x1="0" y1="40" x2="520" y2="40"/><line x1="0" y1="110" x2="520" y2="110"/><line x1="0" y1="190" x2="520" y2="190"/><line x1="0" y1="270" x2="520" y2="270"/><line x1="0" y1="340" x2="520" y2="340"/>
+     <line x1="60" y1="0" x2="60" y2="380"/><line x1="160" y1="0" x2="160" y2="380"/><line x1="260" y1="0" x2="260" y2="380"/><line x1="360" y1="0" x2="360" y2="380"/><line x1="460" y1="0" x2="460" y2="380"/>
+    </g>
+    <g clip-path="url(#lens)">
+     <rect x="100" y="30" width="320" height="320" fill="#13221C"/>
+     <rect x="100" y="30" width="320" height="320" fill="url(#fib)"/>
+     <rect x="100" y="30" width="320" height="320" fill="url(#fib2)"/>
+     <path class="draw" d="M110 250 C180 200 230 230 290 170 S390 120 420 90" stroke="#CFE38A" stroke-width="2" fill="none" stroke-opacity="0.9"/>
+     <path class="draw draw2" d="M110 300 C170 270 240 300 300 250 S380 210 420 220" stroke="#A9C2C4" stroke-width="1.5" fill="none" stroke-opacity="0.7"/>
+     <rect class="scan" x="100" y="30" width="320" height="2" fill="#CFE38A" fill-opacity="0.45"/>
+    </g>
+    <circle cx="260" cy="190" r="150" fill="none" stroke="#CFE38A" stroke-opacity="0.45"/>
+    <circle class="spin" cx="260" cy="190" r="168" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2 6"/>
+    <line x1="260" y1="22" x2="260" y2="44" stroke="#CFE38A" stroke-opacity="0.6"/><line x1="260" y1="336" x2="260" y2="358" stroke="#CFE38A" stroke-opacity="0.6"/>
+    <line x1="92" y1="190" x2="114" y2="190" stroke="#CFE38A" stroke-opacity="0.6"/><line x1="406" y1="190" x2="428" y2="190" stroke="#CFE38A" stroke-opacity="0.6"/>
+    <circle cx="290" cy="170" r="6" fill="#CFE38A"/><circle class="pulse" cx="290" cy="170" r="14" fill="none" stroke="#CFE38A" stroke-opacity="0.5"/>
+    <circle cx="186" cy="232" r="5" fill="#A9C2C4"/>
+    <circle cx="352" cy="232" r="5" fill="#E8ECE6"/>
+    <line x1="290" y1="170" x2="460" y2="70" stroke="#E8ECE6" stroke-opacity="0.35"/>
+    <line x1="186" y1="232" x2="40" y2="300" stroke="#E8ECE6" stroke-opacity="0.35"/>
+    <line x1="352" y1="232" x2="470" y2="300" stroke="#E8ECE6" stroke-opacity="0.35"/>
+   </svg>
+   <figcaption style="border-top: 1px solid #24332C; padding-top: 12px">
+    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; line-height: 1.05; color: #F3F1EA">From material<br><em style="color: #CFE38A">to meaningful impact.</em></span>
+   </figcaption>
+  </figure>
+  </div>
+ </div>
+
+ <!-- Key figures -->
+ <div class="figs reveal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 80px; border-top: 1px solid #0F1A16">
+  <div style="padding: 22px 24px 0 0; display: flex; flex-direction: column; gap: 6px">
+   <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; letter-spacing: -0.02em">15.28<span style="color: #7A847E">/20</span></span>
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">MSc average · High Honours</span>
+  </div>
+  <div style="padding: 22px 24px 0 0; display: flex; flex-direction: column; gap: 6px">
+   <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; letter-spacing: -0.02em">Top 5%</span>
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">BSc class · Dean’s Honours List</span>
+  </div>
+  <div style="padding: 22px 24px 0 0; display: flex; flex-direction: column; gap: 6px">
+   <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; letter-spacing: -0.02em">1,007 <span style="font-size: 26px">F/g</span></span>
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">Supercapacitor capacitance</span>
+  </div>
+  <div style="padding: 22px 24px 0 0; display: flex; flex-direction: column; gap: 6px">
+   <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; letter-spacing: -0.02em">47.5%</span>
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">Printable cellulose solids</span>
+  </div>
+ </div>
+</section>
+
+<!-- MARQUEE -->
+<div aria-hidden="true" style="overflow: hidden; background: #0F1A16; color: #F3F1EA; padding: 20px 0">
+ <div class="marquee" style="display: flex; align-items: center; width: max-content; font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; white-space: nowrap">
+  <span style="margin-right: 40px">Materials innovation</span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px"><em>Energy transition</em></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px">Techno-economic analysis</span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px"><em>Climate technology</em></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px">Biobased materials</span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px"><em>Circular economy</em></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px">Materials innovation</span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px"><em>Energy transition</em></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px">Techno-economic analysis</span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px"><em>Climate technology</em></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px">Biobased materials</span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+  <span style="margin-right: 40px"><em>Circular economy</em></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #CFE38A; margin-right: 40px"></span>
+ </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="wrap sec" style="padding: 120px 0">
+ <div class="split" style="display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 80px">
+  <div style="display: flex; flex-direction: column; gap: 18px">
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46">(01) — The perspective</span>
+   <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin: 0">Science is the starting point. <em style="color: #2F5D46">Impact</em> is the objective.</h2>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 28px">
+   <p style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.25; letter-spacing: -0.01em; margin: 0">I bring a materials engineering foundation to questions that sit between technology, business and sustainability.</p>
+   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 28px; font-size: 15px; line-height: 1.75; color: #4A544E">
+    <p style="margin: 0">My work has ranged from developing cellulose-based materials for 3D printing to evaluating energy-storage materials and assessing the feasibility and impact of climate technologies. I enjoy making complex technical questions understandable, measurable and useful for decisions.</p>
+    <p style="margin: 0">The thread connecting these experiences is an interest in how materials and emerging technologies can contribute to more resilient, resource-efficient systems — and how their potential can be evaluated beyond the laboratory.</p>
+   </div>
+   <div style="display: flex; flex-wrap: wrap; gap: 8px">
+    <span style="padding: 9px 14px; border-radius: 999px; background: #E6E3D8; font-size: 13px">Materials innovation</span>
+    <span style="padding: 9px 14px; border-radius: 999px; background: #E6E3D8; font-size: 13px">Energy transition</span>
+    <span style="padding: 9px 14px; border-radius: 999px; background: #E6E3D8; font-size: 13px">Techno-economic analysis</span>
+    <span style="padding: 9px 14px; border-radius: 999px; background: #E6E3D8; font-size: 13px">Climate technology</span>
+    <span style="padding: 9px 14px; border-radius: 999px; background: #E6E3D8; font-size: 13px">Circular economy</span>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="dark sec" style="background: #0E1714; color: #F3F1EA; padding: 120px 0">
+ <div class="wrap">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 56px">
+   <div style="display: flex; flex-direction: column; gap: 18px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #CFE38A">(02) — Selected work</span>
+    <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5vw, 72px); line-height: 0.98; letter-spacing: -0.03em; margin: 0">Research with a route<br>to <em style="color: #CFE38A">real application.</em></h2>
+   </div>
+   <p style="max-width: 380px; margin: 0; font-size: 15px; line-height: 1.7; color: #A3B1A8">How I approach technical challenges, evaluate evidence and connect results to practical applications. Open any project for methods.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 20px">
+
+   <!-- P1 -->
+   <article class="card reveal" style="background: #15211C; border: 1px solid #24332C; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+    <div style="position: relative; height: 240px; background: #EDECE9; overflow: hidden">
+     <img loading="lazy" class="cardart" src="assets/cellulose-valley.jpg" alt="Cellulose Valley by Fondation Grenoble INP — Reinventing packaging" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; display: block">
+     <span style="position: absolute; top: 16px; left: 16px; padding: 6px 10px; border-radius: 999px; background: rgba(14, 23, 20, 0.82); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">P—01 · MSc RESEARCH</span>
+     <span style="position: absolute; bottom: 16px; left: 16px; padding: 6px 10px; border-radius: 999px; background: rgba(14, 23, 20, 0.82); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">BIOBASED MATERIALS / 3D PRINTING</span>
+    </div>
+    <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
+     <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; margin: 0">Printing with cellulose-based materials</h3>
+     <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #A3B1A8">A six-month proof of concept exploring whether cellulose-based formulations could be developed into printable structures for luxury packaging applications.</p>
+     <div style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 18px; margin-top: auto; border-top: 1px solid #24332C">
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">22.5 → 47.5%</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Printable solid content</div></div>
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">18</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Formulations compared</div></div>
+     </div>
+     <button class="toggle" type="button" data-toggle="details-1" aria-expanded="false" aria-controls="details-1" style="all: unset; cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-top: 1px solid #24332C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #E8ECE6">
+      <span>PROJECT DETAILS</span><span style="font-size: 18px">+</span>
+     </button>
+     <div id="details-1" hidden>
+      <p class="unfold" style="margin: 0; font-size: 14px; line-height: 1.75; color: #C9D3CC">For my MSc thesis with Cellulose Valley and Chanel, I developed a printability score (4–20) to compare formulations on equal terms. I tested 11 ink/nozzle combinations to establish extrusion force limits and designed a shape-monitoring test across 10 formulations. Weight shrinkage fell from 14.9% to 8.8%. The work included formulation development, rheological and structural characterization, prototype delivery and presentation of results.</p>
+     </div>
+    </div>
+   </article>
+
+   <!-- P2 -->
+   <article class="card reveal" style="background: #15211C; border: 1px solid #24332C; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+    <div style="position: relative; height: 240px; background: #152426">
+     <svg class="cardart" aria-hidden="true" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" style="width: 100%; height: 100%; display: block">
+      <g fill="none" stroke="#A9C2C4">
+       <circle cx="430" cy="130" r="40" stroke-opacity="0.6"/><circle cx="430" cy="130" r="72" stroke-opacity="0.35"/><circle cx="430" cy="130" r="104" stroke-opacity="0.18"/>
+      </g>
+      <line x1="60" y1="130" x2="320" y2="130" stroke="#E8ECE6" stroke-opacity="0.2"/><line x1="190" y1="40" x2="190" y2="210" stroke="#E8ECE6" stroke-opacity="0.2"/>
+      <path class="cv" d="M70 150 C110 90 170 70 230 80 C270 88 295 100 310 92 C300 140 260 172 200 170 C140 168 100 182 70 150Z" fill="none" stroke="#CFE38A" stroke-width="2"/>
+      <path d="M85 145 C120 105 170 92 225 98 C260 103 280 110 292 106 C282 140 250 158 200 157 C150 156 110 166 85 145Z" fill="none" stroke="#CFE38A" stroke-opacity="0.45"/>
+      <circle cx="430" cy="130" r="8" fill="#CFE38A"/>
+     </svg>
+     <span style="position: absolute; top: 20px; left: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">P—02</span>
+     <span style="position: absolute; top: 20px; right: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #C9D3CC">NANOMATERIALS / ENERGY STORAGE</span>
+    </div>
+    <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
+     <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; margin: 0">Improving supercapacitor performance</h3>
+     <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #A3B1A8">Investigating how combining metal–organic frameworks with conductive materials can improve electrode performance for energy-storage applications.</p>
+     <div style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 18px; margin-top: auto; border-top: 1px solid #24332C">
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">1,007 F/g</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Specific capacitance</div></div>
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">115%</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Retention after 1,500 cycles</div></div>
+     </div>
+     <button class="toggle" type="button" data-toggle="details-2" aria-expanded="false" aria-controls="details-2" style="all: unset; cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-top: 1px solid #24332C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #E8ECE6">
+      <span>PROJECT DETAILS</span><span style="font-size: 18px">+</span>
+     </button>
+     <div id="details-2" hidden>
+      <p class="unfold" style="margin: 0; font-size: 14px; line-height: 1.75; color: #C9D3CC">BSc final-year research at GIKI: Ni–Co–Mn metal–organic frameworks were composited with polyaniline (PANI) and reduced graphene oxide (rGO). Characterization included XRD, SEM, EDS, cyclic voltammetry (CV), galvanostatic charge–discharge (GCD) and electrochemical impedance spectroscopy (EIS). The work explored electrode structure, morphology and electrochemical behaviour.</p>
+     </div>
+    </div>
+   </article>
+
+   <!-- P3 -->
+   <article class="card reveal" style="background: #15211C; border: 1px solid #24332C; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+    <div style="position: relative; height: 240px; background: #1D271E">
+     <svg class="cardart" aria-hidden="true" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" style="width: 100%; height: 100%; display: block">
+      <g fill="#B9CBB0" fill-opacity="0.18">
+       <circle cx="80" cy="180" r="14"/><circle cx="120" cy="150" r="8"/><circle cx="150" cy="190" r="18"/><circle cx="200" cy="165" r="10"/><circle cx="230" cy="200" r="7"/><circle cx="105" cy="205" r="6"/>
+      </g>
+      <path d="M260 120 H360" stroke="#E8ECE6" stroke-opacity="0.35" stroke-dasharray="4 6"/>
+      <path d="M352 112 l10 8 -10 8" fill="none" stroke="#E8ECE6" stroke-opacity="0.5"/>
+      <g class="bubbles" fill="none" stroke="#CFE38A">
+       <circle cx="440" cy="80" r="28" stroke-width="1.5"/><circle cx="500" cy="120" r="18"/><circle cx="455" cy="160" r="12" stroke-opacity="0.6"/><circle cx="520" cy="180" r="8" stroke-opacity="0.5"/>
+      </g>
+      <g fill="#A9C2C4"><rect x="410" y="196" width="6" height="6"/><rect x="430" y="204" width="6" height="6"/><rect x="398" y="208" width="6" height="6"/><rect x="420" y="214" width="6" height="6"/></g>
+     </svg>
+     <span style="position: absolute; top: 20px; left: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">P—03</span>
+     <span style="position: absolute; top: 20px; right: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #C9D3CC">CLIMATE / CIRCULAR ECONOMY</span>
+    </div>
+    <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
+     <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; margin: 0">Assessing the potential of agricultural residues</h3>
+     <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #A3B1A8">Exploring how agricultural by-products can become useful resources through biochar and biogas pathways, supported by data analysis and feasibility work.</p>
+     <div style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 18px; margin-top: auto; border-top: 1px solid #24332C">
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">2</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Valorization pathways</div></div>
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">10</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Person feasibility team</div></div>
+     </div>
+     <button class="toggle" type="button" data-toggle="details-3" aria-expanded="false" aria-controls="details-3" style="all: unset; cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-top: 1px solid #24332C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #E8ECE6">
+      <span>PROJECT DETAILS</span><span style="font-size: 18px">+</span>
+     </button>
+     <div id="details-3" hidden>
+      <p class="unfold" style="margin: 0; font-size: 14px; line-height: 1.75; color: #C9D3CC">At Planetive, I analysed agricultural-residue data for biochar and biogas R&amp;D and co-wrote a techno-economic feasibility report as part of a 10-person team. My work also included research into carbon-market mechanisms and carbon-credit potential. The focus was on assessing technical pathways alongside their economic and climate relevance.</p>
+     </div>
+    </div>
+   </article>
+
+   <!-- P4 -->
+   <article class="card reveal" style="background: #15211C; border: 1px solid #24332C; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+    <div style="position: relative; height: 240px; background: #1A2526">
+     <svg class="cardart" aria-hidden="true" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" style="width: 100%; height: 100%; display: block">
+      <line x1="300" y1="200" x2="560" y2="200" stroke="#E8ECE6" stroke-opacity="0.25"/>
+      <rect class="grow" x="330" y="110" width="44" height="90" rx="4" fill="#A9C2C4" fill-opacity="0.35"/>
+      <rect class="grow grow2" x="400" y="80" width="44" height="120" rx="4" fill="#A9C2C4" fill-opacity="0.55"/>
+      <rect class="grow grow3" x="470" y="140" width="44" height="60" rx="4" fill="#CFE38A"/>
+      <g fill="none" stroke="#C9D3CC" stroke-opacity="0.5">
+       <ellipse cx="150" cy="130" rx="90" ry="26"/><ellipse cx="150" cy="122" rx="70" ry="18" stroke-opacity="0.3"/>
+      </g>
+      <path d="M150 104 C130 70 140 50 170 40 C175 70 168 90 150 104Z" fill="none" stroke="#CFE38A" stroke-opacity="0.8"/>
+     </svg>
+     <span style="position: absolute; top: 20px; left: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">P—04</span>
+     <span style="position: absolute; top: 20px; right: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #C9D3CC">CLIMATE RESEARCH / MARKET ANALYSIS</span>
+    </div>
+    <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex: 1">
+     <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; margin: 0">Comparing the impact of alternative materials</h3>
+     <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #A3B1A8">Researching EU market demand and comparing compostable areca-leaf plates with conventional plastic and paper disposables.</p>
+     <div style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 18px; margin-top: auto; border-top: 1px solid #24332C">
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">3</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Material options compared</div></div>
+      <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #CFE38A">Mobilizer</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">Fellowship distinction</div></div>
+     </div>
+     <button class="toggle" type="button" data-toggle="details-4" aria-expanded="false" aria-controls="details-4" style="all: unset; cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-top: 1px solid #24332C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #E8ECE6">
+      <span>PROJECT DETAILS</span><span style="font-size: 18px">+</span>
+     </button>
+     <div id="details-4" hidden>
+      <p class="unfold" style="margin: 0; font-size: 14px; line-height: 1.75; color: #C9D3CC">As part of Climatebase Fellowship Cohort 9, I worked in an international team of four researching EU market demand for compostable areca-leaf plates. The impact comparison considered carbon footprint, compostability and sourcing, bringing together market context and sustainability criteria.</p>
+     </div>
+    </div>
+   </article>
+  </div>
+  <a class="btn esg-band" href="sustainability/" style="margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 28px; border-radius: 20px; border: 1px solid #24332C; background: #15211C; color: #F3F1EA">
+   <span style="display: flex; flex-direction: column; gap: 8px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #CFE38A">ALSO · SUSTAINABILITY PORTFOLIO</span>
+    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.1">Regulation Reader AI agent, double materiality case study and ESRS E1 / IFRS S2 crosswalk</span>
+   </span>
+   <span style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #CFE38A; color: #0E1714; font-size: 14px; font-weight: 600">Open ESG work
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12l8-8M5 4h7v7"/></svg>
+   </span>
+  </a>
+ </div>
+</section>
+
+<!-- INSIDE THE LAB -->
+<section id="lab" class="wrap sec" style="padding: 120px 0 40px">
+ <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 48px">
+  <div style="display: flex; flex-direction: column; gap: 18px">
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46">(02.1) — Inside the MSc research</span>
+   <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin: 0">From formulation<br>to <em style="color: #2F5D46">printed prototype.</em></h2>
+  </div>
+  <p style="max-width: 400px; margin: 0; font-size: 15px; line-height: 1.7; color: #4A544E">Six months at LGP2 in Grenoble with Cellulose Valley × Chanel: developing cellulose-based pastes and printing them into packaging demonstrators. Select any photo to enlarge it.</p>
+ </div>
+
+ <div class="gallery" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 280px; gap: 16px">
+  <button class="tile big reveal" type="button" data-photo="0" aria-label="Enlarge: in the LGP2 lab beside the delta paste printer" style="grid-column: span 2; grid-row: span 2">
+   <img loading="lazy" src="assets/lab-coat.jpg" alt="Bilal Tahir in a lab coat beside the delta paste 3D printer at LGP2" style="width: 100%; height: 100%; object-fit: cover; object-position: 30% 40%; display: block">
+   <span style="position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; background: rgba(14, 23, 20, 0.85); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">LGP2 LAB · GRENOBLE</span>
+  </button>
+  <button class="tile reveal" type="button" data-photo="1" aria-label="Enlarge: extruding a cellulose-based paste">
+   <img loading="lazy" src="assets/extrusion.jpg" alt="Printer nozzle extruding a cellulose-based paste onto the print bed" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; display: block">
+   <span style="position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; background: rgba(14, 23, 20, 0.85); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">EXTRUSION</span>
+  </button>
+  <button class="tile reveal" type="button" data-photo="2" aria-label="Enlarge: printed demonstrators">
+   <img loading="lazy" src="assets/demonstrators.jpg" alt="Three printed cellulose demonstrators in a petri dish" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; display: block">
+   <span style="position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; background: rgba(14, 23, 20, 0.85); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">DEMONSTRATORS</span>
+  </button>
+  <button class="tile reveal" type="button" data-photo="3" aria-label="Enlarge: printed cup and lid">
+   <img loading="lazy" src="assets/cup-lid.jpg" alt="Printed cellulose cup and lid with a relief logo" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; display: block">
+   <span style="position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; background: rgba(14, 23, 20, 0.85); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">CUP &amp; LID</span>
+  </button>
+  <button class="tile reveal" type="button" data-photo="4" aria-label="Enlarge: printed hex-base geometry">
+   <img loading="lazy" src="assets/hex-print.jpg" alt="Printed cellulose part with a hexagonal base and cylindrical top" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block">
+   <span style="position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; background: rgba(14, 23, 20, 0.85); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">HEX-BASE PRINT</span>
+  </button>
+  <button class="tile wide reveal" type="button" data-photo="5" aria-label="Enlarge: top view of a printed wall" style="grid-column: span 2">
+   <img loading="lazy" src="assets/ring-top.jpg" alt="Top view of a printed cellulose cylinder showing the wall structure" style="width: 100%; height: 100%; object-fit: cover; object-position: 45% 50%; display: block">
+   <span style="position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; background: rgba(14, 23, 20, 0.85); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8ECE6">TOP VIEW · WALL STRUCTURE</span>
+  </button>
+  <div class="wide reveal" style="grid-column: span 2; background: #0E1714; color: #F3F1EA; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px">
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #CFE38A">THESIS IN NUMBERS</span>
+   <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+    <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 2.6vw, 38px); line-height: 1; color: #CFE38A">18</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8; margin-top: 6px">Formulations compared</div></div>
+    <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 2.6vw, 38px); line-height: 1; color: #CFE38A">47.5%</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8; margin-top: 6px">Printable solids, up from 22.5%</div></div>
+    <div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 2.6vw, 38px); line-height: 1; color: #CFE38A">8.8%</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8; margin-top: 6px">Weight shrinkage, down from 14.9%</div></div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Industrial network -->
+ <div style="margin-top: 96px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px">
+  <div style="display: flex; flex-direction: column; gap: 14px">
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46">INDUSTRIAL NETWORK</span>
+   <h3 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin: 0; max-width: 680px">Research inside <em style="color: #2F5D46">Cellulose Valley</em>, the Fondation Grenoble INP packaging initiative, with eight industrial partners.</h3>
+  </div>
+ </div>
+ <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1px; background: #CFCCC0; border: 1px solid #CFCCC0; border-radius: 18px; overflow: hidden">
+  <a class="partner" href="https://www.ahlstrom.com/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Ahlstrom</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">FIBRE-BASED MATERIALS</span></a>
+  <a class="partner" href="https://www.groupeguillin.fr/alphaform/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Groupe Guillin <span style="font-size: 20px">(Alphaform)</span></span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">FOOD PACKAGING</span></a>
+  <a class="partner" href="https://aptar.com/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Aptar</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">DISPENSING &amp; PACKAGING</span></a>
+  <a class="partner" href="https://www.chanel.com/fr/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Chanel Parfums Beauté</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">LUXURY · THESIS PARTNER</span></a>
+  <a class="partner" href="https://www.citeo.com/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Citeo</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">PACKAGING RECYCLING</span></a>
+  <a class="partner" href="https://www.marie.fr/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Marie <span style="font-size: 20px">– Groupe LDC</span></span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">FOOD</span></a>
+  <a class="partner" href="https://www.decathlon.fr/" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">Decathlon</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">SPORTS RETAIL</span></a>
+  <a class="partner" href="https://www.dssmith.com/fr" target="_blank" rel="noopener noreferrer" style="background: #F3F1EA; color: #0F1A16; padding: 26px 24px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; justify-content: space-between; align-items: start; gap: 12px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.05">DS Smith</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l8-8M5 4h7v7"/></svg></span><span class="psub" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A645E">FIBRE-BASED PACKAGING</span></a>
+ </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" hidden>
+ <div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" style="position: fixed; inset: 0; z-index: 100; background: rgba(8, 12, 10, 0.94); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 64px 16px 24px">
+  <button type="button" data-lb="close" aria-label="Close photo" style="position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #4A5A51; background: transparent; color: #F3F1EA; cursor: pointer; display: flex; align-items: center; justify-content: center">
+   <svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l10 10M13 3L3 13"/></svg>
+  </button>
+  <img loading="lazy" id="lb-img" src="" alt="" style="max-width: min(100%, 1100px); max-height: calc(100vh - 170px); object-fit: contain; border-radius: 12px; display: block">
+  <div style="display: flex; align-items: center; gap: 16px; color: #E8ECE6">
+   <button type="button" data-lb="prev" aria-label="Previous photo" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #4A5A51; background: transparent; color: #F3F1EA; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5"/></svg></button>
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-align: center; min-width: 200px"><span id="lb-cap"></span></span>
+   <button type="button" data-lb="next" aria-label="Next photo" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #4A5A51; background: transparent; color: #F3F1EA; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3l5 5-5 5"/></svg></button>
+  </div>
+ </div>
+</div>
+
+<!-- JOURNEY -->
+<section id="journey" class="wrap sec" style="padding: 120px 0">
+ <div class="split" style="display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 80px">
+  <div style="display: flex; flex-direction: column; gap: 18px">
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46">(03) — Professional journey</span>
+   <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin: 0">Different environments. <em style="color: #2F5D46">A connected skill set.</em></h2>
+   <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.75; color: #4A544E; max-width: 400px">Each experience added a different lens: how materials behave, how operations work, how projects are assessed and how climate solutions fit into markets.</p>
+  </div>
+  <div style="border-top: 1px solid #0F1A16">
+   <div class="role reveal" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 28px; padding: 28px 0; border-bottom: 1px solid #D8D6CC">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46; padding-top: 6px">JUL 2026 — NOW</span>
+    <div><h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0">Relocation &amp; professional development</h3><div style="font-size: 13px; color: #5A645E; margin-top: 4px">Netherlands</div><p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: #4A544E">Learning Dutch, studying EU sustainability regulation and compliance, and completing certifications in data analysis, ESG, climate finance and AI.</p></div>
+   </div>
+   <div class="role reveal" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 28px; padding: 28px 0; border-bottom: 1px solid #D8D6CC">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46; padding-top: 6px">MAR — JUN 2026</span>
+    <div><h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0">Climate Fellow · Climatebase Fellowship</h3><div style="font-size: 13px; color: #5A645E; margin-top: 4px">Cohort 9 · Remote, international cohort</div><p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: #4A544E">Researched EU market demand for compostable areca-leaf plates and contributed to an impact comparison against plastic and paper alternatives. Awarded the Mobilizer distinction.</p></div>
+   </div>
+   <div class="role reveal" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 28px; padding: 28px 0; border-bottom: 1px solid #D8D6CC">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46; padding-top: 6px">OCT 2025 — APR 2026</span>
+    <div><h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0">Business Analyst · Planetive</h3><div style="font-size: 13px; color: #5A645E; margin-top: 4px">Islamabad, Pakistan</div><p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: #4A544E">Analysed agricultural-residue data for biochar and biogas R&amp;D, co-wrote a techno-economic feasibility report and researched carbon-market mechanisms.</p></div>
+   </div>
+   <div class="role reveal" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 28px; padding: 28px 0; border-bottom: 1px solid #D8D6CC">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46; padding-top: 6px">FEB — JUL 2025</span>
+    <div><h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0">MSc Thesis Researcher · LGP2 / Cellulose Valley × Chanel</h3><div style="font-size: 13px; color: #5A645E; margin-top: 4px">Grenoble, France</div><p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: #4A544E">Delivered a six-month proof of concept for cellulose-based 3D printing, from planning and formulation work to demonstrator, thesis and project presentations.</p></div>
+   </div>
+   <div class="role reveal" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 28px; padding: 28px 0; border-bottom: 1px solid #D8D6CC">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46; padding-top: 6px">JUL 2023 — APR 2024</span>
+    <div><h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0">Management Engineer Trainee · Pak Steel Re-Rolling Mills</h3><div style="font-size: 13px; color: #5A645E; margin-top: 4px">Islamabad, Pakistan</div><p style="margin: 12px 0 0; font-size: 15px; line-height: 1.7; color: #4A544E">Mapped processes and data flows across finance and operations for an SAP ERP rollout; assessed a 1 MW solar installation and researched biogas feasibility.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="sec" style="background: #E6E3D8; padding: 120px 0">
+ <div class="wrap">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 48px">
+   <div style="display: flex; flex-direction: column; gap: 18px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46">(04) — Areas of expertise</span>
+    <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin: 0">Technical depth.<br><em style="color: #2F5D46">Systems perspective.</em></h2>
+   </div>
+   <p style="max-width: 360px; margin: 0; font-size: 15px; line-height: 1.7; color: #4A544E">A practical mix of engineering knowledge, analytical tools and sustainability context.</p>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px">
+   <div class="cap reveal" style="background: #F3F1EA; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 240px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2F5D46">01 / ENGINEERING</span>
+    <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.05; margin: auto 0 0">Materials &amp; research</h3>
+    <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #4A544E">Materials characterization, nanomaterials, biobased materials, hydrogel formulation and 3D printing.</p>
+   </div>
+   <div class="cap reveal" style="background: #F3F1EA; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 240px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2F5D46">02 / ANALYSIS</span>
+    <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.05; margin: auto 0 0">Data &amp; feasibility</h3>
+    <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #4A544E">Techno-economic feasibility, market research, impact comparison, Power BI and process mapping.</p>
+   </div>
+   <div class="cap reveal" style="background: #F3F1EA; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 240px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2F5D46">03 / TRANSITION</span>
+    <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.05; margin: auto 0 0">Climate &amp; sustainability</h3>
+    <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #4A544E">Circular economy, waste valorization, carbon markets, ESG and EU sustainability regulation awareness.</p>
+   </div>
+   <div class="cap reveal" style="background: #0E1714; color: #F3F1EA; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 240px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #CFE38A">04 / SYSTEMS</span>
+    <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.05; margin: auto 0 0">Energy technologies</h3>
+    <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #A3B1A8">Energy storage, supercapacitors, battery energy storage, solar and biogas feasibility, carbon capture context.</p>
+   </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 32px">
+   <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3E4842; margin-right: 6px">CREDENTIALS —</span>
+   <span style="padding: 9px 14px; border: 1px solid #BDBAAE; border-radius: 999px; font-size: 13px">Microsoft Power BI Data Analyst</span>
+   <span style="padding: 9px 14px; border: 1px solid #BDBAAE; border-radius: 999px; font-size: 13px">ESG Risks &amp; Opportunities · UPenn</span>
+   <span style="padding: 9px 14px; border: 1px solid #BDBAAE; border-radius: 999px; font-size: 13px">Scaling Climate Finance · UNITAR</span>
+   <span style="padding: 9px 14px; border: 1px solid #BDBAAE; border-radius: 999px; font-size: 13px">Microsoft &amp; Google AI</span>
+  </div>
+ </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="wrap sec" style="padding: 120px 0">
+ <div style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 48px">
+  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2F5D46">(05) — Education</span>
+  <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin: 0">Built on engineering <em style="color: #2F5D46">fundamentals.</em></h2>
+ </div>
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px">
+  <div class="edu reveal" style="border: 1px solid #CFCCC0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 10px">
+   <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2F5D46"><span>2024 — 2025</span><span>FRANCE</span></div>
+   <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1.05; margin: 18px 0 0">MSc Materials Engineering</h3>
+   <p style="margin: 0; font-size: 15px; color: #4A544E; line-height: 1.6">Biorefinery &amp; Biobased Materials<br>Grenoble INP-Pagora</p>
+   <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid #D8D6CC; font-size: 14px; font-weight: 600">15.28 / 20 · High Honours</div>
+  </div>
+  <div class="edu reveal" style="border: 1px solid #CFCCC0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 10px">
+   <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2F5D46"><span>2019 — 2023</span><span>PAKISTAN</span></div>
+   <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1.05; margin: 18px 0 0">BSc Materials Engineering</h3>
+   <p style="margin: 0; font-size: 15px; color: #4A544E; line-height: 1.6">Nanotechnology<br>Ghulam Ishaq Khan Institute (GIKI)</p>
+   <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid #D8D6CC; font-size: 14px; font-weight: 600">Top 5% of class · Dean’s Honours List</div>
+  </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="dark" style="background: #0E1714; color: #F3F1EA">
+ <div class="wrap" style="padding: 120px 0 80px">
+  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #CFE38A">(06) — Start a conversation</span>
+  <h2 class="reveal" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(52px, 8.5vw, 132px); line-height: 0.92; letter-spacing: -0.04em; margin: 24px 0 0; max-width: 1100px">Good work starts with a <em style="color: #CFE38A">good question.</em></h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 40px; margin-top: 56px">
+   <p style="margin: 0; max-width: 460px; font-size: 17px; line-height: 1.7; color: #A3B1A8">If you're working on materials innovation, climate technology or the energy transition, I'd be glad to connect.</p>
+   <div style="display: flex; flex-wrap: wrap; gap: 12px">
+    <a class="btn" href="mailto:bilaltahir364@gmail.com?subject=Hello%20Bilal" style="display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 26px; border-radius: 999px; background: #CFE38A; color: #0E1714; font-size: 15px; font-weight: 600">Email me
+     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12l8-8M5 4h7v7"/></svg>
     </a>
-    <a class="project" href="#crosswalk">
-      <svg class="fig" viewBox="0 0 240 70" aria-hidden="true">
-        <line x1="40" y1="12" x2="200" y2="14" class="ln"/><line x1="40" y1="26" x2="200" y2="40" class="ln"/><line x1="40" y1="40" x2="200" y2="26" class="ln"/><line x1="40" y1="54" x2="200" y2="54" class="ln faint"/>
-        <rect x="18" y="8" width="22" height="50" rx="2" class="col"/><rect x="200" y="8" width="22" height="50" rx="2" class="col"/>
-        <circle cx="40" cy="12" r="3.5" class="dot"/><circle cx="40" cy="26" r="3.5" class="dot"/><circle cx="40" cy="40" r="3.5" class="dot"/><circle cx="40" cy="54" r="3.5" class="mute"/>
-        <circle cx="200" cy="14" r="3.5" class="dot"/><circle cx="200" cy="40" r="3.5" class="dot"/><circle cx="200" cy="26" r="3.5" class="dot"/><circle cx="200" cy="54" r="3.5" class="mute"/>
-      </svg>
-      <span class="kind">Framework analysis</span>
-      <h3>ESRS E1 and IFRS S2 crosswalk</h3>
-      <p>An interactive map of 15 climate disclosure themes: where the two frameworks overlap, where they diverge, and what data serves both.</p>
-      <span class="proves">Shows I can work across EU and global reporting regimes.</span>
-      <span class="go">Explore the crosswalk</span>
+    <a class="btn" href="https://www.linkedin.com/in/bilal-tahir-301582217/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 26px; border-radius: 999px; border: 1px solid #4A5A51; color: #F3F1EA; font-size: 15px">
+     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>LinkedIn
+     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12l8-8M5 4h7v7"/></svg>
     </a>
+   </div>
   </div>
-</section>
-
-<section aria-labelledby="fw">
-  <h2 id="fw">Frameworks I work with</h2>
-  <div class="fw">
-    <div><b>CSRD &amp; ESRS</b><span>Omnibus I scope; revised ESRS (July 2026), especially E1 and E5</span></div>
-    <div><b>IFRS S1 / S2</b><span>Investor climate disclosure, incl. Dec 2025 amendments</span></div>
-    <div><b>CBAM</b><span>Definitive regime since 1 Jan 2026; embedded emissions</span></div>
-    <div><b>GHG Protocol</b><span>Scopes 1–3; Scope 2 revision under way</span></div>
-    <div><b>PPWR</b><span>Packaging rules applying since 12 Aug 2026</span></div>
-    <div><b>SBTi</b><span>Corporate Net-Zero Standard V2.0</span></div>
-    <div><b>CSDDD &amp; EUDR</b><span>Value-chain due diligence</span></div>
-    <div><b>Carbon markets</b><span>Credit quality: permanence, MRV, additionality</span></div>
+ </div>
+ <footer style="border-top: 1px solid #24332C">
+  <div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 24px 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A3B1A8">
+   <span>© 2026 Bilal Tahir</span><span>Materials · Climate · Technology — Amsterdam</span><a href="#top" style="color: #A3B1A8">Back to top ↑</a>
   </div>
-</section>
-
-<section aria-labelledby="xp">
-  <h2 id="xp">Experience</h2>
-  <div class="xp">
-    <div><span class="when">03/2026–06/2026</span><div><h3>Climate Fellow, Climatebase (placed with Envome)</h3><p>EU market research on compostable areca-leaf plates; carbon footprint, compostability and sourcing comparison against plastic and paper. International team of 4.</p></div></div>
-    <div><span class="when">10/2025–04/2026</span><div><h3>Business Analyst, Planetive</h3><p>Researched carbon-market mechanisms and credit potential for biochar and biogas; co-wrote a techno-economic feasibility report in a team of 10.</p></div></div>
-    <div><span class="when">02/2025–07/2025</span><div><h3>MSc thesis, LGP2, Grenoble INP-Pagora (Chanel proof of concept)</h3><p>Fully cellulose-based 3D-printed packaging demonstrator; 18 formulations; printable solid content raised from 22.5% to 47.5%.</p></div></div>
-    <div><span class="when">07/2023–04/2024</span><div><h3>Management Engineer Trainee, Pak Steel Re-Rolling Mills</h3><p>Mapped the benefits of a 1 MW solar installation; researched biogas feasibility for energy resilience; data-flow mapping for an SAP ERP rollout.</p></div></div>
-  </div>
-</section>
-
-<section aria-labelledby="about" id="about">
-  <h2>About</h2>
-  <div class="about">
-    <div style="display:grid;gap:12px;max-width:62ch">
-      <p>I moved from materials R&amp;D into sustainability because the decisions I cared about were being made on the numbers: footprints, disclosures, carbon costs. My edge is knowing what physically sits behind those numbers.</p>
-      <p>I use AI daily, with one rule: AI can draft and extract, but every figure traces to a source I opened myself. I'm based in Amsterdam, learning Dutch, and open to sustainability analyst, carbon accounting and decarbonisation roles.</p>
-    </div>
-    <div class="card">
-      <h3>Get in touch</h3>
-      <p>LinkedIn: <a href="#">[your LinkedIn URL]</a></p>
-      <p>Email: [your email]</p>
-      <p>Certifications: ESG Risks and Opportunities (UPenn), Scaling Climate Finance (UNITAR), Power BI Data Analyst, Generative AI and Copilot (Microsoft), Google AI Essentials</p>
-    </div>
-  </div>
-</section>
-
-<footer>Portfolio projects use public standards and fictional companies. Not advice. Last updated November 2026.</footer>
-</div>
-</section>
-<section class="tabpanel" id="tab-regulation-reader" role="tabpanel" aria-labelledby="tabbtn-regulation-reader">
-<div class="wrap">
-<header>
-  <div class="kicker">Project 1 of 3: AI agent</div>
-  <h1>Regulation Reader: an AI agent that turns EU legal texts into a checked obligations register</h1>
-  <p class="lead">Sustainability rules arrive as long amending directives that change other directives. This agent reads the official text, extracts every threshold, date and obligation with its article reference, cross-checks each one against a second source, and marks what a human still has to verify.</p>
-  <p class="byline">By Bilal Tahir, built with Claude. Demo run on Directive (EU) 2026/470 (Omnibus I), November 2026.</p>
-</header>
-
-<section aria-labelledby="how">
-  <h2 id="how">How the agent works</h2>
-  <div class="pipeline">
-    <div class="step"><span class="n">1. Ingest</span><h3>Official text only</h3><p>Starts from the Official Journal text, never a blog summary. Records the version date.</p></div>
-    <div class="step"><span class="n">2. Extract</span><h3>One row per rule</h3><p>Every threshold, date, exemption and obligation, each tied to the article and the provision it amends.</p></div>
-    <div class="step"><span class="n">3. Classify</span><h3>Tag and group</h3><p>Scope, deadline, exemption, obligation, review. Grouped by the directive being amended.</p></div>
-    <div class="step"><span class="n">4. Cross-check</span><h3>Second source</h3><p>Looks for an independent source (Parliament, law firm, regulator) that states the same figure.</p></div>
-    <div class="step human"><span class="n">5. Human check</span><h3>I decide</h3><p>Single-source rows are flagged. I verify them in EUR-Lex before anything is published or advised.</p></div>
-  </div>
-</section>
-
-<section aria-labelledby="guard">
-  <h2 id="guard">Guardrails built into the instructions</h2>
-  <div class="cols">
-    <div class="card">
-      <h3>What the agent must do</h3>
-      <ul>
-        <li>Cite the article and paragraph for every row, or drop the row.</li>
-        <li>Copy figures exactly as written (EUR 450 000 000 stays EUR 450 000 000).</li>
-        <li>Name the provision being amended, since amending acts rarely make sense alone.</li>
-        <li>State its source text and that text's date at the top of the output.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>What the agent must not do</h3>
-      <ul>
-        <li>Fill gaps from memory or from older versions of the law.</li>
-        <li>Interpret who is in scope for a specific company. That is my judgement call.</li>
-        <li>Mark a row as confirmed without a second, independent source.</li>
-        <li>Give legal advice. The register is a working tool, not an opinion.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="demo">
-  <h2 id="demo">Demo output: Directive (EU) 2026/470</h2>
-  <p class="sub">Published in the Official Journal on 26 February 2026, in force since 18 March 2026. It amends the Audit Directive, the Accounting Directive, the CSRD and the CSDDD in one act. Below is the register the agent produced, filtered by directive.</p>
-  <div class="stats" id="rr-stats"></div>
-  <div class="controls" role="group" aria-label="Filter rows">
-    <label>Show</label>
-    <button class="f" data-f="all" aria-pressed="true">All rules</button>
-    <button class="f" data-f="CSRD" aria-pressed="false">CSRD &amp; Accounting Directive</button>
-    <button class="f" data-f="CSDDD" aria-pressed="false">CSDDD</button>
-    <button class="f" data-f="Audit" aria-pressed="false">Assurance</button>
-    <button class="f" data-f="warn" aria-pressed="false">Needs my check</button>
-  </div>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>Area</th><th>Type</th><th>Rule</th><th>Value</th><th>Reference</th><th>Cross-check</th></tr></thead>
-      <tbody id="rr-rows"></tbody>
-    </table>
-  </div>
-</section>
-
-<section aria-labelledby="prompt">
-  <h2 id="prompt">The core instruction (excerpt)</h2>
-  <div class="prompt">You are reading an EU legal act. Work only from the text provided.
-For every threshold, date, deadline, exemption, obligation and review clause:
-  1. Write one row: area | type | rule in plain English | exact value | article + paragraph | provision amended.
-  2. Copy numbers exactly as written. Never round, convert or infer.
-  3. If a value is unclear in the text, write UNCLEAR and quote the words (max 25).
-Then search for one independent source per row.
-  - Same figure found: status = Confirmed, with the link.
-  - Not found or different: status = Verify in EUR-Lex. Never mark it confirmed.
-Finish with: source text used, its date, and the rows a human must check.</div>
-</section>
-
-<section aria-labelledby="learned">
-  <h2 id="learned">What this run showed</h2>
-  <div class="cols">
-    <div class="card">
-      <h3>Where the agent saved time</h3>
-      <ul>
-        <li>Mapped one amending act across four directives in a single pass.</li>
-        <li>Separated CSRD dates (transpose by 19 March 2027) from CSDDD dates (transpose by 26 July 2028), a common source of confusion.</li>
-        <li>Surfaced small but practical rules, such as the 1,000-employee value-chain cap, that summaries often skip.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Where human judgement stays</h3>
-      <ul>
-        <li>10 of the 21 rows had no independent second source and are flagged for checking in EUR-Lex.</li>
-        <li>National transposition can add stricter rules; the Netherlands still has to transpose these changes.</li>
-        <li>Deciding what a rule means for one company (scope, timing, data requests) is analysis, not extraction.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>Source text: Directive (EU) 2026/470, OJ L 2026/470, 26.2.2026 (<a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj">EUR-Lex</a>), read via a curated rendering of the EUR-Lex text (<a href="https://lawplayer.com/eu/act/32026L0470">LawPlayer</a>, dated 4 July 2026).</p>
-  <p>Portfolio demonstration of an AI-assisted workflow. Not legal advice. Always confirm against the official text before relying on any row.</p>
-</footer>
-</div>
-</section>
-<section class="tabpanel" id="tab-materiality-case" role="tabpanel" aria-labelledby="tabbtn-materiality-case">
-<div class="wrap">
-<header class="read">
-  <div class="kicker">Project 2 of 3: CSRD double materiality</div>
-  <h1>Double materiality assessment: Nordvorm Packaging</h1>
-  <p class="lead">A worked assessment under the revised ESRS (adopted 3 July 2026) for a fictional Dutch food-packaging manufacturer, connected to the PPWR, CBAM and EUDR obligations the company faces.</p>
-  <p class="byline">By Bilal Tahir, November 2026. Drafted with a double materiality agent; the judgement calls are mine.</p>
-  <p class="note">The company and every score are invented to show the method. The standards, thresholds and regulatory dates are real as of 9 November 2026.</p>
-</header>
-
-<section class="read" aria-labelledby="s1">
-  <h2 id="s1">1. Company and scope</h2>
-  <p>Nordvorm (fictional: Zwolle, 1,450 employees, €540m net turnover, plants in the Netherlands, Poland and Germany) makes moulded-fibre trays, coated paperboard cartons, PET trays and aluminium-foil lids for EU food brands.</p>
-  <ul>
-    <li><b>CSRD:</b> in scope from FY2027. It exceeds both Omnibus I thresholds (more than €450m turnover and more than 1,000 employees).</li>
-    <li><b>CSDDD:</b> out of scope (below 5,000 employees and €1.5bn turnover), but large customers will send due-diligence questionnaires.</li>
-    <li><b>Value-chain cap:</b> with more than 1,000 employees, Nordvorm is not a protected undertaking and must answer customers' data requests. Its own suppliers with 1,000 or fewer employees are protected.</li>
-    <li><b>PPWR:</b> applies since 12 August 2026, including PFAS limits for food-contact packaging.</li>
-    <li><b>CBAM:</b> about 2,000 t a year of imported aluminium foil exceeds the 50-tonne threshold; first declaration due 30 September 2027.</li>
-  </ul>
-</section>
-
-<section class="read" aria-labelledby="s2">
-  <h2 id="s2">2. Method</h2>
-  <p>Each impact, risk and opportunity (IRO) is scored 0 to 5 on both axes. Anything at 3.0 or above on either axis is material. ESRS sets no numeric threshold, so 3.0 is a disclosed company judgement.</p>
-  <div class="formula">Impact = (scale + scope + irremediability) / 3 × likelihood / 5<br>Financial = magnitude × likelihood / 5</div>
-  <ul>
-    <li><b>Top-down first:</b> topics clearly not material were screened out at topic level, as the revised ESRS allow.</li>
-    <li><b>Whole value chain:</b> upstream (pulp, aluminium, PET), own operations, downstream (brands, consumers, end of life).</li>
-    <li><b>Non-material means not reported:</b> the revised ESRS require non-material information to be left out.</li>
-  </ul>
-</section>
-
-<section aria-labelledby="s3">
-  <h2 id="s3" class="read">3. Long list and scores</h2>
-  <p class="read">8 of 15 IROs pass the threshold, across E1, E2, E5, S1 and S4. Material rows are marked with a green edge.</p>
-  <div class="tablewrap"><table>
-    <thead><tr><th>#</th><th>Topic</th><th>Impact, risk or opportunity</th><th>Type</th><th>Value chain</th><th>Impact</th><th>Financial</th><th>Material?</th></tr></thead>
-    <tbody>
-<tr class="mat"><td>1</td><td><span class="tag">E1</span></td><td>Scope 1 emissions from gas-fired drying of moulded fibre</td><td>Negative impact (actual) + risk</td><td>Own operations</td><td class="num">3.7</td><td class="num">3.2</td><td>Both</td></tr>
-<tr class="mat"><td>2</td><td><span class="tag">E1</span></td><td>Scope 3 emissions embedded in aluminium foil and virgin PET; CBAM cost on foil</td><td>Negative impact (actual) + risk</td><td>Upstream</td><td class="num">4.0</td><td class="num">3.0</td><td>Both</td></tr>
-<tr class="mat"><td>3</td><td><span class="tag">E1</span></td><td>Rising demand for low-carbon fibre packaging</td><td>Opportunity + positive impact</td><td>Downstream</td><td class="num">2.4</td><td class="num">3.2</td><td>Financial</td></tr>
-<tr class=""><td>4</td><td><span class="tag">E1</span></td><td>Drought and heat stress on pulp supply and plants</td><td>Physical risk</td><td>Upstream / own operations</td><td class="num">1.6</td><td class="num">1.8</td><td>No</td></tr>
-<tr class="mat"><td>5</td><td><span class="tag">E2</span></td><td>PFAS in barrier coatings for food-contact packs (PPWR limits since 12 Aug 2026)</td><td>Negative impact (potential) + risk</td><td>Own operations / downstream</td><td class="num">2.4</td><td class="num">4.0</td><td>Financial</td></tr>
-<tr class=""><td>6</td><td><span class="tag">E2</span></td><td>Pellet loss (primary microplastics) at the PET tray line</td><td>Negative impact (potential)</td><td>Own operations</td><td class="num">1.8</td><td class="num">0.6</td><td>No</td></tr>
-<tr class=""><td>7</td><td><span class="tag">E3</span></td><td>Water withdrawal for pulp moulding</td><td>Negative impact (actual)</td><td>Own operations</td><td class="num">2.3</td><td class="num">1.6</td><td>No</td></tr>
-<tr class=""><td>8</td><td><span class="tag">E4</span></td><td>Forest biodiversity in virgin pulp supply; EUDR due diligence</td><td>Negative impact (potential) + risk</td><td>Upstream</td><td class="num">2.9</td><td class="num">2.4</td><td>No (monitor)</td></tr>
-<tr class="mat"><td>9</td><td><span class="tag">E5</span></td><td>Virgin material inflows: PET, aluminium, pulp; PPWR recycled-content targets</td><td>Negative impact (actual) + risk</td><td>Upstream / own operations</td><td class="num">3.7</td><td class="num">3.2</td><td>Both</td></tr>
-<tr class="mat"><td>10</td><td><span class="tag">E5</span></td><td>Low recyclability of coated multi-material cartons; PPWR grades and EPR fees</td><td>Negative impact (actual) + risk</td><td>Downstream</td><td class="num">4.0</td><td class="num">4.0</td><td>Both</td></tr>
-<tr class=""><td>11</td><td><span class="tag">E5</span></td><td>Mono-material and reusable redesign</td><td>Opportunity + positive impact</td><td>Downstream</td><td class="num">2.4</td><td class="num">2.4</td><td>No</td></tr>
-<tr class="mat"><td>12</td><td><span class="tag">S1</span></td><td>Machine and dust-related injuries at the three plants</td><td>Negative impact (actual)</td><td>Own operations</td><td class="num">3.3</td><td class="num">1.2</td><td>Impact</td></tr>
-<tr class=""><td>13</td><td><span class="tag">S1</span></td><td>Working conditions of agency shift workers</td><td>Negative impact (potential)</td><td>Own operations</td><td class="num">2.4</td><td class="num">1.6</td><td>No</td></tr>
-<tr class="mat"><td>14</td><td><span class="tag">S4</span></td><td>Substance migration into food: consumer safety and recalls</td><td>Negative impact (potential) + risk</td><td>Downstream</td><td class="num">1.6</td><td class="num">3.0</td><td>Financial</td></tr>
-<tr class=""><td>15</td><td><span class="tag">G1</span></td><td>Bribery and corruption in sourcing</td><td>Negative impact (potential)</td><td>Upstream</td><td class="num">0.9</td><td class="num">1.2</td><td>No</td></tr>
-    </tbody>
-  </table></div>
-  <p class="read byline">Screened out top-down: S2 and S3, assuming supply is mainly EU recovered paper and certified pulp. This is the weakest assumption and should be revisited with supplier origin data.</p>
-</section>
-
-<section aria-labelledby="s4">
-  <h2 id="s4" class="read">4. Materiality matrix</h2>
-  <div class="figure">
-<svg viewBox="0 0 760 520" role="img" aria-label="Materiality matrix: 8 of 15 IROs at or above the 3.0 threshold" class="matrix">
-<line x1="70.0" x2="70.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="460.0" y2="460.0" class="g"/>
-<text x="70.0" y="478" text-anchor="middle" class="m">0</text><text x="60" y="464.0" text-anchor="end" class="m">0</text>
-<line x1="176.0" x2="176.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="386.0" y2="386.0" class="g"/>
-<text x="176.0" y="478" text-anchor="middle" class="m">1</text><text x="60" y="390.0" text-anchor="end" class="m">1</text>
-<line x1="282.0" x2="282.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="312.0" y2="312.0" class="g"/>
-<text x="282.0" y="478" text-anchor="middle" class="m">2</text><text x="60" y="316.0" text-anchor="end" class="m">2</text>
-<line x1="388.0" x2="388.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="238.0" y2="238.0" class="g"/>
-<text x="388.0" y="478" text-anchor="middle" class="m">3</text><text x="60" y="242.0" text-anchor="end" class="m">3</text>
-<line x1="494.0" x2="494.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="164.0" y2="164.0" class="g"/>
-<text x="494.0" y="478" text-anchor="middle" class="m">4</text><text x="60" y="168.0" text-anchor="end" class="m">4</text>
-<line x1="600.0" x2="600.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="90.0" y2="90.0" class="g"/>
-<text x="600.0" y="478" text-anchor="middle" class="m">5</text><text x="60" y="94.0" text-anchor="end" class="m">5</text>
-<line x1="388.0" x2="388.0" y1="90" y2="460" class="th"/><line x1="70" x2="600" y1="238.0" y2="238.0" class="th"/>
-<text x="606" y="242.0" class="m">Threshold 3.0</text>
-<text x="594" y="106" text-anchor="end" class="m">Material on both</text><text x="78" y="106" class="m">Impact-material only</text><text x="594" y="450" text-anchor="end" class="m">Financially material only</text>
-<text x="335.0" y="502" text-anchor="middle" class="p">Financial materiality (0 to 5)</text>
-<text transform="translate(24 275.0) rotate(-90)" text-anchor="middle" class="p">Impact materiality (0 to 5)</text>
-<g><circle cx="409.2" cy="186.2" r="6" class="dm"><title>#1 E1 Gas-fired drying (Scope 1): impact 3.7, financial 3.2</title></circle><text x="419.2" y="190.2" text-anchor="start" class="p">#1 E1 Gas-fired drying (Scope 1)</text></g>
-<g><circle cx="388.0" cy="164.0" r="6" class="dm"><title>#2 E1 Aluminium and PET emissions; CBAM: impact 4.0, financial 3.0</title></circle><text x="378.0" y="168.0" text-anchor="end" class="p">#2 E1 Aluminium and PET emissions; CBAM</text></g>
-<g><circle cx="409.2" cy="282.4" r="6" class="dm"><title>#3 E1 Low-carbon demand: impact 2.4, financial 3.2</title></circle><text x="419.2" y="302.4" text-anchor="start" class="p">#3 E1 Low-carbon demand</text></g>
-<g><circle cx="260.8" cy="341.6" r="5" class="dg"><title>#4 E1 Physical climate risk: impact 1.6, financial 1.8</title></circle><text x="270.8" y="345.6" text-anchor="start" class="m">#4</text></g>
-<g><circle cx="494.0" cy="282.4" r="6" class="dm"><title>#5 E2 PFAS in coatings: impact 2.4, financial 4.0</title></circle><text x="504.0" y="286.4" text-anchor="start" class="p">#5 E2 PFAS in coatings</text></g>
-<g><circle cx="133.6" cy="326.8" r="5" class="dg"><title>#6 E2 Pellet loss: impact 1.8, financial 0.6</title></circle><text x="143.6" y="330.8" text-anchor="start" class="m">#6</text></g>
-<g><circle cx="239.6" cy="289.8" r="5" class="dg"><title>#7 E3 Water withdrawal: impact 2.3, financial 1.6</title></circle><text x="229.6" y="297.8" text-anchor="end" class="m">#7</text></g>
-<g><circle cx="324.4" cy="245.4" r="5" class="dg"><title>#8 E4 Forest biodiversity: impact 2.9, financial 2.4</title></circle><text x="334.4" y="249.4" text-anchor="start" class="m">#8</text></g>
-<g><circle cx="409.2" cy="186.2" r="6" class="dm"><title>#9 E5 Virgin material inflows: impact 3.7, financial 3.2</title></circle><text x="419.2" y="206.2" text-anchor="start" class="p">#9 E5 Virgin material inflows</text></g>
-<g><circle cx="494.0" cy="164.0" r="6" class="dm"><title>#10 E5 Carton recyclability: impact 4.0, financial 4.0</title></circle><text x="504.0" y="168.0" text-anchor="start" class="p">#10 E5 Carton recyclability</text></g>
-<g><circle cx="324.4" cy="282.4" r="5" class="dg"><title>#11 E5 Mono-material redesign: impact 2.4, financial 2.4</title></circle><text x="334.4" y="286.4" text-anchor="start" class="m">#11</text></g>
-<g><circle cx="197.2" cy="215.8" r="6" class="dm"><title>#12 S1 Plant injuries: impact 3.3, financial 1.2</title></circle><text x="207.2" y="219.8" text-anchor="start" class="p">#12 S1 Plant injuries</text></g>
-<g><circle cx="239.6" cy="282.4" r="5" class="dg"><title>#13 S1 Agency workers: impact 2.4, financial 1.6</title></circle><text x="249.6" y="284.4" text-anchor="start" class="m">#13</text></g>
-<g><circle cx="388.0" cy="341.6" r="6" class="dm"><title>#14 S4 Food-contact safety: impact 1.6, financial 3.0</title></circle><text x="398.0" y="345.6" text-anchor="start" class="p">#14 S4 Food-contact safety</text></g>
-<g><circle cx="197.2" cy="393.4" r="5" class="dg"><title>#15 G1 Bribery in sourcing: impact 0.9, financial 1.2</title></circle><text x="207.2" y="397.4" text-anchor="start" class="m">#15</text></g>
-</svg>
-    <p class="cap">Green: material. Grey: below threshold, numbered as in the table. Illustrative scores.</p>
-  </div>
-  <p class="read">Climate (E1) and circularity (E5) sit top right: large impacts and direct cost exposure through CBAM, carbon pricing and PPWR. PFAS and food-contact safety are material on the financial axis alone, because regulation can take products off the market.</p>
-</section>
-
-<section aria-labelledby="s5">
-  <h2 id="s5" class="read">5. What Nordvorm reports, and what feeds it</h2>
-  <div class="tablewrap"><table>
-    <thead><tr><th>Material topic</th><th>ESRS disclosures to prepare</th><th>Linked regulation</th><th>First data step</th></tr></thead>
-    <tbody>
-      <tr><td><b>E1 Climate change</b></td><td>E1-1 transition plan with 1.5°C statement; E1-2 risk identification; E1-3 resilience; E1-4 to E1-6 policies, actions, gross absolute targets; E1-7 energy; E1-8 Scopes 1, 2, 3; E1-11 financial effects</td><td>CBAM (aluminium foil); EU ETS / ETS2 from 2028; SBTi V2.0</td><td>Gas use per dryer; supplier-specific emissions for foil</td></tr>
-      <tr><td><b>E2 Substances of concern</b></td><td>Policies, actions, targets and metrics on substances of concern</td><td>PPWR PFAS limits since 12 Aug 2026</td><td>Coating bill of materials; supplier PFAS tests per product</td></tr>
-      <tr><td><b>E5 Circular economy</b></td><td>Policies, actions, targets; resource inflows and outflows</td><td>PPWR labelling 2028; recyclability and recycled content mostly 2030; EPR fees</td><td>Material balance per plant; recyclability per SKU</td></tr>
-      <tr><td><b>S1 Own workforce</b></td><td>Health and safety metrics incl. agency workers</td><td>National occupational safety law</td><td>Harmonised incident logs</td></tr>
-      <tr><td><b>S4 Consumers</b></td><td>Consumer safety policies, actions, metrics (first-two-years phase-in available)</td><td>EU food-contact rules; PPWR</td><td>Migration test records</td></tr>
-    </tbody>
-  </table></div>
-  <div class="cols">
-    <div class="card"><h3>Not material, and why that matters</h3><ul><li>E3 Water and G1 Business conduct are not reported.</li><li>E4 Biodiversity (2.9 / 2.4) is just below threshold: reassess next year.</li><li>EUDR due diligence on pulp still applies from 30 December 2026, whatever the materiality result.</li></ul></div>
-    <div class="card"><h3>One data set, three uses</h3><p>Supplier-specific emissions for aluminium foil serve the CBAM declaration, Scope 3 category 1 in E1-8, and customers' own CSRD and IFRS S2 data requests. Collecting it once is the cheapest compliance step here.</p></div>
-  </div>
-</section>
-
-<section class="read" aria-labelledby="s6">
-  <h2 id="s6">6. What the agent did and what I decided</h2>
-  <ul>
-    <li><b>Agent:</b> drafted the long list per ESRS topic, proposed sub-scores with a rationale each, and mapped material topics to disclosures and laws.</li>
-    <li><b>Me:</b> set the 3.0 threshold, decided the top-down screening, reviewed every score and checked every reference.</li>
-    <li><b>Judgement call:</b> microplastics scoped to primary microplastics (pellet loss) only, as the revised ESRS require.</li>
-    <li><b>Judgement call:</b> PFAS rated financially material (4.0) despite an impact score of 2.4, because the PPWR ban removes products regardless of likelihood of harm.</li>
-  </ul>
-</section>
-
-<footer>
-  <p>Sources: <a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj">Directive (EU) 2026/470</a> · <a href="https://knowledgehub.efrag.org/eng/interactive/simplified-esrs/esrs-e1/delegated-act">EFRAG revised ESRS E1</a> · <a href="https://generationimpact.global/blog/simplified-esrs-2026/">Simplified ESRS analysis</a> · <a href="https://www.globalelr.com/2026/08/eu-packaging-and-packaging-waste-regulation-begins-application/">PPWR application</a> · <a href="https://www.hsfkramer.com/fr/notes/energy/2026-posts/operationalisation-and-simplification-of-the-eu-cbam">CBAM definitive regime</a> · <a href="https://help.dcycle.io/regulation/omnibus-i-final-agreement">EUDR delay</a>.</p>
-  <p>Portfolio case with a fictional company. Not advice.</p>
-</footer>
-</div>
-</section>
-<section class="tabpanel" id="tab-crosswalk" role="tabpanel" aria-labelledby="tabbtn-crosswalk">
-<div class="wrap">
-<header>
-  <div class="kicker">Project 3 of 3: framework analysis</div>
-  <h1>ESRS E1 and IFRS S2: one climate data set, two reports</h1>
-  <p class="lead">A disclosure-by-disclosure map of the revised ESRS E1 (adopted 3 July 2026) against IFRS S2 (as amended December 2025) and the GHG Protocol. For each theme: where the two align, where they diverge, and which data a company should collect once to serve both.</p>
-  <p class="byline">By Bilal Tahir, November 2026. Mapping drafted with an AI agent, every row checked against the standards.</p>
-</header>
-
-<section aria-labelledby="basis">
-  <h2 id="basis">Start with the one difference that drives the rest</h2>
-  <div class="basis">
-    <div class="card"><span class="fw">ESRS, under the CSRD</span><h3>Double materiality</h3><p>Report a topic if it is material for its impact on people and the environment, for its financial effect on the company, or both. Revised ESRS keep this principle but allow a top-down assessment at topic level, and non-material information must now be left out.</p></div>
-    <div class="card"><span class="fw">IFRS S1 and S2, from the ISSB</span><h3>Financial materiality</h3><p>Report what could reasonably be expected to affect the company's cash flows, access to finance or cost of capital. Built for investors. Adopted by 35 jurisdictions as of July 2026, including the UK through UK SRS.</p></div>
-  </div>
-  <p class="sub">So a climate impact that is material to society but not to cash flows belongs in an ESRS report and may be absent from an IFRS S2 report. On emissions data itself, the two are close, because both rest on the GHG Protocol.</p>
-</section>
-
-<section aria-labelledby="map">
-  <h2 id="map">The crosswalk</h2>
-  <div class="summary" id="cw-summary"></div>
-  <div class="controls" role="group" aria-label="Filter by alignment">
-    <span class="lbl">Show</span>
-    <button class="f" data-f="all" aria-pressed="true">All themes</button>
-    <button class="f" data-f="hi" aria-pressed="false">Strong overlap</button>
-    <button class="f" data-f="part" aria-pressed="false">Partial overlap</button>
-    <button class="f" data-f="esrs" aria-pressed="false">ESRS only</button>
-    <button class="f" data-f="s2" aria-pressed="false">IFRS S2 only</button>
-  </div>
-  <p class="hint">Open a row to see the key difference and the data to collect once.</p>
-  <div class="grid">
-    <div class="head"><span>Theme</span><span>ESRS E1 (revised 2026)</span><span>IFRS S2</span><span>GHG Protocol / other</span><span>Alignment</span></div>
-    <div id="cw-rows" class="grid"></div>
-  </div>
-</section>
-
-<footer>
-  <p>Sources: <a href="https://knowledgehub.efrag.org/eng/interactive/simplified-esrs/esrs-e1/delegated-act">EFRAG ESRS Knowledge Hub, revised ESRS E1</a> · <a href="https://en.fiveglaciers.com/post/esrs-e1-klimawandel">2023 to 2026 E1 renumbering</a> · <a href="https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf">EY on the revised ESRS delegated act</a> · <a href="https://generationimpact.global/blog/simplified-esrs-2026/">Generation Impact on materiality and phase-ins</a> · <a href="https://www.ifrs.org/content/dam/ifrs/meetings/2026/march/itcg/ap4-update-amendments-sustainability-sasb-standards.pdf">IFRS Foundation on the December 2025 IFRS S2 amendments</a> · <a href="https://www.spglobal.com/sustainable1/en/insights/research-reports/issb-q3-2026">S&amp;P Global ISSB adoption tracker</a> · <a href="https://ghgprotocol.org/sites/default/files/2026-10/S2-Market-Based-Method-Update-20261006.pdf">GHG Protocol Scope 2 update, October 2026</a>.</p>
-  <p>Paragraph references are for orientation. IFRS S2 paragraph numbers follow the June 2023 standard. Confirm against the official texts before reporting. Portfolio work, not assurance or advice.</p>
-</footer>
-</div>
+ </footer>
 </section>
 </main>
+</div>
+
 <script>
 (function(){
-const root=document.getElementById("tab-regulation-reader");
-
-const S = {
-  eurlex:["EUR-Lex","https://eur-lex.europa.eu/eli/dir/2026/470/oj"],
-  oeil:["European Parliament summary","https://oeil.europarl.europa.eu/oeil/en/procedure-document-summary/pdf?id=1890047"],
-  travers:["Travers Smith","https://www.traverssmith.com/knowledge/knowledge-container/csrd-and-csddd-version-20-the-eus-sustainability-framework-redefined/"],
-  cc:["Clifford Chance","https://www.cliffordchance.com/insights/resources/blogs/business-and-human-rights-insights/2026/02/omnibus-i-the-european-union-concludes-csddd-and-csrd-reforms.html"],
-  debrauw:["De Brauw","https://www.debrauw.com/articles/omnibus-now-final-agreement-reached-on-directive-amending-csrd-and-csddd"],
-  efta:["EFTA EEA-Lex","https://www.efta.int/node/301621"],
-  lex:["LexBlog","https://www.lexblog.com/?p=3686563"],
-  efrag:["EFRAG","https://www.efrag.org/en/news-and-calendar/news/european-commission-publishes-delegated-act-on-revised-esrs-and-voluntary-sustainability-reporting"],
-  ingr:["in.gr","https://www.in.gr/2026/03/04/english-edition/eu-officially-changes-sustainability-reporting-due-diligence-rules/amp/"],
-  pwc:["PwC Luxembourg","https://www.pwc.lu/en/sustainable-finance/eu-finalises-agreement-on-omnibus.html"],
-  cr:["Compliance & Risks","https://www.complianceandrisks.com/blog/eu-omnibus-i-finalized-comparing-key-structural-changes-to-the-csrd-and-csddd/"]
-};
-const R = [
- ["CSRD","Scope","Sustainability reporting applies to EU undertakings and groups above both thresholds","> EUR 450m net turnover and > 1,000 avg employees","Art. 2 → Arts. 19a(1), 29a(1) Dir. 2013/34/EU","ok",["eurlex","travers"]],
- ["CSRD","Scope","Non-EU groups: EU subsidiaries or branches report when group EU turnover is high","Group EU turnover > EUR 450m (2 consecutive years); subsidiary/branch > EUR 200m","Art. 2 → Art. 40a(1) Dir. 2013/34/EU","ok",["oeil"]],
- ["CSRD","Exemption","Wave-one companies now below the thresholds can be exempted by member states","FY2025 and FY2026","Art. 3 → Art. 5(2) Dir. 2022/2464","ok",["cc","debrauw"]],
- ["CSRD","Obligation","Value-chain cap: smaller partners may refuse data requests beyond the voluntary standard","Protected undertaking: ≤ 1,000 avg employees","Art. 2 → Arts. 19a(3), 29a(3), 29b(4), 34(2a)","warn",[]],
- ["CSRD","Exemption","Value-chain data gaps allowed while reporters explain efforts and plans","First 3 years of reporting","Art. 2 → Arts. 19a(3), 29a(3)","warn",[]],
- ["CSRD","Obligation","Commission to adopt a voluntary reporting standard for smaller companies","By 19 July 2026 (adopted 3 July 2026)","Art. 2 → new Art. 29ca Dir. 2013/34/EU","ok",["efrag"]],
- ["CSRD","Obligation","Sector-specific reporting standards dropped","Art. 29c deleted","Art. 2 → Art. 29c Dir. 2013/34/EU","ok",["ingr"]],
- ["CSRD","Review","Thresholds can be adjusted for inflation by delegated act","At least every 5 years","Art. 2 → Art. 3(13) Dir. 2013/34/EU","ok",["pwc"]],
- ["CSRD","Review","Commission review reports, including extending scope below the thresholds","30 Apr 2029 (most points); 30 Apr 2031 (scope extension)","Art. 3 → Art. 6(1) Dir. 2022/2464","warn",[]],
- ["CSRD","Deadline","Member states transpose the audit, accounting and CSRD changes","19 March 2027","Art. 5","ok",["efta","cr"]],
- ["CSRD","Deadline","Directive enters into force","20th day after publication (18 March 2026)","Art. 6","ok",["lex"]],
- ["Audit","Deadline","Commission adopts limited-assurance standards by delegated act","By 1 July 2027","Art. 1 → Art. 26a(3) Dir. 2006/43/EC","warn",[]],
- ["Audit","Obligation","Audit firms assuring sustainability reports name a key sustainability partner","At least 1, an approved statutory auditor","Art. 1 → Art. 24b(1) Dir. 2006/43/EC","warn",[]],
- ["CSDDD","Scope","EU companies in scope of due diligence","> 5,000 avg employees and > EUR 1.5bn worldwide turnover","Art. 4 → Art. 2(1)(a) Dir. 2024/1760","ok",["oeil"]],
- ["CSDDD","Scope","Non-EU companies in scope","> EUR 1.5bn net turnover in the EU","Art. 4 → Art. 2(2)(a) Dir. 2024/1760","ok",["oeil"]],
- ["CSDDD","Scope","Franchising and licensing models","Royalties > EUR 75m in the EU and turnover > EUR 275m","Art. 4 → Art. 2(1)(c), 2(2)(c)","warn",[]],
- ["CSDDD","Obligation","Information requests to smaller business partners only as a last resort","Partners < 5,000 employees","Art. 4 → Art. 8(2a) Dir. 2024/1760","warn",[]],
- ["CSDDD","Obligation","Periodic assessment of due diligence measures","At least every 5 years","Art. 4 → Art. 15 Dir. 2024/1760","warn",[]],
- ["CSDDD","Obligation","Maximum fine cap","3% of net worldwide turnover","Art. 4 → Art. 27(4) Dir. 2024/1760","warn",[]],
- ["CSDDD","Deadline","Transposition and application","Transpose by 26 July 2028; apply from 26 July 2029","Art. 4 → Art. 37(1); Art. 5","warn",[]],
- ["CSDDD","Review","Commission review of implementation and effectiveness","By 26 July 2031, then every 5 years","Art. 4 → Art. 36(2) Dir. 2024/1760","ok",["cc"]]
-];
-const tbody=document.getElementById("rr-rows");
-function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
-function render(f){
-  tbody.innerHTML="";
-  R.filter(r=>f==="all"||(f==="warn"?r[5]==="warn":r[0]===f)).forEach(r=>{
-    const tr=document.createElement("tr");
-    const area=r[0]==="Audit"?"Assurance":r[0];
-    const src=r[6].map(k=>`<a href="${S[k][1]}">${S[k][0]}</a>`).join(", ");
-    const status=r[5]==="ok"?`<span class="pill ok">Confirmed</span><span class="src">${src}</span>`:`<span class="pill warn">Verify in EUR-Lex</span><span class="src">Single source</span>`;
-    tr.innerHTML=`<td>${area}</td><td><span class="tag">${r[1]}</span></td><td>${esc(r[2])}</td><td class="val">${esc(r[3])}</td><td class="ref">${esc(r[4])}</td><td>${status}</td>`;
-    tbody.appendChild(tr);
-  });
-}
-const ok=R.filter(r=>r[5]==="ok").length;
-document.getElementById("rr-stats").innerHTML=
- `<div class="stat"><b>${R.length}</b><span>rules extracted</span></div>`+
- `<div class="stat"><b>4</b><span>directives amended</span></div>`+
- `<div class="stat"><b>${ok}</b><span>confirmed by a 2nd source</span></div>`+
- `<div class="stat"><b>${R.length-ok}</b><span>flagged for my check</span></div>`;
-root.querySelectorAll("button.f").forEach(b=>b.addEventListener("click",()=>{
-  root.querySelectorAll("button.f").forEach(x=>x.setAttribute("aria-pressed","false"));
-  b.setAttribute("aria-pressed","true");render(b.dataset.f);
-}));
-render("all");
-
-})();
-(function(){
-const root=document.getElementById("tab-crosswalk");
-
-const A={hi:["Strong overlap","c-hi"],part:["Partial overlap","c-part"],esrs:["ESRS only","c-esrs"],s2:["IFRS S2 only","c-s2"]};
-const R=[
- {t:"Governance of climate",g:"Who oversees climate, and how it links to pay",e:["ESRS 2 governance disclosures","Board and management roles, sustainability-linked incentives."],s:["IFRS S2 ¶5–7; ¶29(g)","Oversight body, management role, share of remuneration linked to climate."],o:["—",""],a:"hi",
-  d:"ESRS covers governance once, in ESRS 2, for all sustainability topics. IFRS S2 asks for it specifically for climate.",c:"Board terms of reference, committee minutes on climate, incentive-plan KPIs and weightings."},
- {t:"Transition plan",g:"How the business model gets to a 1.5°C-compatible economy",e:["E1-1 · ¶12","Decarbonisation levers, fossil-fuel CapEx, locked-in emissions, progress. Must state whether targets are science-based and 1.5°C-compatible, and explain if not."],s:["IFRS S2 ¶14(a)","Disclose the transition plan if the company has one, with key assumptions and dependencies."],o:["SBTi Net-Zero Standard V2.0","Effective 1 Feb 2027; shifts focus to implementation."],a:"part",
-  d:"ESRS expects a plan or a statement that none exists and when one will come, plus an explicit 1.5°C compatibility statement. IFRS S2 only asks about a plan if one exists.",c:"Abatement levers with tCO2e and cost, CapEx plan by lever, asset lifetimes for locked-in emissions."},
- {t:"Risk identification and scenarios",g:"Finding physical and transition risks",e:["E1-2 (new in 2026)","Process to identify climate-related risks, including physical-risk screening and scenario analysis. Previously spread across ESRS 2 IRO-1 and E1."],s:["IFRS S2 ¶10–12; ¶22; ¶24–26","Risks and opportunities by time horizon; scenario analysis proportionate to the company; risk management process."],o:["—",""],a:"part",
-  d:"Both expect scenario analysis. ESRS sets more specific expectations on how physical hazards are screened; IFRS S2 lets the method scale with the company's skills and resources.",c:"Site list with coordinates, hazard data per site, chosen scenarios and time horizons, risk register."},
- {t:"Resilience of strategy",g:"Can the strategy cope with climate change?",e:["E1-3 (new in 2026) · ¶19","Resilience of strategy and business model, drawing on E1-2 and the exposures in E1-11."],s:["IFRS S2 ¶22","Climate resilience assessed using scenario analysis."],o:["—",""],a:"hi",
-  d:"Close in substance. ESRS now has a dedicated requirement where it used to sit inside a paragraph.",c:"One resilience assessment, written once and referenced in both reports."},
- {t:"Policies",g:"Formal climate policies",e:["E1-4 · ¶20","Policies on mitigation and adaptation, through ESRS 2 GDR-P."],s:["No direct equivalent","Covered only indirectly through strategy and risk management."],o:["—",""],a:"esrs",
-  d:"An ESRS-specific disclosure. IFRS S2 does not ask for a list of policies.",c:"Policy register: scope, owner, date approved."},
- {t:"Actions, resources and capital",g:"What is being done and funded",e:["E1-5","Mitigation and adaptation actions and the CapEx and OpEx behind them."],s:["IFRS S2 ¶14; ¶29(e)","How the company resources its plan; capital deployed toward climate risks and opportunities."],o:["EU Taxonomy","Aligned CapEx can support both."],a:"part",
-  d:"ESRS ties actions to specific resources action by action. IFRS S2 asks for a total capital-deployment metric.",c:"Climate CapEx and OpEx tagged by project in the finance system."},
- {t:"Targets",g:"Emission reduction and other climate targets",e:["E1-6 · ¶24","GHG targets must be gross, before removals, credits or avoided emissions, and disclosed in absolute terms."],s:["IFRS S2 ¶33–36","Quantitative targets, base year, milestones; whether the target is gross or net, and planned use of carbon credits."],o:["SBTi V2.0","Category A/B companies; Scope 3 targets for larger companies."],a:"part",
-  d:"The main divergence: ESRS requires gross, absolute targets. IFRS S2 accepts net targets as long as the role of carbon credits is disclosed.",c:"Base-year inventory, target values per scope in tCO2e, separate credit and removal plans."},
- {t:"Energy",g:"Energy consumption and mix",e:["E1-7","Total energy consumption and mix, including fossil, nuclear and renewable shares."],s:["No cross-industry requirement","Appears only in some industry-based metrics."],o:["—",""],a:"esrs",
-  d:"An ESRS disclosure with no general IFRS S2 counterpart, though the same meter data feeds Scope 1 and 2.",c:"Metered energy by source and site, in MWh."},
- {t:"Scope 1 and 2 emissions",g:"Direct and purchased-energy emissions",e:["E1-8 · ¶30","Scope 1, with the share covered by the EU ETS; Scope 2 location-based and market-based."],s:["IFRS S2 ¶29(a)","Scope 1 and 2 in tCO2e; location-based Scope 2 plus information on contractual instruments."],o:["GHG Protocol Corporate Standard; Scope 2 Guidance","Scope 2 revision ongoing: two market-based methods proposed in October 2026."],a:"hi",
-  d:"Near-identical data. ESRS adds the EU ETS share and requires both Scope 2 methods side by side.",c:"Fuel and electricity data by site and month; supplier contracts and energy attribute certificates; hourly data where available, given the Scope 2 revision."},
- {t:"Scope 3 emissions",g:"Value-chain emissions",e:["E1-8","Screen all 15 GHG Protocol categories and report the significant ones; cloud and data-centre emissions as a subset of category 1."],s:["IFRS S2 ¶29(a)(vi)","Scope 3 considering all 15 categories. Since the Dec 2025 amendments (effective 1 Jan 2027), financial institutions may limit category 15 to financed emissions."],o:["GHG Protocol Scope 3 Standard (2011)",""],a:"hi",
-  d:"Same 15-category basis. Category 15 relief differs between the two frameworks, which matters mainly for financial institutions.",c:"Spend and activity data by category, supplier-specific emission factors where possible."},
- {t:"Reporting boundary",g:"Which entities the inventory covers",e:["E1-8 and ESRS 2","Financial control by default; operational control or equity share also allowed in the revised ESRS."],s:["IFRS S2 ¶29(a)","Consolidation approach per the GHG Protocol, disclosed."],o:["GHG Protocol consolidation approaches",""],a:"hi",
-  d:"The 2026 revision lets companies use one boundary for both reports, removing an earlier mismatch.",c:"One entity list with control and ownership status."},
- {t:"Removals and carbon credits",g:"Offsets and removals outside the inventory",e:["E1-9","GHG removals and mitigation projects financed through carbon credits, reported separately from gross emissions."],s:["IFRS S2 ¶36(e)","Planned use of carbon credits to meet net targets, with scheme, type and verification."],o:["SBTi V2.0","Recognises action on ongoing emissions."],a:"part",
-  d:"ESRS asks for credits actually cancelled and purchased; IFRS S2 focuses on credits planned within targets.",c:"Credit register: project, standard, vintage, removal or avoidance, retirement date."},
- {t:"Internal carbon pricing",g:"Carbon prices used in decisions",e:["E1-10","Whether and how internal carbon prices are applied."],s:["IFRS S2 ¶29(f)","Whether and how a carbon price is used in decisions, and the price per tonne."],o:["—",""],a:"hi",
-  d:"Practically the same question.",c:"Price per tCO2e, where it is applied (CapEx, procurement), scope covered."},
- {t:"Financial effects",g:"Money at stake from climate risks",e:["E1-11","Anticipated financial effects of material physical and transition risks and opportunities. Phase-in: quantitative parts deferred for many reporters."],s:["IFRS S2 ¶15–21; ¶29(b)–(d)","Current and anticipated effects on position, performance and cash flows; assets and activities vulnerable to transition and physical risks."],o:["—",""],a:"part",
-  d:"Both ask for quantified exposure. ESRS phase-ins mean quantitative figures can lag; IFRS S2 allows qualitative disclosure when a company lacks the skills or data.",c:"Asset register mapped to risk exposure; revenue linked to climate opportunities."},
- {t:"Industry-based metrics",g:"Sector-specific KPIs",e:["None","Sector-specific ESRS were dropped by Omnibus I."],s:["IFRS S2 ¶32","Industry-based metrics, with SASB-based guidance."],o:["SASB Standards",""],a:"s2",
-  d:"Since Omnibus I removed sector ESRS, this is now an IFRS S2-only layer.",c:"The SASB metrics for the company's industry."}
-];
-const box=document.getElementById("cw-rows");
-function render(f){
-  box.innerHTML="";
-  R.filter(r=>f==="all"||r.a===f).forEach(r=>{
-    const d=document.createElement("details");d.className="row "+A[r.a][1];
-    d.innerHTML=`<summary><div class="theme">${r.t}<small>${r.g}</small></div>
-      <div class="cell"><span class="ref">${r.e[0]}</span><span class="t">${r.e[1]}</span></div>
-      <div class="cell"><span class="ref">${r.s[0]}</span><span class="t">${r.s[1]}</span></div>
-      <div class="cell"><span class="ref">${r.o[0]}</span><span class="t">${r.o[1]}</span></div>
-      <div><span class="pill">${A[r.a][0]}</span></div></summary>
-      <div class="more"><div><h4>Key difference</h4>${r.d}</div><div><h4>Collect once, use for both</h4>${r.c}</div></div>`;
-    box.appendChild(d);
-  });
-}
-const counts={hi:0,part:0,esrs:0,s2:0};R.forEach(r=>counts[r.a]++);
-document.getElementById("cw-summary").innerHTML=Object.keys(A).map(k=>`<div class="sum ${A[k][1]}"><b>${counts[k]}</b><span>${A[k][0]}</span></div>`).join("");
-root.querySelectorAll("button.f").forEach(b=>b.addEventListener("click",()=>{
-  root.querySelectorAll("button.f").forEach(x=>x.setAttribute("aria-pressed","false"));
-  b.setAttribute("aria-pressed","true");render(b.dataset.f);
-}));
-render("all");
-
-})();
-(function(){
-  const ids=['overview','regulation-reader','materiality-case','crosswalk'];
-  function show(){
-    const h=location.hash.replace('#','');
-    const id=ids.includes(h)?h:'overview';
-    ids.forEach(t=>{
-      document.getElementById('tab-'+t).classList.toggle('active',t===id);
-      document.getElementById('tabbtn-'+t).setAttribute('aria-selected',t===id?'true':'false');
+  // project details
+  document.querySelectorAll('[data-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = document.getElementById(btn.getAttribute('data-toggle'));
+      var open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var spans = btn.querySelectorAll('span');
+      spans[0].textContent = open ? 'HIDE DETAILS' : 'PROJECT DETAILS';
+      spans[1].textContent = open ? '−' : '+';
+      if (open) { panel.querySelectorAll('.unfold').forEach(function(p){ p.style.animation='none'; p.offsetHeight; p.style.animation=''; }); }
     });
-    const label=document.getElementById('tabbtn-'+id).textContent;
-    document.title=(id==='overview'?'':label+' | ')+'Bilal Tahir, sustainability portfolio';
+  });
+
+  // photo lightbox
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('[data-photo]'));
+  var captions = ['In the LGP2 lab, Grenoble','Extruding a cellulose-based paste','Printed demonstrators','Printed cup & lid','Hex-base print','Top view · wall structure'];
+  var lb = document.getElementById('lightbox'), img = document.getElementById('lb-img'), cap = document.getElementById('lb-cap');
+  var cur = 0, lastFocus = null;
+  function show(i){
+    cur = (i + tiles.length) % tiles.length;
+    var t = tiles[cur].querySelector('img');
+    img.src = t.getAttribute('src'); img.alt = t.getAttribute('alt');
+    cap.textContent = captions[cur] + ' · ' + (cur + 1) + '/' + tiles.length;
   }
-  window.addEventListener('hashchange',()=>{show();window.scrollTo(0,0);});
-  show();
+  function open(i){ lastFocus = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = 'hidden'; lb.querySelector('[data-lb="close"]').focus(); }
+  function close(){ lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  tiles.forEach(function(t, i){ t.addEventListener('click', function(){ open(i); }); });
+  lb.querySelector('[data-lb="close"]').addEventListener('click', close);
+  lb.querySelector('[data-lb="prev"]').addEventListener('click', function(){ show(cur - 1); });
+  lb.querySelector('[data-lb="next"]').addEventListener('click', function(){ show(cur + 1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target === lb.firstElementChild) close(); });
+  document.addEventListener('keydown', function(e){
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
 })();
 </script>
 </body>

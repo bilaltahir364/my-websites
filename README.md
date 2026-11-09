@@ -1,19 +1,17 @@
 # my-websites
 
-Bilal Tahir's sustainability portfolio: a static website (plain HTML, no build step).
+Bilal Tahir's portfolio: a static website (plain HTML, no build step), published with GitHub Pages at
+https://bilaltahir364.github.io/my-websites/
 
 ## Pages
 
-Everything is in one page, `index.html`, with four tabs. Each tab has its own link:
+| Page | File | Link |
+| --- | --- | --- |
+| Materials portfolio (home): about, selected work, MSc lab gallery, Cellulose Valley partners, journey, expertise, education, contact | `index.html` | `/my-websites/` |
+| Sustainability portfolio: Overview, Regulation Reader AI agent, double materiality case study, ESRS E1 / IFRS S2 crosswalk | `sustainability/index.html` | `/my-websites/sustainability/` |
 
-| Tab | Link |
-| --- | --- |
-| Overview (intro, projects, frameworks, experience, about) | `index.html#overview` |
-| Regulation Reader AI agent, demo on Omnibus I | `index.html#regulation-reader` |
-| Double materiality case study (fictional company) | `index.html#materiality-case` |
-| ESRS E1 and IFRS S2 crosswalk | `index.html#crosswalk` |
-
-The files in `projects/` only forward old links to the matching tab.
+- Photos for the home page are in `assets/`.
+- Old links to the sustainability tabs (`/my-websites/#crosswalk` and the files in `projects/`) forward to `sustainability/`.
 
 ## View it on your computer
 
@@ -27,5 +25,6 @@ After that, inside the folder: `git pull`
 
 ## Before sharing
 
-- In `index.html`, replace `[your LinkedIn URL]` and `[your email]`.
+- In `sustainability/index.html`, replace `[your LinkedIn URL]` and `[your email]`.
 - In the Regulation Reader tab, verify the rows marked "Verify in EUR-Lex".
+- Confirm you may show the Chanel demonstrator photos and Cellulose Valley image publicly.

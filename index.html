@@ -8,75 +8,239 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
 <style>
-/* Layout idea: a quiet professional index. Short intro, three project cards as the centre of gravity, then frameworks and experience as compact reference lists. */
+/* Layout idea: one page, four tabs. A sticky bar carries the name and the tabs; each tab is one of the original pages, its styles scoped to its own panel. */
 :root{
   --paper:#f6f7f5; --surface:#ffffff; --ink:#18212b; --muted:#5b6672; --rule:#d9dee2;
-  --accent:#1d4e89; --accent-soft:#e3ecf7;
+  --accent:#1d4e89; --accent-soft:#e3ecf7; --grey:#b9bfb8;
+  --ok:#2f6b3f; --ok-soft:#e3f1e6; --warn:#8a5a00; --warn-soft:#fbefd6;
+  --hi:#2f6b3f; --hi-soft:#e3f1e6; --part:#8a5a00; --part-soft:#fbefd6; --one:#7a3b5c; --one-soft:#f4e6ee;
   --display:"Newsreader", Georgia, "Times New Roman", serif;
   --body:"IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744; --accent:#8db8ec; --accent-soft:#1d2e44; color-scheme: dark;}
+  :root:not([data-theme="light"]){
+    --paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744;
+    --accent:#8db8ec; --accent-soft:#1d2e44; --grey:#56606a;
+    --ok:#8fd19f; --ok-soft:#1c3324; --warn:#f0c46a; --warn-soft:#3a2e14;
+    --hi:#8fd19f; --hi-soft:#1c3324; --part:#f0c46a; --part-soft:#3a2e14; --one:#e3a3c4; --one-soft:#3a2230;
+    color-scheme: dark;
+  }
 }
-:root[data-theme="dark"]{--paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744; --accent:#8db8ec; --accent-soft:#1d2e44; color-scheme: dark;}
+:root[data-theme="dark"]{
+  --paper:#11161c; --surface:#18202a; --ink:#e6eaee; --muted:#9aa6b2; --rule:#2c3744;
+  --accent:#8db8ec; --accent-soft:#1d2e44; --grey:#56606a;
+  --ok:#8fd19f; --ok-soft:#1c3324; --warn:#f0c46a; --warn-soft:#3a2e14;
+  --hi:#8fd19f; --hi-soft:#1c3324; --part:#f0c46a; --part-soft:#3a2e14; --one:#e3a3c4; --one-soft:#3a2230;
+  color-scheme: dark;
+}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
 a{color:var(--accent)}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.sitenav{border-bottom:1px solid var(--rule);background:var(--surface)}
-.sitenav .in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font:500 14px/1.3 var(--body)}
-.sitenav a{color:var(--ink);text-decoration:none}
-.sitenav a:hover{color:var(--accent)}
-.sitenav .home{font-weight:600;margin-right:auto}
-.wrap{max-width:1080px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:56px}
-.intro{display:grid;gap:16px;max-width:68ch}
-.kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-h1{font:600 clamp(34px,5.5vw,52px)/1.08 var(--display);margin:0;text-wrap:balance}
-h2{font:600 28px/1.2 var(--display);margin:0;text-wrap:balance}
-h3{font:600 17px/1.3 var(--body);margin:0}
-p{margin:0}
-.lead{font-size:19px}
-.facts{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font:500 13px/1 var(--body);padding:7px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--surface)}
-section{display:grid;gap:18px}
-.sub{color:var(--muted);max-width:68ch}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.project{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:6px;padding:20px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto;text-decoration:none;color:var(--ink)}
-.project:hover{border-color:var(--accent)}
-.project .n{font:500 12px/1 var(--mono);color:var(--accent)}
-.project p{font-size:15px;color:var(--muted)}
-.project .proves{font-size:14px;color:var(--ink)}
-.project .go{font:600 14px/1 var(--body);color:var(--accent)}
-.fw{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
-.fw div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
-.fw b{font-weight:600}
-.fw span{color:var(--muted)}
-.xp{display:grid;gap:0}
-.xp > div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
-.xp .when{font:400 13px/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.xp p{font-size:15px;color:var(--muted)}
-.about{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
-.about .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:20px;display:grid;gap:8px;font-size:15px}
-footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px}
-@media (max-width:860px){
-  .projects,.fw,.about{grid-template-columns:1fr}
-  .fw div,.xp > div{grid-template-columns:1fr;gap:2px}
-}
+.topbar{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--rule)}
+.topbar .in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
+.topbar .name{font:600 15px/1 var(--body);color:var(--ink);text-decoration:none;padding:16px 0;margin-right:auto}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tab{font:500 14px/1 var(--body);color:var(--muted);text-decoration:none;padding:16px 12px 14px;border-bottom:2px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.tab:focus-visible,.topbar .name:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.js .tabpanel{display:none}
+.js .tabpanel.active{display:block}
+@media (max-width:640px){.topbar .name{padding:12px 0 4px}.tab{padding:10px 10px 12px}}
+/* Overview */
+#tab-overview a{color:var(--accent)}
+#tab-overview a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#tab-overview .wrap{max-width:1080px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:56px}
+#tab-overview .intro{display:grid;gap:16px;max-width:68ch}
+#tab-overview .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+#tab-overview h1{font:600 clamp(34px,5.5vw,52px)/1.08 var(--display);margin:0;text-wrap:balance}
+#tab-overview h2{font:600 28px/1.2 var(--display);margin:0;text-wrap:balance}
+#tab-overview h3{font:600 17px/1.3 var(--body);margin:0}
+#tab-overview p{margin:0}
+#tab-overview .lead{font-size:19px}
+#tab-overview .facts{display:flex;flex-wrap:wrap;gap:8px}
+#tab-overview .chip{font:500 13px/1 var(--body);padding:7px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--surface)}
+#tab-overview section{display:grid;gap:18px}
+#tab-overview .sub{color:var(--muted);max-width:68ch}
+#tab-overview .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#tab-overview .project{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:6px;padding:20px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto;text-decoration:none;color:var(--ink)}
+#tab-overview .project:hover{border-color:var(--accent)}
+#tab-overview .project .n{font:500 12px/1 var(--mono);color:var(--accent)}
+#tab-overview .project p{font-size:15px;color:var(--muted)}
+#tab-overview .project .proves{font-size:14px;color:var(--ink)}
+#tab-overview .project .go{font:600 14px/1 var(--body);color:var(--accent)}
+#tab-overview .fw{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
+#tab-overview .fw div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
+#tab-overview .fw b{font-weight:600}
+#tab-overview .fw span{color:var(--muted)}
+#tab-overview .xp{display:grid;gap:0}
+#tab-overview .xp > div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+#tab-overview .xp .when{font:400 13px/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+#tab-overview .xp p{font-size:15px;color:var(--muted)}
+#tab-overview .about{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
+#tab-overview .about .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:20px;display:grid;gap:8px;font-size:15px}
+#tab-overview footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px}
+@media (max-width:860px){#tab-overview .projects,#tab-overview .fw,#tab-overview .about{grid-template-columns:1fr}
+#tab-overview .fw div,#tab-overview .xp > div{grid-template-columns:1fr;gap:2px}}
+/* Regulation Reader */
+#tab-regulation-reader .wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
+#tab-regulation-reader header{display:grid;gap:12px;max-width:72ch}
+#tab-regulation-reader .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+#tab-regulation-reader h1{font:600 clamp(32px,5vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
+#tab-regulation-reader h2{font:600 26px/1.2 var(--display);margin:0 0 6px;text-wrap:balance}
+#tab-regulation-reader h3{font:600 16px/1.3 var(--body);margin:0}
+#tab-regulation-reader p{margin:0}
+#tab-regulation-reader .lead{font-size:18px;color:var(--ink)}
+#tab-regulation-reader .byline{color:var(--muted);font-size:14px}
+#tab-regulation-reader section{display:grid;gap:16px}
+#tab-regulation-reader .sub{color:var(--muted);max-width:72ch}
+#tab-regulation-reader .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
+#tab-regulation-reader .step{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px;display:grid;gap:6px;align-content:start;position:relative}
+#tab-regulation-reader .step .n{font:500 12px/1 var(--mono);color:var(--accent)}
+#tab-regulation-reader .step p{font-size:14px;color:var(--muted)}
+#tab-regulation-reader .step:not(:last-child)::after{content:"\2192";position:absolute;right:-11px;top:16px;color:var(--accent);font-weight:600}
+#tab-regulation-reader .step.human{border-color:var(--warn);background:var(--warn-soft)}
+#tab-regulation-reader .step.human .n{color:var(--warn)}
+#tab-regulation-reader .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#tab-regulation-reader .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:10px}
+#tab-regulation-reader .card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+#tab-regulation-reader .stats{display:flex;flex-wrap:wrap;gap:10px}
+#tab-regulation-reader .stat{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 14px;display:grid;gap:2px;min-width:150px}
+#tab-regulation-reader .stat b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
+#tab-regulation-reader .stat span{font-size:13px;color:var(--muted)}
+#tab-regulation-reader .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#tab-regulation-reader .controls label{font-size:13px;color:var(--muted);margin-right:4px}
+#tab-regulation-reader button.f{font:500 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+#tab-regulation-reader button.f[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+#tab-regulation-reader button.f:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#tab-regulation-reader .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+#tab-regulation-reader table{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
+#tab-regulation-reader th,#tab-regulation-reader td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+#tab-regulation-reader th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--paper)}
+#tab-regulation-reader tr:last-child td{border-bottom:0}
+#tab-regulation-reader td.ref{font:400 12.5px/1.45 var(--mono);color:var(--accent);white-space:nowrap}
+#tab-regulation-reader td.val{font-weight:600;font-variant-numeric:tabular-nums}
+#tab-regulation-reader .tag{display:inline-block;font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+#tab-regulation-reader .pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;white-space:nowrap}
+#tab-regulation-reader .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+#tab-regulation-reader .pill.ok{background:var(--ok-soft);color:var(--ok)}
+#tab-regulation-reader .pill.warn{background:var(--warn-soft);color:var(--warn)}
+#tab-regulation-reader .src{font-size:12.5px;color:var(--muted);display:block;margin-top:4px}
+#tab-regulation-reader .prompt{font:400 13px/1.6 var(--mono);background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:6px;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
+#tab-regulation-reader footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
+#tab-regulation-reader footer a,#tab-regulation-reader .src a{color:var(--accent)}
+@media (max-width:860px){#tab-regulation-reader .pipeline{grid-template-columns:1fr 1fr}
+#tab-regulation-reader .step::after{display:none}
+#tab-regulation-reader .cols{grid-template-columns:1fr}}
+@media (max-width:440px){#tab-regulation-reader .pipeline{grid-template-columns:1fr}}
+/* Materiality case */
+#tab-materiality-case .wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
+#tab-materiality-case .read{max-width:72ch}
+#tab-materiality-case header{display:grid;gap:12px}
+#tab-materiality-case .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+#tab-materiality-case h1{font:600 clamp(32px,5vw,46px)/1.1 var(--display);margin:0;text-wrap:balance}
+#tab-materiality-case h2{font:600 26px/1.2 var(--display);margin:0;text-wrap:balance}
+#tab-materiality-case h3{font:600 16px/1.3 var(--body);margin:0}
+#tab-materiality-case p{margin:0}
+#tab-materiality-case .lead{font-size:18px}
+#tab-materiality-case .byline{color:var(--muted);font-size:14px}
+#tab-materiality-case .note{background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:4px;font-size:15px}
+#tab-materiality-case section{display:grid;gap:14px}
+#tab-materiality-case ul{margin:0;padding-left:20px;display:grid;gap:6px}
+#tab-materiality-case .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+#tab-materiality-case table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+#tab-materiality-case th,#tab-materiality-case td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+#tab-materiality-case th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--paper)}
+#tab-materiality-case tr:last-child td{border-bottom:0}
+#tab-materiality-case tr.mat td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+#tab-materiality-case td.num{font-variant-numeric:tabular-nums;text-align:right}
+#tab-materiality-case .tag{font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+#tab-materiality-case .formula{font:400 14px/1.6 var(--mono);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:12px 16px}
+#tab-materiality-case .figure{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px;display:grid;gap:8px}
+#tab-materiality-case .figure .cap{font-size:13px;color:var(--muted)}
+#tab-materiality-case .matrix{width:100%;height:auto;font:12px var(--body)}
+#tab-materiality-case .matrix .g{stroke:var(--rule)}
+#tab-materiality-case .matrix .th{stroke:var(--muted);stroke-dasharray:5 4}
+#tab-materiality-case .matrix .m{fill:var(--muted)}
+#tab-materiality-case .matrix .p{fill:var(--ink)}
+#tab-materiality-case .matrix .dm{fill:var(--accent)}
+#tab-materiality-case .matrix .dg{fill:var(--grey)}
+#tab-materiality-case .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#tab-materiality-case .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start}
+#tab-materiality-case footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
+#tab-materiality-case a{color:var(--accent)}
+@media (max-width:760px){#tab-materiality-case .cols{grid-template-columns:1fr}}
+/* ESRS / IFRS crosswalk */
+#tab-crosswalk .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:36px}
+#tab-crosswalk header{display:grid;gap:12px;max-width:74ch}
+#tab-crosswalk .kicker{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+#tab-crosswalk h1{font:600 clamp(32px,5vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
+#tab-crosswalk h2{font:600 26px/1.2 var(--display);margin:0;text-wrap:balance}
+#tab-crosswalk h3{font:600 15px/1.3 var(--body);margin:0}
+#tab-crosswalk p{margin:0}
+#tab-crosswalk .lead{font-size:18px}
+#tab-crosswalk .byline{color:var(--muted);font-size:14px}
+#tab-crosswalk section{display:grid;gap:16px}
+#tab-crosswalk .sub{color:var(--muted);max-width:74ch}
+#tab-crosswalk .basis{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#tab-crosswalk .card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px;display:grid;gap:8px;align-content:start}
+#tab-crosswalk .card .fw{font:500 12px/1 var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+#tab-crosswalk .card p{font-size:15px}
+#tab-crosswalk .summary{display:flex;flex-wrap:wrap;gap:10px}
+#tab-crosswalk .sum{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:6px;padding:10px 14px;display:grid;gap:2px;min-width:170px}
+#tab-crosswalk .sum b{font:600 24px/1 var(--display);font-variant-numeric:tabular-nums}
+#tab-crosswalk .sum span{font-size:13px;color:var(--muted)}
+#tab-crosswalk .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#tab-crosswalk .controls .lbl{font-size:13px;color:var(--muted);margin-right:4px}
+#tab-crosswalk button.f{font:500 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+#tab-crosswalk button.f[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+#tab-crosswalk button.f:focus-visible,#tab-crosswalk summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#tab-crosswalk .grid{display:grid;gap:10px}
+#tab-crosswalk .head,#tab-crosswalk .row>summary{display:grid;grid-template-columns:1.1fr 1.5fr 1.5fr 1.1fr 130px;gap:14px;align-items:start}
+#tab-crosswalk .head{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:0 16px 0 20px}
+#tab-crosswalk .row{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:6px}
+#tab-crosswalk .row>summary{list-style:none;cursor:pointer;padding:14px 16px}
+#tab-crosswalk .row>summary::-webkit-details-marker{display:none}
+#tab-crosswalk .theme{font-weight:600}
+#tab-crosswalk .theme small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+#tab-crosswalk .ref{font:500 12.5px/1.4 var(--mono);color:var(--accent);display:block;margin-bottom:3px}
+#tab-crosswalk .cell{font-size:14px}
+#tab-crosswalk .cell .t{color:var(--ink)}
+#tab-crosswalk .pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1.2 var(--body);padding:4px 8px;border-radius:999px;background:var(--cs);color:var(--c);white-space:nowrap}
+#tab-crosswalk .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+#tab-crosswalk .more{padding:0 16px 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px dashed var(--rule);padding-top:12px;margin:0 16px 0 0}
+#tab-crosswalk .more div{font-size:14px}
+#tab-crosswalk .more h4{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 4px}
+#tab-crosswalk .hint{font-size:13px;color:var(--muted)}
+#tab-crosswalk .c-hi{--c:var(--hi);--cs:var(--hi-soft)}
+#tab-crosswalk .c-part{--c:var(--part);--cs:var(--part-soft)}
+#tab-crosswalk .c-esrs{--c:var(--accent);--cs:var(--accent-soft)}
+#tab-crosswalk .c-s2{--c:var(--one);--cs:var(--one-soft)}
+#tab-crosswalk footer{font-size:13px;color:var(--muted);display:grid;gap:8px;border-top:1px solid var(--rule);padding-top:20px}
+#tab-crosswalk footer a{color:var(--accent)}
+@media (max-width:900px){#tab-crosswalk .head{display:none}
+#tab-crosswalk .row>summary{grid-template-columns:1fr;gap:8px}
+#tab-crosswalk .more{grid-template-columns:1fr;margin:0}
+#tab-crosswalk .basis{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav class="sitenav" aria-label="Site"><div class="in">
-  <a class="home" href="index.html">Bilal Tahir</a>
-  <a href="projects/regulation-reader.html">Regulation Reader</a>
-  <a href="projects/materiality-case.html">Materiality case</a>
-  <a href="projects/crosswalk.html">ESRS / IFRS crosswalk</a>
-  <a href="#about">About</a>
-</div></nav>
-
+<header class="topbar"><div class="in">
+<a class="name" href="#overview">Bilal Tahir</a>
+<nav class="tabs" role="tablist" aria-label="Portfolio sections">
+<a class="tab" role="tab" id="tabbtn-overview" href="#overview" aria-controls="tab-overview">Overview</a>
+<a class="tab" role="tab" id="tabbtn-regulation-reader" href="#regulation-reader" aria-controls="tab-regulation-reader">Regulation Reader</a>
+<a class="tab" role="tab" id="tabbtn-materiality-case" href="#materiality-case" aria-controls="tab-materiality-case">Materiality case</a>
+<a class="tab" role="tab" id="tabbtn-crosswalk" href="#crosswalk" aria-controls="tab-crosswalk">ESRS / IFRS crosswalk</a>
+</nav>
+</div></header>
+<main>
+<section class="tabpanel" id="tab-overview" role="tabpanel" aria-labelledby="tabbtn-overview">
 <div class="wrap">
 <header class="intro">
   <div class="kicker">Sustainability · Carbon accounting · Decarbonisation</div>
@@ -89,21 +253,21 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);paddin
   <h2 id="work">Projects</h2>
   <p class="sub">Three pieces of work built on the standards as they stand in November 2026. Each shows the method, the sources and where AI helped.</p>
   <div class="projects">
-    <a class="project" href="projects/regulation-reader.html">
+    <a class="project" href="#regulation-reader">
       <span class="n">01 · AI agent</span>
       <h3>Regulation Reader</h3>
       <p>An agent that turns EU legal texts into an obligations register with article references, cross-checked against a second source. Demo on Omnibus I.</p>
       <span class="proves">Shows: building AI agents with guardrails; reading EU law at article level.</span>
       <span class="go">View project →</span>
     </a>
-    <a class="project" href="projects/materiality-case.html">
+    <a class="project" href="#materiality-case">
       <span class="n">02 · CSRD case</span>
       <h3>Double materiality: Nordvorm Packaging</h3>
       <p>A full assessment under the revised ESRS for a fictional Dutch packaging company, linked to PPWR, CBAM and EUDR.</p>
       <span class="proves">Shows: running the core CSRD process and connecting it to product regulation.</span>
       <span class="go">View project →</span>
     </a>
-    <a class="project" href="projects/crosswalk.html">
+    <a class="project" href="#crosswalk">
       <span class="n">03 · Framework analysis</span>
       <h3>ESRS E1 and IFRS S2 crosswalk</h3>
       <p>Interactive map of 15 climate disclosure themes: where the frameworks overlap, diverge, and what data serves both.</p>
@@ -155,5 +319,430 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);paddin
 
 <footer>Portfolio projects use public standards and fictional companies. Not advice. Last updated November 2026.</footer>
 </div>
+</section>
+<section class="tabpanel" id="tab-regulation-reader" role="tabpanel" aria-labelledby="tabbtn-regulation-reader">
+<div class="wrap">
+<header>
+  <div class="kicker">Portfolio project 1 of 3 · AI agent</div>
+  <h1>Regulation Reader: an AI agent that turns EU legal texts into a checked obligations register</h1>
+  <p class="lead">Sustainability rules arrive as long amending directives that change other directives. This agent reads the official text, extracts every threshold, date and obligation with its article reference, cross-checks each one against a second source, and marks what a human still has to verify.</p>
+  <p class="byline">Bilal Tahir · Built with Claude · Demo run on Directive (EU) 2026/470 (Omnibus I), November 2026</p>
+</header>
+
+<section aria-labelledby="how">
+  <h2 id="how">How the agent works</h2>
+  <div class="pipeline">
+    <div class="step"><span class="n">01 · Ingest</span><h3>Official text only</h3><p>Starts from the Official Journal text, never a blog summary. Records the version date.</p></div>
+    <div class="step"><span class="n">02 · Extract</span><h3>One row per rule</h3><p>Every threshold, date, exemption and obligation, each tied to the article and the provision it amends.</p></div>
+    <div class="step"><span class="n">03 · Classify</span><h3>Tag and group</h3><p>Scope, deadline, exemption, obligation, review. Grouped by the directive being amended.</p></div>
+    <div class="step"><span class="n">04 · Cross-check</span><h3>Second source</h3><p>Looks for an independent source (Parliament, law firm, regulator) that states the same figure.</p></div>
+    <div class="step human"><span class="n">05 · Human check</span><h3>I decide</h3><p>Single-source rows are flagged. I verify them in EUR-Lex before anything is published or advised.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="guard">
+  <h2 id="guard">Guardrails built into the instructions</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>What the agent must do</h3>
+      <ul>
+        <li>Cite the article and paragraph for every row, or drop the row.</li>
+        <li>Copy figures exactly as written (EUR 450 000 000 stays EUR 450 000 000).</li>
+        <li>Name the provision being amended, since amending acts rarely make sense alone.</li>
+        <li>State its source text and that text's date at the top of the output.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>What the agent must not do</h3>
+      <ul>
+        <li>Fill gaps from memory or from older versions of the law.</li>
+        <li>Interpret who is in scope for a specific company. That is my judgement call.</li>
+        <li>Mark a row as confirmed without a second, independent source.</li>
+        <li>Give legal advice. The register is a working tool, not an opinion.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="demo">
+  <h2 id="demo">Demo output: Directive (EU) 2026/470</h2>
+  <p class="sub">Published in the Official Journal on 26 February 2026, in force since 18 March 2026. It amends the Audit Directive, the Accounting Directive, the CSRD and the CSDDD in one act. Below is the register the agent produced, filtered by directive.</p>
+  <div class="stats" id="rr-stats"></div>
+  <div class="controls" role="group" aria-label="Filter rows">
+    <label>Show</label>
+    <button class="f" data-f="all" aria-pressed="true">All rules</button>
+    <button class="f" data-f="CSRD" aria-pressed="false">CSRD &amp; Accounting Directive</button>
+    <button class="f" data-f="CSDDD" aria-pressed="false">CSDDD</button>
+    <button class="f" data-f="Audit" aria-pressed="false">Assurance</button>
+    <button class="f" data-f="warn" aria-pressed="false">Needs my check</button>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Area</th><th>Type</th><th>Rule</th><th>Value</th><th>Reference</th><th>Cross-check</th></tr></thead>
+      <tbody id="rr-rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="prompt">
+  <h2 id="prompt">The core instruction (excerpt)</h2>
+  <div class="prompt">You are reading an EU legal act. Work only from the text provided.
+For every threshold, date, deadline, exemption, obligation and review clause:
+  1. Write one row: area | type | rule in plain English | exact value | article + paragraph | provision amended.
+  2. Copy numbers exactly as written. Never round, convert or infer.
+  3. If a value is unclear in the text, write UNCLEAR and quote the words (max 25).
+Then search for one independent source per row.
+  - Same figure found: status = Confirmed, with the link.
+  - Not found or different: status = Verify in EUR-Lex. Never mark it confirmed.
+Finish with: source text used, its date, and the rows a human must check.</div>
+</section>
+
+<section aria-labelledby="learned">
+  <h2 id="learned">What this run showed</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Where the agent saved time</h3>
+      <ul>
+        <li>Mapped one amending act across four directives in a single pass.</li>
+        <li>Separated CSRD dates (transpose by 19 March 2027) from CSDDD dates (transpose by 26 July 2028), a common source of confusion.</li>
+        <li>Surfaced small but practical rules, such as the 1,000-employee value-chain cap, that summaries often skip.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Where human judgement stays</h3>
+      <ul>
+        <li>10 of the 21 rows had no independent second source and are flagged for checking in EUR-Lex.</li>
+        <li>National transposition can add stricter rules; the Netherlands still has to transpose these changes.</li>
+        <li>Deciding what a rule means for one company (scope, timing, data requests) is analysis, not extraction.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Source text: Directive (EU) 2026/470, OJ L 2026/470, 26.2.2026 (<a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj">EUR-Lex</a>), read via a curated rendering of the EUR-Lex text (<a href="https://lawplayer.com/eu/act/32026L0470">LawPlayer</a>, dated 4 July 2026).</p>
+  <p>Portfolio demonstration of an AI-assisted workflow. Not legal advice. Always confirm against the official text before relying on any row.</p>
+</footer>
+</div>
+</section>
+<section class="tabpanel" id="tab-materiality-case" role="tabpanel" aria-labelledby="tabbtn-materiality-case">
+<div class="wrap">
+<header class="read">
+  <div class="kicker">Portfolio project 2 of 3 · CSRD double materiality</div>
+  <h1>Double materiality assessment: Nordvorm Packaging</h1>
+  <p class="lead">A worked assessment under the revised ESRS (adopted 3 July 2026) for a fictional Dutch food-packaging manufacturer, connected to the PPWR, CBAM and EUDR obligations the company faces.</p>
+  <p class="byline">Bilal Tahir · AI-assisted with a double materiality agent, judgement calls by me · November 2026</p>
+  <p class="note">The company and every score are invented to show the method. The standards, thresholds and regulatory dates are real as of 9 November 2026.</p>
+</header>
+
+<section class="read" aria-labelledby="s1">
+  <h2 id="s1">1. Company and scope</h2>
+  <p>Nordvorm (fictional: Zwolle, 1,450 employees, €540m net turnover, plants in the Netherlands, Poland and Germany) makes moulded-fibre trays, coated paperboard cartons, PET trays and aluminium-foil lids for EU food brands.</p>
+  <ul>
+    <li><b>CSRD:</b> in scope from FY2027. It exceeds both Omnibus I thresholds (more than €450m turnover and more than 1,000 employees).</li>
+    <li><b>CSDDD:</b> out of scope (below 5,000 employees and €1.5bn turnover), but large customers will send due-diligence questionnaires.</li>
+    <li><b>Value-chain cap:</b> with more than 1,000 employees, Nordvorm is not a protected undertaking and must answer customers' data requests. Its own suppliers with 1,000 or fewer employees are protected.</li>
+    <li><b>PPWR:</b> applies since 12 August 2026, including PFAS limits for food-contact packaging.</li>
+    <li><b>CBAM:</b> about 2,000 t a year of imported aluminium foil exceeds the 50-tonne threshold; first declaration due 30 September 2027.</li>
+  </ul>
+</section>
+
+<section class="read" aria-labelledby="s2">
+  <h2 id="s2">2. Method</h2>
+  <p>Each impact, risk and opportunity (IRO) is scored 0 to 5 on both axes. Anything at 3.0 or above on either axis is material. ESRS sets no numeric threshold, so 3.0 is a disclosed company judgement.</p>
+  <div class="formula">Impact = (scale + scope + irremediability) / 3 × likelihood / 5<br>Financial = magnitude × likelihood / 5</div>
+  <ul>
+    <li><b>Top-down first:</b> topics clearly not material were screened out at topic level, as the revised ESRS allow.</li>
+    <li><b>Whole value chain:</b> upstream (pulp, aluminium, PET), own operations, downstream (brands, consumers, end of life).</li>
+    <li><b>Non-material means not reported:</b> the revised ESRS require non-material information to be left out.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3" class="read">3. Long list and scores</h2>
+  <p class="read">8 of 15 IROs pass the threshold, across E1, E2, E5, S1 and S4. Material rows are marked with a blue edge.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Topic</th><th>Impact, risk or opportunity</th><th>Type</th><th>Value chain</th><th>Impact</th><th>Financial</th><th>Material?</th></tr></thead>
+    <tbody>
+<tr class="mat"><td>1</td><td><span class="tag">E1</span></td><td>Scope 1 emissions from gas-fired drying of moulded fibre</td><td>Negative impact (actual) + risk</td><td>Own operations</td><td class="num">3.7</td><td class="num">3.2</td><td>Both</td></tr>
+<tr class="mat"><td>2</td><td><span class="tag">E1</span></td><td>Scope 3 emissions embedded in aluminium foil and virgin PET; CBAM cost on foil</td><td>Negative impact (actual) + risk</td><td>Upstream</td><td class="num">4.0</td><td class="num">3.0</td><td>Both</td></tr>
+<tr class="mat"><td>3</td><td><span class="tag">E1</span></td><td>Rising demand for low-carbon fibre packaging</td><td>Opportunity + positive impact</td><td>Downstream</td><td class="num">2.4</td><td class="num">3.2</td><td>Financial</td></tr>
+<tr class=""><td>4</td><td><span class="tag">E1</span></td><td>Drought and heat stress on pulp supply and plants</td><td>Physical risk</td><td>Upstream / own operations</td><td class="num">1.6</td><td class="num">1.8</td><td>No</td></tr>
+<tr class="mat"><td>5</td><td><span class="tag">E2</span></td><td>PFAS in barrier coatings for food-contact packs (PPWR limits since 12 Aug 2026)</td><td>Negative impact (potential) + risk</td><td>Own operations / downstream</td><td class="num">2.4</td><td class="num">4.0</td><td>Financial</td></tr>
+<tr class=""><td>6</td><td><span class="tag">E2</span></td><td>Pellet loss (primary microplastics) at the PET tray line</td><td>Negative impact (potential)</td><td>Own operations</td><td class="num">1.8</td><td class="num">0.6</td><td>No</td></tr>
+<tr class=""><td>7</td><td><span class="tag">E3</span></td><td>Water withdrawal for pulp moulding</td><td>Negative impact (actual)</td><td>Own operations</td><td class="num">2.3</td><td class="num">1.6</td><td>No</td></tr>
+<tr class=""><td>8</td><td><span class="tag">E4</span></td><td>Forest biodiversity in virgin pulp supply; EUDR due diligence</td><td>Negative impact (potential) + risk</td><td>Upstream</td><td class="num">2.9</td><td class="num">2.4</td><td>No (monitor)</td></tr>
+<tr class="mat"><td>9</td><td><span class="tag">E5</span></td><td>Virgin material inflows: PET, aluminium, pulp; PPWR recycled-content targets</td><td>Negative impact (actual) + risk</td><td>Upstream / own operations</td><td class="num">3.7</td><td class="num">3.2</td><td>Both</td></tr>
+<tr class="mat"><td>10</td><td><span class="tag">E5</span></td><td>Low recyclability of coated multi-material cartons; PPWR grades and EPR fees</td><td>Negative impact (actual) + risk</td><td>Downstream</td><td class="num">4.0</td><td class="num">4.0</td><td>Both</td></tr>
+<tr class=""><td>11</td><td><span class="tag">E5</span></td><td>Mono-material and reusable redesign</td><td>Opportunity + positive impact</td><td>Downstream</td><td class="num">2.4</td><td class="num">2.4</td><td>No</td></tr>
+<tr class="mat"><td>12</td><td><span class="tag">S1</span></td><td>Machine and dust-related injuries at the three plants</td><td>Negative impact (actual)</td><td>Own operations</td><td class="num">3.3</td><td class="num">1.2</td><td>Impact</td></tr>
+<tr class=""><td>13</td><td><span class="tag">S1</span></td><td>Working conditions of agency shift workers</td><td>Negative impact (potential)</td><td>Own operations</td><td class="num">2.4</td><td class="num">1.6</td><td>No</td></tr>
+<tr class="mat"><td>14</td><td><span class="tag">S4</span></td><td>Substance migration into food: consumer safety and recalls</td><td>Negative impact (potential) + risk</td><td>Downstream</td><td class="num">1.6</td><td class="num">3.0</td><td>Financial</td></tr>
+<tr class=""><td>15</td><td><span class="tag">G1</span></td><td>Bribery and corruption in sourcing</td><td>Negative impact (potential)</td><td>Upstream</td><td class="num">0.9</td><td class="num">1.2</td><td>No</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read byline">Screened out top-down: S2 and S3, assuming supply is mainly EU recovered paper and certified pulp. This is the weakest assumption and should be revisited with supplier origin data.</p>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4" class="read">4. Materiality matrix</h2>
+  <div class="figure">
+<svg viewBox="0 0 760 520" role="img" aria-label="Materiality matrix: 8 of 15 IROs at or above the 3.0 threshold" class="matrix">
+<line x1="70.0" x2="70.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="460.0" y2="460.0" class="g"/>
+<text x="70.0" y="478" text-anchor="middle" class="m">0</text><text x="60" y="464.0" text-anchor="end" class="m">0</text>
+<line x1="176.0" x2="176.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="386.0" y2="386.0" class="g"/>
+<text x="176.0" y="478" text-anchor="middle" class="m">1</text><text x="60" y="390.0" text-anchor="end" class="m">1</text>
+<line x1="282.0" x2="282.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="312.0" y2="312.0" class="g"/>
+<text x="282.0" y="478" text-anchor="middle" class="m">2</text><text x="60" y="316.0" text-anchor="end" class="m">2</text>
+<line x1="388.0" x2="388.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="238.0" y2="238.0" class="g"/>
+<text x="388.0" y="478" text-anchor="middle" class="m">3</text><text x="60" y="242.0" text-anchor="end" class="m">3</text>
+<line x1="494.0" x2="494.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="164.0" y2="164.0" class="g"/>
+<text x="494.0" y="478" text-anchor="middle" class="m">4</text><text x="60" y="168.0" text-anchor="end" class="m">4</text>
+<line x1="600.0" x2="600.0" y1="90" y2="460" class="g"/><line x1="70" x2="600" y1="90.0" y2="90.0" class="g"/>
+<text x="600.0" y="478" text-anchor="middle" class="m">5</text><text x="60" y="94.0" text-anchor="end" class="m">5</text>
+<line x1="388.0" x2="388.0" y1="90" y2="460" class="th"/><line x1="70" x2="600" y1="238.0" y2="238.0" class="th"/>
+<text x="606" y="242.0" class="m">Threshold 3.0</text>
+<text x="594" y="106" text-anchor="end" class="m">Material on both</text><text x="78" y="106" class="m">Impact-material only</text><text x="594" y="450" text-anchor="end" class="m">Financially material only</text>
+<text x="335.0" y="502" text-anchor="middle" class="p">Financial materiality (0 to 5)</text>
+<text transform="translate(24 275.0) rotate(-90)" text-anchor="middle" class="p">Impact materiality (0 to 5)</text>
+<g><circle cx="409.2" cy="186.2" r="6" class="dm"><title>#1 E1 Gas-fired drying (Scope 1): impact 3.7, financial 3.2</title></circle><text x="419.2" y="190.2" text-anchor="start" class="p">#1 E1 Gas-fired drying (Scope 1)</text></g>
+<g><circle cx="388.0" cy="164.0" r="6" class="dm"><title>#2 E1 Aluminium and PET emissions; CBAM: impact 4.0, financial 3.0</title></circle><text x="378.0" y="168.0" text-anchor="end" class="p">#2 E1 Aluminium and PET emissions; CBAM</text></g>
+<g><circle cx="409.2" cy="282.4" r="6" class="dm"><title>#3 E1 Low-carbon demand: impact 2.4, financial 3.2</title></circle><text x="419.2" y="302.4" text-anchor="start" class="p">#3 E1 Low-carbon demand</text></g>
+<g><circle cx="260.8" cy="341.6" r="5" class="dg"><title>#4 E1 Physical climate risk: impact 1.6, financial 1.8</title></circle><text x="270.8" y="345.6" text-anchor="start" class="m">#4</text></g>
+<g><circle cx="494.0" cy="282.4" r="6" class="dm"><title>#5 E2 PFAS in coatings: impact 2.4, financial 4.0</title></circle><text x="504.0" y="286.4" text-anchor="start" class="p">#5 E2 PFAS in coatings</text></g>
+<g><circle cx="133.6" cy="326.8" r="5" class="dg"><title>#6 E2 Pellet loss: impact 1.8, financial 0.6</title></circle><text x="143.6" y="330.8" text-anchor="start" class="m">#6</text></g>
+<g><circle cx="239.6" cy="289.8" r="5" class="dg"><title>#7 E3 Water withdrawal: impact 2.3, financial 1.6</title></circle><text x="229.6" y="297.8" text-anchor="end" class="m">#7</text></g>
+<g><circle cx="324.4" cy="245.4" r="5" class="dg"><title>#8 E4 Forest biodiversity: impact 2.9, financial 2.4</title></circle><text x="334.4" y="249.4" text-anchor="start" class="m">#8</text></g>
+<g><circle cx="409.2" cy="186.2" r="6" class="dm"><title>#9 E5 Virgin material inflows: impact 3.7, financial 3.2</title></circle><text x="419.2" y="206.2" text-anchor="start" class="p">#9 E5 Virgin material inflows</text></g>
+<g><circle cx="494.0" cy="164.0" r="6" class="dm"><title>#10 E5 Carton recyclability: impact 4.0, financial 4.0</title></circle><text x="504.0" y="168.0" text-anchor="start" class="p">#10 E5 Carton recyclability</text></g>
+<g><circle cx="324.4" cy="282.4" r="5" class="dg"><title>#11 E5 Mono-material redesign: impact 2.4, financial 2.4</title></circle><text x="334.4" y="286.4" text-anchor="start" class="m">#11</text></g>
+<g><circle cx="197.2" cy="215.8" r="6" class="dm"><title>#12 S1 Plant injuries: impact 3.3, financial 1.2</title></circle><text x="207.2" y="219.8" text-anchor="start" class="p">#12 S1 Plant injuries</text></g>
+<g><circle cx="239.6" cy="282.4" r="5" class="dg"><title>#13 S1 Agency workers: impact 2.4, financial 1.6</title></circle><text x="249.6" y="284.4" text-anchor="start" class="m">#13</text></g>
+<g><circle cx="388.0" cy="341.6" r="6" class="dm"><title>#14 S4 Food-contact safety: impact 1.6, financial 3.0</title></circle><text x="398.0" y="345.6" text-anchor="start" class="p">#14 S4 Food-contact safety</text></g>
+<g><circle cx="197.2" cy="393.4" r="5" class="dg"><title>#15 G1 Bribery in sourcing: impact 0.9, financial 1.2</title></circle><text x="207.2" y="397.4" text-anchor="start" class="m">#15</text></g>
+</svg>
+    <p class="cap">Blue: material. Grey: below threshold, numbered as in the table. Illustrative scores.</p>
+  </div>
+  <p class="read">Climate (E1) and circularity (E5) sit top right: large impacts and direct cost exposure through CBAM, carbon pricing and PPWR. PFAS and food-contact safety are material on the financial axis alone, because regulation can take products off the market.</p>
+</section>
+
+<section aria-labelledby="s5">
+  <h2 id="s5" class="read">5. What Nordvorm reports, and what feeds it</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Material topic</th><th>ESRS disclosures to prepare</th><th>Linked regulation</th><th>First data step</th></tr></thead>
+    <tbody>
+      <tr><td><b>E1 Climate change</b></td><td>E1-1 transition plan with 1.5°C statement; E1-2 risk identification; E1-3 resilience; E1-4 to E1-6 policies, actions, gross absolute targets; E1-7 energy; E1-8 Scopes 1, 2, 3; E1-11 financial effects</td><td>CBAM (aluminium foil); EU ETS / ETS2 from 2028; SBTi V2.0</td><td>Gas use per dryer; supplier-specific emissions for foil</td></tr>
+      <tr><td><b>E2 Substances of concern</b></td><td>Policies, actions, targets and metrics on substances of concern</td><td>PPWR PFAS limits since 12 Aug 2026</td><td>Coating bill of materials; supplier PFAS tests per product</td></tr>
+      <tr><td><b>E5 Circular economy</b></td><td>Policies, actions, targets; resource inflows and outflows</td><td>PPWR labelling 2028; recyclability and recycled content mostly 2030; EPR fees</td><td>Material balance per plant; recyclability per SKU</td></tr>
+      <tr><td><b>S1 Own workforce</b></td><td>Health and safety metrics incl. agency workers</td><td>National occupational safety law</td><td>Harmonised incident logs</td></tr>
+      <tr><td><b>S4 Consumers</b></td><td>Consumer safety policies, actions, metrics (first-two-years phase-in available)</td><td>EU food-contact rules; PPWR</td><td>Migration test records</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cols">
+    <div class="card"><h3>Not material, and why that matters</h3><ul><li>E3 Water and G1 Business conduct are not reported.</li><li>E4 Biodiversity (2.9 / 2.4) is just below threshold: reassess next year.</li><li>EUDR due diligence on pulp still applies from 30 December 2026, whatever the materiality result.</li></ul></div>
+    <div class="card"><h3>One data set, three uses</h3><p>Supplier-specific emissions for aluminium foil serve the CBAM declaration, Scope 3 category 1 in E1-8, and customers' own CSRD and IFRS S2 data requests. Collecting it once is the cheapest compliance step here.</p></div>
+  </div>
+</section>
+
+<section class="read" aria-labelledby="s6">
+  <h2 id="s6">6. What the agent did and what I decided</h2>
+  <ul>
+    <li><b>Agent:</b> drafted the long list per ESRS topic, proposed sub-scores with a rationale each, and mapped material topics to disclosures and laws.</li>
+    <li><b>Me:</b> set the 3.0 threshold, decided the top-down screening, reviewed every score and checked every reference.</li>
+    <li><b>Judgement call:</b> microplastics scoped to primary microplastics (pellet loss) only, as the revised ESRS require.</li>
+    <li><b>Judgement call:</b> PFAS rated financially material (4.0) despite an impact score of 2.4, because the PPWR ban removes products regardless of likelihood of harm.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Sources: <a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj">Directive (EU) 2026/470</a> · <a href="https://knowledgehub.efrag.org/eng/interactive/simplified-esrs/esrs-e1/delegated-act">EFRAG revised ESRS E1</a> · <a href="https://generationimpact.global/blog/simplified-esrs-2026/">Simplified ESRS analysis</a> · <a href="https://www.globalelr.com/2026/08/eu-packaging-and-packaging-waste-regulation-begins-application/">PPWR application</a> · <a href="https://www.hsfkramer.com/fr/notes/energy/2026-posts/operationalisation-and-simplification-of-the-eu-cbam">CBAM definitive regime</a> · <a href="https://help.dcycle.io/regulation/omnibus-i-final-agreement">EUDR delay</a>.</p>
+  <p>Portfolio case with a fictional company. Not advice.</p>
+</footer>
+</div>
+</section>
+<section class="tabpanel" id="tab-crosswalk" role="tabpanel" aria-labelledby="tabbtn-crosswalk">
+<div class="wrap">
+<header>
+  <div class="kicker">Portfolio project 3 of 3 · Framework analysis</div>
+  <h1>ESRS E1 and IFRS S2: one climate data set, two reports</h1>
+  <p class="lead">A disclosure-by-disclosure map of the revised ESRS E1 (adopted 3 July 2026) against IFRS S2 (as amended December 2025) and the GHG Protocol. For each theme: where the two align, where they diverge, and which data a company should collect once to serve both.</p>
+  <p class="byline">Bilal Tahir · Mapping drafted with an AI agent, every row checked by me against the standards · November 2026</p>
+</header>
+
+<section aria-labelledby="basis">
+  <h2 id="basis">Start with the one difference that drives the rest</h2>
+  <div class="basis">
+    <div class="card"><span class="fw">ESRS · CSRD</span><h3>Double materiality</h3><p>Report a topic if it is material for its impact on people and the environment, for its financial effect on the company, or both. Revised ESRS keep this principle but allow a top-down assessment at topic level, and non-material information must now be left out.</p></div>
+    <div class="card"><span class="fw">IFRS S1 / S2 · ISSB</span><h3>Financial materiality</h3><p>Report what could reasonably be expected to affect the company's cash flows, access to finance or cost of capital. Built for investors. Adopted by 35 jurisdictions as of July 2026, including the UK through UK SRS.</p></div>
+  </div>
+  <p class="sub">So a climate impact that is material to society but not to cash flows belongs in an ESRS report and may be absent from an IFRS S2 report. On emissions data itself, the two are close, because both rest on the GHG Protocol.</p>
+</section>
+
+<section aria-labelledby="map">
+  <h2 id="map">The crosswalk</h2>
+  <div class="summary" id="cw-summary"></div>
+  <div class="controls" role="group" aria-label="Filter by alignment">
+    <span class="lbl">Show</span>
+    <button class="f" data-f="all" aria-pressed="true">All themes</button>
+    <button class="f" data-f="hi" aria-pressed="false">Strong overlap</button>
+    <button class="f" data-f="part" aria-pressed="false">Partial overlap</button>
+    <button class="f" data-f="esrs" aria-pressed="false">ESRS only</button>
+    <button class="f" data-f="s2" aria-pressed="false">IFRS S2 only</button>
+  </div>
+  <p class="hint">Open a row to see the key difference and the data to collect once.</p>
+  <div class="grid">
+    <div class="head"><span>Theme</span><span>ESRS E1 (revised 2026)</span><span>IFRS S2</span><span>GHG Protocol / other</span><span>Alignment</span></div>
+    <div id="cw-rows" class="grid"></div>
+  </div>
+</section>
+
+<footer>
+  <p>Sources: <a href="https://knowledgehub.efrag.org/eng/interactive/simplified-esrs/esrs-e1/delegated-act">EFRAG ESRS Knowledge Hub, revised ESRS E1</a> · <a href="https://en.fiveglaciers.com/post/esrs-e1-klimawandel">2023 to 2026 E1 renumbering</a> · <a href="https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf">EY on the revised ESRS delegated act</a> · <a href="https://generationimpact.global/blog/simplified-esrs-2026/">Generation Impact on materiality and phase-ins</a> · <a href="https://www.ifrs.org/content/dam/ifrs/meetings/2026/march/itcg/ap4-update-amendments-sustainability-sasb-standards.pdf">IFRS Foundation on the December 2025 IFRS S2 amendments</a> · <a href="https://www.spglobal.com/sustainable1/en/insights/research-reports/issb-q3-2026">S&amp;P Global ISSB adoption tracker</a> · <a href="https://ghgprotocol.org/sites/default/files/2026-10/S2-Market-Based-Method-Update-20261006.pdf">GHG Protocol Scope 2 update, October 2026</a>.</p>
+  <p>Paragraph references are for orientation. IFRS S2 paragraph numbers follow the June 2023 standard. Confirm against the official texts before reporting. Portfolio work, not assurance or advice.</p>
+</footer>
+</div>
+</section>
+</main>
+<script>
+(function(){
+const root=document.getElementById("tab-regulation-reader");
+
+const S = {
+  eurlex:["EUR-Lex","https://eur-lex.europa.eu/eli/dir/2026/470/oj"],
+  oeil:["European Parliament summary","https://oeil.europarl.europa.eu/oeil/en/procedure-document-summary/pdf?id=1890047"],
+  travers:["Travers Smith","https://www.traverssmith.com/knowledge/knowledge-container/csrd-and-csddd-version-20-the-eus-sustainability-framework-redefined/"],
+  cc:["Clifford Chance","https://www.cliffordchance.com/insights/resources/blogs/business-and-human-rights-insights/2026/02/omnibus-i-the-european-union-concludes-csddd-and-csrd-reforms.html"],
+  debrauw:["De Brauw","https://www.debrauw.com/articles/omnibus-now-final-agreement-reached-on-directive-amending-csrd-and-csddd"],
+  efta:["EFTA EEA-Lex","https://www.efta.int/node/301621"],
+  lex:["LexBlog","https://www.lexblog.com/?p=3686563"],
+  efrag:["EFRAG","https://www.efrag.org/en/news-and-calendar/news/european-commission-publishes-delegated-act-on-revised-esrs-and-voluntary-sustainability-reporting"],
+  ingr:["in.gr","https://www.in.gr/2026/03/04/english-edition/eu-officially-changes-sustainability-reporting-due-diligence-rules/amp/"],
+  pwc:["PwC Luxembourg","https://www.pwc.lu/en/sustainable-finance/eu-finalises-agreement-on-omnibus.html"],
+  cr:["Compliance & Risks","https://www.complianceandrisks.com/blog/eu-omnibus-i-finalized-comparing-key-structural-changes-to-the-csrd-and-csddd/"]
+};
+const R = [
+ ["CSRD","Scope","Sustainability reporting applies to EU undertakings and groups above both thresholds","> EUR 450m net turnover and > 1,000 avg employees","Art. 2 → Arts. 19a(1), 29a(1) Dir. 2013/34/EU","ok",["eurlex","travers"]],
+ ["CSRD","Scope","Non-EU groups: EU subsidiaries or branches report when group EU turnover is high","Group EU turnover > EUR 450m (2 consecutive years); subsidiary/branch > EUR 200m","Art. 2 → Art. 40a(1) Dir. 2013/34/EU","ok",["oeil"]],
+ ["CSRD","Exemption","Wave-one companies now below the thresholds can be exempted by member states","FY2025 and FY2026","Art. 3 → Art. 5(2) Dir. 2022/2464","ok",["cc","debrauw"]],
+ ["CSRD","Obligation","Value-chain cap: smaller partners may refuse data requests beyond the voluntary standard","Protected undertaking: ≤ 1,000 avg employees","Art. 2 → Arts. 19a(3), 29a(3), 29b(4), 34(2a)","warn",[]],
+ ["CSRD","Exemption","Value-chain data gaps allowed while reporters explain efforts and plans","First 3 years of reporting","Art. 2 → Arts. 19a(3), 29a(3)","warn",[]],
+ ["CSRD","Obligation","Commission to adopt a voluntary reporting standard for smaller companies","By 19 July 2026 (adopted 3 July 2026)","Art. 2 → new Art. 29ca Dir. 2013/34/EU","ok",["efrag"]],
+ ["CSRD","Obligation","Sector-specific reporting standards dropped","Art. 29c deleted","Art. 2 → Art. 29c Dir. 2013/34/EU","ok",["ingr"]],
+ ["CSRD","Review","Thresholds can be adjusted for inflation by delegated act","At least every 5 years","Art. 2 → Art. 3(13) Dir. 2013/34/EU","ok",["pwc"]],
+ ["CSRD","Review","Commission review reports, including extending scope below the thresholds","30 Apr 2029 (most points); 30 Apr 2031 (scope extension)","Art. 3 → Art. 6(1) Dir. 2022/2464","warn",[]],
+ ["CSRD","Deadline","Member states transpose the audit, accounting and CSRD changes","19 March 2027","Art. 5","ok",["efta","cr"]],
+ ["CSRD","Deadline","Directive enters into force","20th day after publication (18 March 2026)","Art. 6","ok",["lex"]],
+ ["Audit","Deadline","Commission adopts limited-assurance standards by delegated act","By 1 July 2027","Art. 1 → Art. 26a(3) Dir. 2006/43/EC","warn",[]],
+ ["Audit","Obligation","Audit firms assuring sustainability reports name a key sustainability partner","At least 1, an approved statutory auditor","Art. 1 → Art. 24b(1) Dir. 2006/43/EC","warn",[]],
+ ["CSDDD","Scope","EU companies in scope of due diligence","> 5,000 avg employees and > EUR 1.5bn worldwide turnover","Art. 4 → Art. 2(1)(a) Dir. 2024/1760","ok",["oeil"]],
+ ["CSDDD","Scope","Non-EU companies in scope","> EUR 1.5bn net turnover in the EU","Art. 4 → Art. 2(2)(a) Dir. 2024/1760","ok",["oeil"]],
+ ["CSDDD","Scope","Franchising and licensing models","Royalties > EUR 75m in the EU and turnover > EUR 275m","Art. 4 → Art. 2(1)(c), 2(2)(c)","warn",[]],
+ ["CSDDD","Obligation","Information requests to smaller business partners only as a last resort","Partners < 5,000 employees","Art. 4 → Art. 8(2a) Dir. 2024/1760","warn",[]],
+ ["CSDDD","Obligation","Periodic assessment of due diligence measures","At least every 5 years","Art. 4 → Art. 15 Dir. 2024/1760","warn",[]],
+ ["CSDDD","Obligation","Maximum fine cap","3% of net worldwide turnover","Art. 4 → Art. 27(4) Dir. 2024/1760","warn",[]],
+ ["CSDDD","Deadline","Transposition and application","Transpose by 26 July 2028; apply from 26 July 2029","Art. 4 → Art. 37(1); Art. 5","warn",[]],
+ ["CSDDD","Review","Commission review of implementation and effectiveness","By 26 July 2031, then every 5 years","Art. 4 → Art. 36(2) Dir. 2024/1760","ok",["cc"]]
+];
+const tbody=document.getElementById("rr-rows");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(f){
+  tbody.innerHTML="";
+  R.filter(r=>f==="all"||(f==="warn"?r[5]==="warn":r[0]===f)).forEach(r=>{
+    const tr=document.createElement("tr");
+    const area=r[0]==="Audit"?"Assurance":r[0];
+    const src=r[6].map(k=>`<a href="${S[k][1]}">${S[k][0]}</a>`).join(", ");
+    const status=r[5]==="ok"?`<span class="pill ok">Confirmed</span><span class="src">${src}</span>`:`<span class="pill warn">Verify in EUR-Lex</span><span class="src">Single source</span>`;
+    tr.innerHTML=`<td>${area}</td><td><span class="tag">${r[1]}</span></td><td>${esc(r[2])}</td><td class="val">${esc(r[3])}</td><td class="ref">${esc(r[4])}</td><td>${status}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+const ok=R.filter(r=>r[5]==="ok").length;
+document.getElementById("rr-stats").innerHTML=
+ `<div class="stat"><b>${R.length}</b><span>rules extracted</span></div>`+
+ `<div class="stat"><b>4</b><span>directives amended</span></div>`+
+ `<div class="stat"><b>${ok}</b><span>confirmed by a 2nd source</span></div>`+
+ `<div class="stat"><b>${R.length-ok}</b><span>flagged for my check</span></div>`;
+root.querySelectorAll("button.f").forEach(b=>b.addEventListener("click",()=>{
+  root.querySelectorAll("button.f").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");render(b.dataset.f);
+}));
+render("all");
+
+})();
+(function(){
+const root=document.getElementById("tab-crosswalk");
+
+const A={hi:["Strong overlap","c-hi"],part:["Partial overlap","c-part"],esrs:["ESRS only","c-esrs"],s2:["IFRS S2 only","c-s2"]};
+const R=[
+ {t:"Governance of climate",g:"Who oversees climate, and how it links to pay",e:["ESRS 2 governance disclosures","Board and management roles, sustainability-linked incentives."],s:["IFRS S2 ¶5–7; ¶29(g)","Oversight body, management role, share of remuneration linked to climate."],o:["—",""],a:"hi",
+  d:"ESRS covers governance once, in ESRS 2, for all sustainability topics. IFRS S2 asks for it specifically for climate.",c:"Board terms of reference, committee minutes on climate, incentive-plan KPIs and weightings."},
+ {t:"Transition plan",g:"How the business model gets to a 1.5°C-compatible economy",e:["E1-1 · ¶12","Decarbonisation levers, fossil-fuel CapEx, locked-in emissions, progress. Must state whether targets are science-based and 1.5°C-compatible, and explain if not."],s:["IFRS S2 ¶14(a)","Disclose the transition plan if the company has one, with key assumptions and dependencies."],o:["SBTi Net-Zero Standard V2.0","Effective 1 Feb 2027; shifts focus to implementation."],a:"part",
+  d:"ESRS expects a plan or a statement that none exists and when one will come, plus an explicit 1.5°C compatibility statement. IFRS S2 only asks about a plan if one exists.",c:"Abatement levers with tCO2e and cost, CapEx plan by lever, asset lifetimes for locked-in emissions."},
+ {t:"Risk identification and scenarios",g:"Finding physical and transition risks",e:["E1-2 (new in 2026)","Process to identify climate-related risks, including physical-risk screening and scenario analysis. Previously spread across ESRS 2 IRO-1 and E1."],s:["IFRS S2 ¶10–12; ¶22; ¶24–26","Risks and opportunities by time horizon; scenario analysis proportionate to the company; risk management process."],o:["—",""],a:"part",
+  d:"Both expect scenario analysis. ESRS sets more specific expectations on how physical hazards are screened; IFRS S2 lets the method scale with the company's skills and resources.",c:"Site list with coordinates, hazard data per site, chosen scenarios and time horizons, risk register."},
+ {t:"Resilience of strategy",g:"Can the strategy cope with climate change?",e:["E1-3 (new in 2026) · ¶19","Resilience of strategy and business model, drawing on E1-2 and the exposures in E1-11."],s:["IFRS S2 ¶22","Climate resilience assessed using scenario analysis."],o:["—",""],a:"hi",
+  d:"Close in substance. ESRS now has a dedicated requirement where it used to sit inside a paragraph.",c:"One resilience assessment, written once and referenced in both reports."},
+ {t:"Policies",g:"Formal climate policies",e:["E1-4 · ¶20","Policies on mitigation and adaptation, through ESRS 2 GDR-P."],s:["No direct equivalent","Covered only indirectly through strategy and risk management."],o:["—",""],a:"esrs",
+  d:"An ESRS-specific disclosure. IFRS S2 does not ask for a list of policies.",c:"Policy register: scope, owner, date approved."},
+ {t:"Actions, resources and capital",g:"What is being done and funded",e:["E1-5","Mitigation and adaptation actions and the CapEx and OpEx behind them."],s:["IFRS S2 ¶14; ¶29(e)","How the company resources its plan; capital deployed toward climate risks and opportunities."],o:["EU Taxonomy","Aligned CapEx can support both."],a:"part",
+  d:"ESRS ties actions to specific resources action by action. IFRS S2 asks for a total capital-deployment metric.",c:"Climate CapEx and OpEx tagged by project in the finance system."},
+ {t:"Targets",g:"Emission reduction and other climate targets",e:["E1-6 · ¶24","GHG targets must be gross, before removals, credits or avoided emissions, and disclosed in absolute terms."],s:["IFRS S2 ¶33–36","Quantitative targets, base year, milestones; whether the target is gross or net, and planned use of carbon credits."],o:["SBTi V2.0","Category A/B companies; Scope 3 targets for larger companies."],a:"part",
+  d:"The main divergence: ESRS requires gross, absolute targets. IFRS S2 accepts net targets as long as the role of carbon credits is disclosed.",c:"Base-year inventory, target values per scope in tCO2e, separate credit and removal plans."},
+ {t:"Energy",g:"Energy consumption and mix",e:["E1-7","Total energy consumption and mix, including fossil, nuclear and renewable shares."],s:["No cross-industry requirement","Appears only in some industry-based metrics."],o:["—",""],a:"esrs",
+  d:"An ESRS disclosure with no general IFRS S2 counterpart, though the same meter data feeds Scope 1 and 2.",c:"Metered energy by source and site, in MWh."},
+ {t:"Scope 1 and 2 emissions",g:"Direct and purchased-energy emissions",e:["E1-8 · ¶30","Scope 1, with the share covered by the EU ETS; Scope 2 location-based and market-based."],s:["IFRS S2 ¶29(a)","Scope 1 and 2 in tCO2e; location-based Scope 2 plus information on contractual instruments."],o:["GHG Protocol Corporate Standard; Scope 2 Guidance","Scope 2 revision ongoing: two market-based methods proposed in October 2026."],a:"hi",
+  d:"Near-identical data. ESRS adds the EU ETS share and requires both Scope 2 methods side by side.",c:"Fuel and electricity data by site and month; supplier contracts and energy attribute certificates; hourly data where available, given the Scope 2 revision."},
+ {t:"Scope 3 emissions",g:"Value-chain emissions",e:["E1-8","Screen all 15 GHG Protocol categories and report the significant ones; cloud and data-centre emissions as a subset of category 1."],s:["IFRS S2 ¶29(a)(vi)","Scope 3 considering all 15 categories. Since the Dec 2025 amendments (effective 1 Jan 2027), financial institutions may limit category 15 to financed emissions."],o:["GHG Protocol Scope 3 Standard (2011)",""],a:"hi",
+  d:"Same 15-category basis. Category 15 relief differs between the two frameworks, which matters mainly for financial institutions.",c:"Spend and activity data by category, supplier-specific emission factors where possible."},
+ {t:"Reporting boundary",g:"Which entities the inventory covers",e:["E1-8 and ESRS 2","Financial control by default; operational control or equity share also allowed in the revised ESRS."],s:["IFRS S2 ¶29(a)","Consolidation approach per the GHG Protocol, disclosed."],o:["GHG Protocol consolidation approaches",""],a:"hi",
+  d:"The 2026 revision lets companies use one boundary for both reports, removing an earlier mismatch.",c:"One entity list with control and ownership status."},
+ {t:"Removals and carbon credits",g:"Offsets and removals outside the inventory",e:["E1-9","GHG removals and mitigation projects financed through carbon credits, reported separately from gross emissions."],s:["IFRS S2 ¶36(e)","Planned use of carbon credits to meet net targets, with scheme, type and verification."],o:["SBTi V2.0","Recognises action on ongoing emissions."],a:"part",
+  d:"ESRS asks for credits actually cancelled and purchased; IFRS S2 focuses on credits planned within targets.",c:"Credit register: project, standard, vintage, removal or avoidance, retirement date."},
+ {t:"Internal carbon pricing",g:"Carbon prices used in decisions",e:["E1-10","Whether and how internal carbon prices are applied."],s:["IFRS S2 ¶29(f)","Whether and how a carbon price is used in decisions, and the price per tonne."],o:["—",""],a:"hi",
+  d:"Practically the same question.",c:"Price per tCO2e, where it is applied (CapEx, procurement), scope covered."},
+ {t:"Financial effects",g:"Money at stake from climate risks",e:["E1-11","Anticipated financial effects of material physical and transition risks and opportunities. Phase-in: quantitative parts deferred for many reporters."],s:["IFRS S2 ¶15–21; ¶29(b)–(d)","Current and anticipated effects on position, performance and cash flows; assets and activities vulnerable to transition and physical risks."],o:["—",""],a:"part",
+  d:"Both ask for quantified exposure. ESRS phase-ins mean quantitative figures can lag; IFRS S2 allows qualitative disclosure when a company lacks the skills or data.",c:"Asset register mapped to risk exposure; revenue linked to climate opportunities."},
+ {t:"Industry-based metrics",g:"Sector-specific KPIs",e:["None","Sector-specific ESRS were dropped by Omnibus I."],s:["IFRS S2 ¶32","Industry-based metrics, with SASB-based guidance."],o:["SASB Standards",""],a:"s2",
+  d:"Since Omnibus I removed sector ESRS, this is now an IFRS S2-only layer.",c:"The SASB metrics for the company's industry."}
+];
+const box=document.getElementById("cw-rows");
+function render(f){
+  box.innerHTML="";
+  R.filter(r=>f==="all"||r.a===f).forEach(r=>{
+    const d=document.createElement("details");d.className="row "+A[r.a][1];
+    d.innerHTML=`<summary><div class="theme">${r.t}<small>${r.g}</small></div>
+      <div class="cell"><span class="ref">${r.e[0]}</span><span class="t">${r.e[1]}</span></div>
+      <div class="cell"><span class="ref">${r.s[0]}</span><span class="t">${r.s[1]}</span></div>
+      <div class="cell"><span class="ref">${r.o[0]}</span><span class="t">${r.o[1]}</span></div>
+      <div><span class="pill">${A[r.a][0]}</span></div></summary>
+      <div class="more"><div><h4>Key difference</h4>${r.d}</div><div><h4>Collect once, use for both</h4>${r.c}</div></div>`;
+    box.appendChild(d);
+  });
+}
+const counts={hi:0,part:0,esrs:0,s2:0};R.forEach(r=>counts[r.a]++);
+document.getElementById("cw-summary").innerHTML=Object.keys(A).map(k=>`<div class="sum ${A[k][1]}"><b>${counts[k]}</b><span>${A[k][0]}</span></div>`).join("");
+root.querySelectorAll("button.f").forEach(b=>b.addEventListener("click",()=>{
+  root.querySelectorAll("button.f").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");render(b.dataset.f);
+}));
+render("all");
+
+})();
+(function(){
+  const ids=['overview','regulation-reader','materiality-case','crosswalk'];
+  function show(){
+    const h=location.hash.replace('#','');
+    const id=ids.includes(h)?h:'overview';
+    ids.forEach(t=>{
+      document.getElementById('tab-'+t).classList.toggle('active',t===id);
+      document.getElementById('tabbtn-'+t).setAttribute('aria-selected',t===id?'true':'false');
+    });
+    const label=document.getElementById('tabbtn-'+id).textContent;
+    document.title=(id==='overview'?'':label+' · ')+'Bilal Tahir · Sustainability Portfolio';
+  }
+  window.addEventListener('hashchange',()=>{show();window.scrollTo(0,0);});
+  show();
+})();
+</script>
 </body>
 </html>

@@ -4,12 +4,16 @@ Bilal Tahir's sustainability portfolio: a static website (plain HTML, no build s
 
 ## Pages
 
-| File | Page |
+Everything is in one page, `index.html`, with four tabs. Each tab has its own link:
+
+| Tab | Link |
 | --- | --- |
-| `index.html` | Home: intro, projects, frameworks, experience, about |
-| `projects/regulation-reader.html` | Regulation Reader AI agent, demo on Omnibus I |
-| `projects/materiality-case.html` | Double materiality case study (fictional company) |
-| `projects/crosswalk.html` | ESRS E1 and IFRS S2 crosswalk |
+| Overview (intro, projects, frameworks, experience, about) | `index.html#overview` |
+| Regulation Reader AI agent, demo on Omnibus I | `index.html#regulation-reader` |
+| Double materiality case study (fictional company) | `index.html#materiality-case` |
+| ESRS E1 and IFRS S2 crosswalk | `index.html#crosswalk` |
+
+The files in `projects/` only forward old links to the matching tab.
 
 ## View it on your computer
 
@@ -24,4 +28,4 @@ After that, inside the folder: `git pull`
 ## Before sharing
 
 - In `index.html`, replace `[your LinkedIn URL]` and `[your email]`.
-- In `projects/regulation-reader.html`, verify the rows marked "Verify in EUR-Lex".
+- In the Regulation Reader tab, verify the rows marked "Verify in EUR-Lex".

@@ -1,17 +1,16 @@
 # my-websites
 
 Bilal Tahir's portfolio: a static website (plain HTML, no build step), published with GitHub Pages at
-https://bilaltahir364.github.io/my-websites/
+https://bilaltahir364.github.io/my-websites/sustainability/
 
 ## Pages
 
 | Page | File | Link |
 | --- | --- | --- |
 | Portfolio: Overview (hero, ESG projects, materials research, MSc lab gallery, Cellulose Valley partners, frameworks, expertise, experience, education, about and contact), Regulation Reader AI agent, double materiality case study, ESRS E1 / IFRS S2 crosswalk, 40-case-study review | `sustainability/index.html` | `/my-websites/sustainability/` |
-| Redirect to the portfolio (keeps old home-page links such as `#journey` working) | `index.html` | `/my-websites/` |
 
 - Photos are in `assets/`.
-- Old links (`/my-websites/#crosswalk`, `/my-websites/#about` and the files in `projects/`) forward to `sustainability/`.
+- There is no root page: `/my-websites/` shows this README. Old links to the files in `projects/` still forward to `sustainability/`.
 
 ## View it on your computer
 

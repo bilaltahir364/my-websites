@@ -8,7 +8,7 @@ https://bilaltahir364.github.io/my-websites/
 | Page | File | Link |
 | --- | --- | --- |
 | Materials portfolio (home): about, selected work, MSc lab gallery, Cellulose Valley partners, journey, expertise, education, contact | `index.html` | `/my-websites/` |
-| Sustainability portfolio: Overview, Regulation Reader AI agent, double materiality case study, ESRS E1 / IFRS S2 crosswalk | `sustainability/index.html` | `/my-websites/sustainability/` |
+| Sustainability portfolio: Overview, Regulation Reader AI agent, double materiality case study, ESRS E1 / IFRS S2 crosswalk, 40-case-study review | `sustainability/index.html` | `/my-websites/sustainability/` |
 
 - Photos for the home page are in `assets/`.
 - Old links to the sustainability tabs (`/my-websites/#crosswalk` and the files in `projects/`) forward to `sustainability/`.

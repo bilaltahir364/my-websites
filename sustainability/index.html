@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bilal Tahir, sustainability portfolio</title>
 <meta name="description" content="Materials engineer working on ESG reporting, carbon accounting and decarbonisation strategy. Portfolio projects on CSRD, ESRS, IFRS S2 and AI agents.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bilal Tahir, sustainability portfolio">
+<meta property="og:description" content="Materials engineer working on ESG reporting, carbon accounting and decarbonisation.">
+<meta property="og:url" content="https://bilaltahir364.github.io/my-websites/sustainability/">
+<meta property="og:image" content="https://bilaltahir364.github.io/my-websites/assets/portrait.jpg">
 <meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1714" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1714'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23CFE38A'/%3E%3C/svg%3E">
@@ -357,6 +362,80 @@ a{color:var(--accent)}
 #tab-case-studies .d-nav button{border:1px solid var(--rule);background:var(--surface);border-radius:2px;padding:8px 12px;cursor:pointer;font-size:14px}
 @media (max-width:720px){#tab-case-studies .stats{grid-template-columns:repeat(2,1fr)}}
 
+/* Overview: sections moved over from the former materials home page */
+#tab-overview .kind{font:500 12.5px/1.3 var(--ref);color:var(--accent);letter-spacing:.02em}
+#tab-overview .hero{grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr);gap:56px;align-items:center}
+#tab-overview .hero-text{display:grid;gap:20px;align-content:start}
+#tab-overview .hero h1{font-size:clamp(46px,6.4vw,92px)}
+#tab-overview .status{justify-self:start;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--rule);border-radius:999px;font:500 12px/1 var(--ref);color:var(--muted)}
+#tab-overview .status i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+#tab-overview .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+#tab-overview .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);font:500 14px/1 var(--body);text-decoration:none}
+#tab-overview .btn.solid{background:var(--ink);color:var(--paper)}
+#tab-overview .btn:hover{transform:translateY(-2px)}
+#tab-overview .portrait{margin:0;position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--accent-soft)}
+#tab-overview .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+#tab-overview .portrait figcaption{position:absolute;top:14px;right:14px;padding:7px 12px;border-radius:999px;background:color-mix(in srgb,var(--paper) 88%,transparent);font:500 11.5px/1 var(--ref);color:var(--ink)}
+#tab-overview .figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:-24px}
+#tab-overview .figs div{padding:20px 20px 0 0;display:grid;gap:6px}
+#tab-overview .figs b,#tab-overview .metrics b,#tab-overview .thesis b{font:400 44px/1 var(--display);letter-spacing:-.02em}
+#tab-overview .figs small{font-size:.6em;color:var(--muted)}
+#tab-overview .figs span,#tab-overview .metrics span,#tab-overview .thesis span{font:400 12px/1.4 var(--ref);color:var(--muted)}
+#tab-overview .rcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#tab-overview .rcard{background:var(--surface);border:1px solid var(--rule);border-radius:2px;padding:22px;display:flex;flex-direction:column;gap:12px}
+#tab-overview .rcard .rimg{margin:-22px -22px 4px;width:calc(100% + 44px);height:200px;object-fit:cover;object-position:50% 52%;display:block}
+#tab-overview .rcard h3,#tab-overview .areas h3,#tab-overview .edu h3,#tab-overview .thesis h3,#tab-overview .partners-wrap h3{font:400 30px/1.05 var(--display);letter-spacing:-.02em}
+#tab-overview .rcard p{font-size:15px;color:var(--muted)}
+#tab-overview .metrics{display:flex;flex-wrap:wrap;gap:32px;margin-top:auto;padding-top:14px;border-top:1px solid var(--rule)}
+#tab-overview .metrics div{display:grid;gap:4px}
+#tab-overview .metrics b{font-size:30px;color:var(--accent)}
+#tab-overview details{border-top:1px solid var(--rule);padding-top:10px}
+#tab-overview summary{cursor:pointer;font:500 12.5px/1 var(--ref);color:var(--ink);padding:6px 0;min-height:32px;display:flex;align-items:center}
+#tab-overview summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#tab-overview details p{font-size:14px;margin-top:8px}
+#tab-overview .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:12px}
+#tab-overview .tile{all:unset;cursor:zoom-in;position:relative;overflow:hidden;border-radius:14px;background:var(--accent-soft)}
+#tab-overview .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+#tab-overview .tile:hover img{transform:scale(1.05)}
+#tab-overview .tile:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#tab-overview .tile span{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:999px;background:rgba(14,23,20,.82);color:#F3F1EA;font:500 11px/1 var(--ref)}
+#tab-overview .tile.big{grid-column:span 2;grid-row:span 2}
+#tab-overview .tile.wide{grid-column:span 2}
+#tab-overview .thesis{grid-column:span 2;background:var(--ink);color:var(--paper);border-radius:14px;padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px 16px;align-content:center}
+#tab-overview .thesis h3{grid-column:1/-1;font-size:22px}
+#tab-overview .thesis div{display:grid;gap:6px}
+#tab-overview .thesis b{font-size:36px}
+#tab-overview .thesis span{color:color-mix(in srgb,var(--paper) 70%,var(--ink))}
+#tab-overview .lightbox{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh;overflow:visible}
+#tab-overview .lightbox::backdrop{background:rgba(10,14,12,.85)}
+#tab-overview .lightbox img{display:block;max-width:min(1100px,94vw);max-height:88vh;border-radius:10px}
+#tab-overview .lb-close{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:#F3F1EA;color:#0F1A16;font-size:22px;cursor:pointer}
+#tab-overview .partners-wrap{display:grid;gap:10px;margin-top:12px}
+#tab-overview .partners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+#tab-overview .partners a{display:grid;gap:4px;padding:16px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);color:var(--ink);text-decoration:none;transition:background .3s,color .3s}
+#tab-overview .partners a:hover{background:var(--ink);color:var(--paper)}
+#tab-overview .partners b{font-weight:600}
+#tab-overview .partners span{font:400 12px/1.3 var(--ref);color:var(--muted)}
+#tab-overview .partners a:hover span{color:inherit;opacity:.75}
+#tab-overview .areas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+#tab-overview .areas div,#tab-overview .edu div{background:var(--surface);border:1px solid var(--rule);border-radius:2px;padding:20px;display:grid;gap:8px;align-content:start}
+#tab-overview .areas p,#tab-overview .edu p{font-size:15px;color:var(--muted)}
+#tab-overview .edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#tab-overview .edu b{font:500 13px/1.3 var(--ref);color:var(--accent)}
+#tab-overview .about .facts{margin-top:6px}
+#tab-overview #contact{scroll-margin-top:100px}
+#tab-overview section h2{scroll-margin-top:100px}
+@media (max-width:1100px){#tab-overview .areas{grid-template-columns:repeat(2,minmax(0,1fr))}#tab-overview .partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+  #tab-overview .hero{grid-template-columns:1fr;gap:32px}
+  #tab-overview .portrait{max-width:420px}
+  #tab-overview .figs{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
+  #tab-overview .rcards,#tab-overview .edu{grid-template-columns:1fr}
+  #tab-overview .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:180px}
+  #tab-overview .thesis{grid-template-columns:1fr;grid-row:span 2}
+}
+@media (max-width:560px){#tab-overview .areas,#tab-overview .partners{grid-template-columns:1fr}#tab-overview .figs b{font-size:36px}}
+
 /* Home-page type across all tabs. Instrument Serif has a single weight, so display text is set to 400
    with the home page's tight tracking; small labels use JetBrains Mono like the home nav. */
 #tab-overview h1,#tab-overview h2,#tab-overview .hero h1,#tab-overview .mat b,#tab-overview .project h3,#tab-overview .fw b,#tab-overview .xp h3,
@@ -382,16 +461,27 @@ a{color:var(--accent)}
 <a class="tab" role="tab" id="tabbtn-crosswalk" href="#crosswalk" aria-controls="tab-crosswalk">ESRS / IFRS crosswalk</a>
 <a class="tab" role="tab" id="tabbtn-case-studies" href="#case-studies" aria-controls="tab-case-studies">Case studies</a>
 </nav>
-<a class="tab" href="../">Materials portfolio</a>
 </div></header>
 <main>
 <section class="tabpanel" id="tab-overview" role="tabpanel" aria-labelledby="tabbtn-overview">
 <div class="wrap">
 <header class="hero">
-  <h1>I'm a materials engineer working on what sits behind the carbon numbers.</h1>
-  <p class="lead">Most corporate emissions come from a handful of materials. I combine that background with EU and global reporting frameworks, and I use AI agents with clear guardrails to do the work faster.</p>
-  <div class="facts"><span class="chip">Amsterdam</span><span class="chip">Full Dutch work permit</span><span class="chip">MSc Materials Engineering, High Honours</span><span class="chip">Climatebase Fellow, 2026</span></div>
+  <div class="hero-text">
+    <span class="status"><i aria-hidden="true"></i>Amsterdam, NL, open to opportunities</span>
+    <h1>I'm a materials engineer working on what sits behind the carbon numbers.</h1>
+    <p class="lead">Most corporate emissions come from a handful of materials. I combine that background with EU and global reporting frameworks, and I use AI agents with clear guardrails to do the work faster.</p>
+    <div class="facts"><span class="chip">Amsterdam</span><span class="chip">Full Dutch work permit</span><span class="chip">MSc Materials Engineering, High Honours</span><span class="chip">Climatebase Fellow, 2026</span></div>
+    <div class="cta"><a class="btn solid" href="#contact">Get in touch</a><a class="btn" href="#research">Materials research</a></div>
+  </div>
+  <figure class="portrait"><img src="../assets/portrait.jpg" alt="Portrait of Bilal Tahir" width="500" height="625"><figcaption>Materials engineer, MSc</figcaption></figure>
 </header>
+
+<div class="figs" aria-label="Key figures">
+  <div><b>15.28<small>/20</small></b><span>MSc average, High Honours</span></div>
+  <div><b>Top 5%</b><span>BSc class, Dean's Honours List</span></div>
+  <div><b>1,007 <small>F/g</small></b><span>Supercapacitor capacitance</span></div>
+  <div><b>47.5%</b><span>Printable cellulose solids</span></div>
+</div>
 
 <figure class="materials" aria-labelledby="materials-cap">
   <div class="strip">
@@ -464,6 +554,71 @@ a{color:var(--accent)}
   </div>
 </section>
 
+<section aria-labelledby="research" class="research">
+  <h2 id="research">Materials research</h2>
+  <p class="sub">The lab and field work behind the ESG projects: how I approach technical challenges, evaluate evidence and connect results to practical applications. Open any project for methods.</p>
+  <div class="rcards">
+    <article class="rcard">
+      <img class="rimg" src="../assets/cellulose-valley.jpg" alt="Cellulose Valley by Fondation Grenoble INP, reinventing packaging" loading="lazy" width="1200" height="480">
+      <span class="kind">MSc research · Biobased materials, 3D printing</span>
+      <h3>Printing with cellulose-based materials</h3>
+      <p>A six-month proof of concept exploring whether cellulose-based formulations could be developed into printable structures for luxury packaging applications.</p>
+      <div class="metrics"><div><b>22.5 → 47.5%</b><span>Printable solid content</span></div><div><b>18</b><span>Formulations compared</span></div></div>
+      <details><summary>Project details</summary><p>For my MSc thesis with Cellulose Valley and Chanel, I developed a printability score (4–20) to compare formulations on equal terms. I tested 11 ink/nozzle combinations to establish extrusion force limits and designed a shape-monitoring test across 10 formulations. Weight shrinkage fell from 14.9% to 8.8%. The work included formulation development, rheological and structural characterization, prototype delivery and presentation of results.</p></details>
+    </article>
+    <article class="rcard">
+      <span class="kind">BSc research · Nanomaterials, energy storage</span>
+      <h3>Improving supercapacitor performance</h3>
+      <p>Investigating how combining metal–organic frameworks with conductive materials can improve electrode performance for energy-storage applications.</p>
+      <div class="metrics"><div><b>1,007 F/g</b><span>Specific capacitance</span></div><div><b>115%</b><span>Retention after 1,500 cycles</span></div></div>
+      <details><summary>Project details</summary><p>BSc final-year research at GIKI: Ni–Co–Mn metal–organic frameworks were composited with polyaniline (PANI) and reduced graphene oxide (rGO). Characterization included XRD, SEM, EDS, cyclic voltammetry (CV), galvanostatic charge–discharge (GCD) and electrochemical impedance spectroscopy (EIS). The work explored electrode structure, morphology and electrochemical behaviour.</p></details>
+    </article>
+    <article class="rcard">
+      <span class="kind">Planetive · Climate, circular economy</span>
+      <h3>Assessing the potential of agricultural residues</h3>
+      <p>Exploring how agricultural by-products can become useful resources through biochar and biogas pathways, supported by data analysis and feasibility work.</p>
+      <div class="metrics"><div><b>2</b><span>Valorization pathways</span></div><div><b>10</b><span>Person feasibility team</span></div></div>
+      <details><summary>Project details</summary><p>At Planetive, I analysed agricultural-residue data for biochar and biogas R&amp;D and co-wrote a techno-economic feasibility report as part of a 10-person team. My work also included research into carbon-market mechanisms and carbon-credit potential. The focus was on assessing technical pathways alongside their economic and climate relevance.</p></details>
+    </article>
+    <article class="rcard">
+      <span class="kind">Climatebase · Climate research, market analysis</span>
+      <h3>Comparing the impact of alternative materials</h3>
+      <p>Researching EU market demand and comparing compostable areca-leaf plates with conventional plastic and paper disposables.</p>
+      <div class="metrics"><div><b>3</b><span>Material options compared</span></div><div><b>Mobilizer</b><span>Fellowship distinction</span></div></div>
+      <details><summary>Project details</summary><p>As part of Climatebase Fellowship Cohort 9, I worked in an international team of four researching EU market demand for compostable areca-leaf plates. The impact comparison considered carbon footprint, compostability and sourcing, bringing together market context and sustainability criteria.</p></details>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="lab" class="lab">
+  <h2 id="lab">Inside the MSc research: from formulation to printed prototype</h2>
+  <p class="sub">Six months at LGP2 in Grenoble with Cellulose Valley × Chanel: developing cellulose-based pastes and printing them into packaging demonstrators. Select any photo to enlarge it.</p>
+  <div class="gallery">
+    <button class="tile big" type="button" data-src="../assets/lab-coat.jpg"><img src="../assets/lab-coat.jpg" alt="Bilal Tahir in a lab coat beside the delta paste 3D printer at LGP2" loading="lazy"><span>LGP2 lab, Grenoble</span></button>
+    <button class="tile" type="button" data-src="../assets/extrusion.jpg"><img src="../assets/extrusion.jpg" alt="Printer nozzle extruding a cellulose-based paste onto the print bed" loading="lazy"><span>Extrusion</span></button>
+    <button class="tile" type="button" data-src="../assets/demonstrators.jpg"><img src="../assets/demonstrators.jpg" alt="Three printed cellulose demonstrators in a petri dish" loading="lazy"><span>Demonstrators</span></button>
+    <button class="tile" type="button" data-src="../assets/cup-lid.jpg"><img src="../assets/cup-lid.jpg" alt="Printed cellulose cup and lid with a relief logo" loading="lazy"><span>Cup and lid</span></button>
+    <button class="tile" type="button" data-src="../assets/hex-print.jpg"><img src="../assets/hex-print.jpg" alt="Printed cellulose part with a hexagonal base and cylindrical top" loading="lazy"><span>Hex-base print</span></button>
+    <button class="tile wide" type="button" data-src="../assets/ring-top.jpg"><img src="../assets/ring-top.jpg" alt="Top view of a printed cellulose cylinder showing the wall structure" loading="lazy"><span>Top view, wall structure</span></button>
+    <div class="thesis"><h3>Thesis in numbers</h3><div><b>18</b><span>Formulations compared</span></div><div><b>47.5%</b><span>Printable solids, up from 22.5%</span></div><div><b>8.8%</b><span>Weight shrinkage, down from 14.9%</span></div></div>
+  </div>
+  <dialog class="lightbox" aria-label="Enlarged photo"><button type="button" class="lb-close" aria-label="Close">×</button><img alt=""></dialog>
+  <div class="partners-wrap">
+    <h3>Industrial network</h3>
+    <p class="sub">Research inside Cellulose Valley, the Fondation Grenoble INP packaging initiative, with eight industrial partners.</p>
+    <div class="partners">
+      <a href="https://www.ahlstrom.com/" target="_blank" rel="noopener"><b>Ahlstrom</b><span>Fibre-based materials</span></a>
+      <a href="https://www.groupeguillin.fr/alphaform/" target="_blank" rel="noopener"><b>Groupe Guillin (Alphaform)</b><span>Food packaging</span></a>
+      <a href="https://aptar.com/" target="_blank" rel="noopener"><b>Aptar</b><span>Dispensing and packaging</span></a>
+      <a href="https://www.chanel.com/fr/" target="_blank" rel="noopener"><b>Chanel Parfums Beauté</b><span>Luxury, thesis partner</span></a>
+      <a href="https://www.citeo.com/" target="_blank" rel="noopener"><b>Citeo</b><span>Packaging recycling</span></a>
+      <a href="https://www.marie.fr/" target="_blank" rel="noopener"><b>Marie (Groupe LDC)</b><span>Food</span></a>
+      <a href="https://www.decathlon.fr/" target="_blank" rel="noopener"><b>Decathlon</b><span>Sports retail</span></a>
+      <a href="https://www.dssmith.com/fr" target="_blank" rel="noopener"><b>DS Smith</b><span>Fibre-based packaging</span></a>
+    </div>
+  </div>
+</section>
+
 <section aria-labelledby="fw">
   <h2 id="fw">Frameworks I work with</h2>
   <div class="fw">
@@ -478,13 +633,34 @@ a{color:var(--accent)}
   </div>
 </section>
 
-<section aria-labelledby="xp">
-  <h2 id="xp">Experience</h2>
+<section aria-labelledby="expertise">
+  <h2 id="expertise">Areas of expertise</h2>
+  <p class="sub">A practical mix of engineering knowledge, analytical tools and sustainability context.</p>
+  <div class="areas">
+    <div><span class="kind">Engineering</span><h3>Materials &amp; research</h3><p>Materials characterization, nanomaterials, biobased materials, hydrogel formulation and 3D printing.</p></div>
+    <div><span class="kind">Analysis</span><h3>Data &amp; feasibility</h3><p>Techno-economic feasibility, market research, impact comparison, Power BI and process mapping.</p></div>
+    <div><span class="kind">Transition</span><h3>Climate &amp; sustainability</h3><p>Circular economy, waste valorization, carbon markets, ESG and EU sustainability regulation awareness.</p></div>
+    <div><span class="kind">Systems</span><h3>Energy technologies</h3><p>Energy storage, supercapacitors, battery energy storage, solar and biogas feasibility, carbon capture context.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="journey">
+  <h2 id="journey">Experience</h2>
+  <p class="sub">Each experience added a different lens: how materials behave, how operations work, how projects are assessed and how climate solutions fit into markets.</p>
   <div class="xp">
-    <div><span class="when">03/2026–06/2026</span><div><h3>Climate Fellow, Climatebase (placed with Envome)</h3><p>EU market research on compostable areca-leaf plates; carbon footprint, compostability and sourcing comparison against plastic and paper. International team of 4.</p></div></div>
-    <div><span class="when">10/2025–04/2026</span><div><h3>Business Analyst, Planetive</h3><p>Researched carbon-market mechanisms and credit potential for biochar and biogas; co-wrote a techno-economic feasibility report in a team of 10.</p></div></div>
-    <div><span class="when">02/2025–07/2025</span><div><h3>MSc thesis, LGP2, Grenoble INP-Pagora (Chanel proof of concept)</h3><p>Fully cellulose-based 3D-printed packaging demonstrator; 18 formulations; printable solid content raised from 22.5% to 47.5%.</p></div></div>
-    <div><span class="when">07/2023–04/2024</span><div><h3>Management Engineer Trainee, Pak Steel Re-Rolling Mills</h3><p>Mapped the benefits of a 1 MW solar installation; researched biogas feasibility for energy resilience; data-flow mapping for an SAP ERP rollout.</p></div></div>
+    <div><span class="when">07/2026–now<br>Netherlands</span><div><h3>Relocation and professional development</h3><p>Learning Dutch, studying EU sustainability regulation and compliance, and completing certifications in data analysis, ESG, climate finance and AI.</p></div></div>
+    <div><span class="when">03/2026–06/2026<br>Remote</span><div><h3>Climate Fellow, Climatebase Fellowship, Cohort 9 (placed with Envome)</h3><p>EU market research on compostable areca-leaf plates; carbon footprint, compostability and sourcing comparison against plastic and paper. International team of 4. Awarded the Mobilizer distinction.</p></div></div>
+    <div><span class="when">10/2025–04/2026<br>Islamabad, Pakistan</span><div><h3>Business Analyst, Planetive</h3><p>Analysed agricultural-residue data for biochar and biogas R&amp;D; researched carbon-market mechanisms and credit potential; co-wrote a techno-economic feasibility report in a team of 10.</p></div></div>
+    <div><span class="when">02/2025–07/2025<br>Grenoble, France</span><div><h3>MSc thesis researcher, LGP2, Grenoble INP-Pagora (Cellulose Valley × Chanel)</h3><p>Six-month proof of concept for cellulose-based 3D printing, from planning and formulation work to demonstrator, thesis and project presentations. 18 formulations; printable solid content raised from 22.5% to 47.5%.</p></div></div>
+    <div><span class="when">07/2023–04/2024<br>Islamabad, Pakistan</span><div><h3>Management Engineer Trainee, Pak Steel Re-Rolling Mills</h3><p>Mapped processes and data flows across finance and operations for an SAP ERP rollout; assessed the benefits of a 1 MW solar installation; researched biogas feasibility for energy resilience.</p></div></div>
+  </div>
+</section>
+
+<section aria-labelledby="education">
+  <h2 id="education">Education</h2>
+  <div class="edu">
+    <div><span class="kind">Grenoble INP-Pagora</span><h3>MSc Materials Engineering</h3><p>Biorefinery &amp; Biobased Materials</p><b>15.28 / 20 · High Honours</b></div>
+    <div><span class="kind">Ghulam Ishaq Khan Institute (GIKI)</span><h3>BSc Materials Engineering</h3><p>Nanotechnology</p><b>Top 5% of class · Dean's Honours List</b></div>
   </div>
 </section>
 
@@ -493,13 +669,15 @@ a{color:var(--accent)}
   <div class="about">
     <div style="display:grid;gap:12px;max-width:62ch">
       <p>I moved from materials R&amp;D into sustainability because the decisions I cared about were being made on the numbers: footprints, disclosures, carbon costs. My edge is knowing what physically sits behind those numbers.</p>
+      <p>My work has ranged from developing cellulose-based materials for 3D printing to evaluating energy-storage materials and assessing the feasibility and impact of climate technologies. The thread connecting these is an interest in how materials and emerging technologies can contribute to more resilient, resource-efficient systems, and how their potential can be evaluated beyond the laboratory.</p>
       <p>I use AI daily, with one rule: AI can draft and extract, but every figure traces to a source I opened myself. I'm based in Amsterdam, learning Dutch, and open to sustainability analyst, carbon accounting and decarbonisation roles.</p>
+      <div class="facts"><span class="chip">Materials innovation</span><span class="chip">Energy transition</span><span class="chip">Techno-economic analysis</span><span class="chip">Climate technology</span><span class="chip">Circular economy</span></div>
     </div>
-    <div class="card">
+    <div class="card" id="contact">
       <h3>Get in touch</h3>
-      <p>LinkedIn: <a href="#">[your LinkedIn URL]</a></p>
-      <p>Email: [your email]</p>
-      <p>Certifications: ESG Risks and Opportunities (UPenn), Scaling Climate Finance (UNITAR), Power BI Data Analyst, Generative AI and Copilot (Microsoft), Google AI Essentials</p>
+      <p>Email: <a href="mailto:bilaltahir364@gmail.com?subject=Hello%20Bilal">bilaltahir364@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/bilal-tahir-301582217/" target="_blank" rel="noopener">linkedin.com/in/bilal-tahir-301582217</a></p>
+      <p>Certifications: ESG Risks and Opportunities (UPenn), Scaling Climate Finance (UNITAR), Microsoft Power BI Data Analyst, Generative AI and Copilot (Microsoft), Google AI Essentials</p>
     </div>
   </div>
 </section>
@@ -1135,8 +1313,26 @@ render();
     const label=document.getElementById('tabbtn-'+id).textContent;
     document.title=(id==='overview'?'':label+' | ')+'Bilal Tahir, sustainability portfolio';
   }
-  window.addEventListener('hashchange',()=>{show();window.scrollTo(0,0);});
+  // A tab hash opens that tab at the top; any other hash (#research, #contact...) is a section inside Overview.
+  function jump(){
+    const h=location.hash.replace('#','');
+    const el=h&&!ids.includes(h)?document.getElementById(h):null;
+    if(el) el.scrollIntoView(); else window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',()=>{show();jump();});
   show();
+  if(location.hash) requestAnimationFrame(jump);
+})();
+(function(){
+  // Overview: lab photo lightbox.
+  const box=document.querySelector('#tab-overview .lightbox');
+  if(!box||!box.showModal) return;
+  const img=box.querySelector('img');
+  document.querySelectorAll('#tab-overview .tile').forEach(t=>t.addEventListener('click',()=>{
+    img.src=t.dataset.src; img.alt=t.querySelector('img').alt; box.showModal();
+  }));
+  box.querySelector('.lb-close').addEventListener('click',()=>box.close());
+  box.addEventListener('click',e=>{if(e.target===box) box.close();});
 })();
 </script>
 </body>

@@ -96,32 +96,12 @@ a{color:var(--accent)}
 #tab-overview footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:20px}
 @media (max-width:860px){#tab-overview .projects,#tab-overview .fw,#tab-overview .about{grid-template-columns:1fr}
 #tab-overview .fw div,#tab-overview .xp > div{grid-template-columns:1fr;gap:2px}}
-/* Overview: hero, materials strip, project cards */
+/* Overview: hero, project cards */
 #tab-overview .wrap{gap:64px;padding-top:64px}
 #tab-overview .hero{display:grid;gap:20px;max-width:none}
 #tab-overview .hero h1{font:800 clamp(48px,8.2vw,104px)/.92 var(--display);letter-spacing:0;max-width:15ch;margin:0;text-wrap:balance}
 #tab-overview .hero .lead{font-size:20px;line-height:1.55;max-width:58ch}
 #tab-overview .chip{border-radius:2px;font:700 14px/1 var(--body);padding:8px 11px}
-#tab-overview .materials{margin:0;display:grid;gap:14px}
-#tab-overview .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-#tab-overview .mat{display:grid;gap:4px;align-content:start}
-#tab-overview .mat b{font:700 26px/1 var(--display);letter-spacing:.01em;margin-top:8px}
-#tab-overview .mat span{font-size:14px;color:var(--muted)}
-#tab-overview .swatch{height:200px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-#tab-overview .swatch.steel{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(180deg,#4b545a 0%,#8d979e 42%,#5b646a 70%,#3f474c 100%)}
-#tab-overview .swatch.alu{background:repeating-linear-gradient(35deg,rgba(255,255,255,.35) 0 2px,transparent 2px 14px),linear-gradient(115deg,#b9c0c5 0%,#f1f3f5 28%,#a9b1b6 52%,#e8ecee 74%,#9fa7ac 100%)}
-#tab-overview .swatch.cement{background:radial-gradient(circle at 30% 40%,rgba(30,30,28,.28) 0 1px,transparent 1.6px) 0 0/7px 7px,radial-gradient(circle at 60% 70%,rgba(255,255,255,.35) 0 1px,transparent 1.8px) 0 0/11px 11px,radial-gradient(circle at 50% 50%,rgba(60,58,52,.18) 0 2px,transparent 3px) 0 0/23px 19px,linear-gradient(180deg,#a3a39c,#8e8e87)}
-#tab-overview .swatch.plastic{background:radial-gradient(ellipse 60% 35% at 30% 18%,rgba(255,255,255,.6),transparent 70%),linear-gradient(160deg,#7cc0cf 0%,#3b8ea3 55%,#25677a 100%)}
-#tab-overview .swatch.fibre{background:repeating-linear-gradient(17deg,rgba(90,72,44,.13) 0 1px,transparent 1px 4px),repeating-linear-gradient(-28deg,rgba(255,255,255,.22) 0 1px,transparent 1px 6px),radial-gradient(circle at 50% 50%,rgba(120,100,70,.12) 0 1px,transparent 2px) 0 0/5px 5px,linear-gradient(180deg,#c9bea6,#b3a68a)}
-#tab-overview .materials figcaption{font-size:15px;color:var(--muted);max-width:70ch}
-@media (prefers-reduced-motion:no-preference){
-  #tab-overview.active .swatch{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
-  #tab-overview.active .mat:nth-child(2) .swatch{animation-delay:.08s}
-  #tab-overview.active .mat:nth-child(3) .swatch{animation-delay:.16s}
-  #tab-overview.active .mat:nth-child(4) .swatch{animation-delay:.24s}
-  #tab-overview.active .mat:nth-child(5) .swatch{animation-delay:.32s}
-  @keyframes rise{from{transform:translateY(18px);clip-path:inset(100% 0 0 0)}to{transform:none;clip-path:inset(0 0 0 0)}}
-}
 #tab-overview .projects{gap:20px}
 @media (min-width:861px) and (max-width:1100px){#tab-overview .projects{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1101px){#tab-overview .projects{grid-template-columns:repeat(4,1fr)}}
@@ -143,10 +123,6 @@ a{color:var(--accent)}
 #tab-overview .fig .col{fill:var(--accent-soft)}
 #tab-overview .fw b{font:700 22px/1.1 var(--display);letter-spacing:.01em}
 #tab-overview .xp h3{font:700 22px/1.1 var(--display);letter-spacing:.01em}
-@media (max-width:860px){
-  #tab-overview .strip{grid-template-columns:repeat(5,minmax(110px,1fr));overflow-x:auto;padding-bottom:6px}
-  #tab-overview .swatch{height:130px}
-}
 
 /* Regulation Reader */
 #tab-regulation-reader .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 64px;display:grid;gap:40px}
@@ -438,7 +414,7 @@ a{color:var(--accent)}
 
 /* Home-page type across all tabs. Instrument Serif has a single weight, so display text is set to 400
    with the home page's tight tracking; small labels use JetBrains Mono like the home nav. */
-#tab-overview h1,#tab-overview h2,#tab-overview .hero h1,#tab-overview .mat b,#tab-overview .project h3,#tab-overview .fw b,#tab-overview .xp h3,
+#tab-overview h1,#tab-overview h2,#tab-overview .hero h1,#tab-overview .project h3,#tab-overview .fw b,#tab-overview .xp h3,
 #tab-regulation-reader h1,#tab-regulation-reader h2,#tab-regulation-reader .stat b,
 #tab-materiality-case h1,#tab-materiality-case h2,
 #tab-crosswalk h1,#tab-crosswalk h2,#tab-crosswalk .sum b,
@@ -510,16 +486,6 @@ a{color:var(--accent)}
   <div><b>47.5%</b><span>Printable cellulose solids</span></div>
 </div>
 
-<figure class="materials" aria-labelledby="materials-cap">
-  <div class="strip">
-    <div class="mat"><div class="swatch steel" aria-hidden="true"></div><b>Steel</b><span>CBAM, EU ETS</span></div>
-    <div class="mat"><div class="swatch alu" aria-hidden="true"></div><b>Aluminium</b><span>CBAM, EU ETS</span></div>
-    <div class="mat"><div class="swatch cement" aria-hidden="true"></div><b>Cement</b><span>CBAM, EU ETS</span></div>
-    <div class="mat"><div class="swatch plastic" aria-hidden="true"></div><b>Plastics</b><span>PPWR</span></div>
-    <div class="mat"><div class="swatch fibre" aria-hidden="true"></div><b>Fibre</b><span>PPWR, EUDR</span></div>
-  </div>
-  <figcaption id="materials-cap">Five materials, and the EU rules that already price or regulate them. All of them flow into Scope 3 under ESRS E1.</figcaption>
-</figure>
 
 <section aria-labelledby="work" class="work">
   <h2 id="work">Projects</h2>
